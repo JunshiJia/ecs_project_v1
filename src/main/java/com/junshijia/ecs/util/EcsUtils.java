@@ -1,7 +1,6 @@
 package com.junshijia.ecs.util;
 
 import com.junshijia.ecs.db_name.EcsNameStrategy;
-import com.junshijia.ecs.domain.UpdateData2DB;
 import com.serotonin.modbus4j.BatchRead;
 import com.serotonin.modbus4j.BatchResults;
 import com.serotonin.modbus4j.code.DataType;
@@ -9,13 +8,8 @@ import com.serotonin.modbus4j.locator.BaseLocator;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-
-import java.util.Map;
-
 import java.util.Set;
 import java.util.regex.Pattern;
 

@@ -38,14 +38,16 @@ public class ReadCSV {
         String[] values = null;
         String test = null;
         DataFromCSVShort data = null;
-        boolean flag = true;
+        boolean flag;
         boolean flag2 = false;
         try (
                 BufferedReader br = new BufferedReader(
                         new InputStreamReader(
                                 new FileInputStream("ecs.csv"), StandardCharsets.UTF_8))
         ) {
+            //跳过第一行，也就是表头
             String line = br.readLine();
+            //从第二行开始
             while ((line = br.readLine()) != null) {
                 flag = true;
                 values = line.split(",");
@@ -67,7 +69,7 @@ public class ReadCSV {
                 if(flag2){
                     data = new DataFromCSVShort();
                     data.setMainControlAddress(Integer.parseInt(values[1]));
-                    data.setEnCoding(values[20]);
+                    data.setEnCoding(values[2]);
                     if(values[5].equals("1")){data.setUpdate(true);}
                     if(values[7].equals("1")){data.setStorageOneSec(true);}
                     if(values[8].equals("1")){data.setAnyOneSec(true);}
@@ -111,9 +113,7 @@ public class ReadCSV {
                     //add to ten min set
                     if(data.isAndTenMin() || data.isMaxTenMin() || data.isMeanTenMin() || data.isMinTenMin()
                             || data.isNumberMaxTenMin() || data.isOnFlowTenMin() || data.isStdDevTenMin()){
-                        if(data.getEnCoding().charAt(0)!='a' && data.getEnCoding().charAt(0)!='b') {
-                            this.tenMinSet.add(data.getEnCoding());
-                        }
+                        this.tenMinSet.add(data.getEnCoding());
                     }
 
                     //add to big list

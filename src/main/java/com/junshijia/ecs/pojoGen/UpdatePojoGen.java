@@ -27,17 +27,25 @@ public class UpdatePojoGen {
         //需要写出的文件目录
         File pojoFile = new File("src/main/java/com/junshijia/ecs/domain/UpdateData2DB.java");
         //开头
-        FileUtils.write(pojoFile,"package com.junshijia.ecs.domain;\r\n\n","UTF-8",true);
-        FileUtils.write(pojoFile,"public class UpdateData2DB{\r\n\n","UTF-8",true);
+        FileUtils.write(pojoFile,"@Entity\n@Table(name=\"allTurbine_data\")\n","UTF-8",true);
+        FileUtils.write(pojoFile,"package com.junshijia.ecs.domain;\n\n","UTF-8",true);
+        FileUtils.write(pojoFile,"public class UpdateData2DB{\n\n","UTF-8",true);
         //写id
+        FileUtils.write(pojoFile,"\t@Id\n" +
+                "\t@GenericGenerator(name = \"id\",strategy = \"assigned\")\n" +
+                "\t@GeneratedValue(generator = \"id\")\n" +
+                "\t@Column(name = \"id\", nullable = false)\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\t@Temporal(TemporalType.TIMESTAMP) // 是用来定义日期类型\n" +
+                "\tprivate Date time;\n","UTF-8",true);
         FileUtils.write(pojoFile,"\tprivate int id;\n","UTF-8",true);
         FileUtils.write(pojoFile,"\tprivate int wtId;\n","UTF-8",true);
         //写其他属性
         for(String enCoding : this.updateSet){
-            if(enCoding.charAt(0)=='a' || enCoding.charAt(0)=='b'){
+            if(enCoding.charAt(4)=='C' || enCoding.charAt(4)=='D'){
+                FileUtils.write(pojoFile,"@Column(name=\""+enCoding+"\")\n","UTF-8",true);
                 FileUtils.write(pojoFile,"\tprivate boolean " + enCoding + ";\n","UTF-8",true);
             }
-            else if(enCoding.charAt(0)=='c' || enCoding.charAt(0)=='d'){
+            else if(enCoding.charAt(4)=='H' || enCoding.charAt(4)=='I'){
                 FileUtils.write(pojoFile,"\tprivate Float " + enCoding + ";\n","UTF-8",true);
             }
         }

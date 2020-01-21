@@ -1,10 +1,11 @@
 package com.junshijia.ecs.domain;
 
 import javax.persistence.*;
+import java.awt.*;
 import java.util.Date;
 
 @Entity
-public class OneSecData2DB{
+public class OneSecData2DB_old {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,6 +14,7 @@ public class OneSecData2DB{
 	private Date time;
 	private Float c300305;
 	private Float c300309;
+	@Column(name="aaa123")
 	private boolean b101001;
 	private boolean b101002;
 	private boolean b101003;

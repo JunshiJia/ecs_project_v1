@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="allTurbine_data")
-public class UpdateData2DB{
+public class UpdateData2DB_old {
 	@Id
 	@GenericGenerator(name = "id",strategy = "assigned")
 	@GeneratedValue(generator = "id")
@@ -502,7 +502,7 @@ public class UpdateData2DB{
 	private boolean b100113;
 	private boolean b100115;
 
-	public UpdateData2DB() {
+	public UpdateData2DB_old() {
 		this.time = new Date();
 	}
 
