@@ -27,6 +27,8 @@ public class OneSecPojoGen {
         File pojoFile = new File("src/main/java/com/junshijia/ecs/domain/OneSecData2DB.java");
         //开头
         FileUtils.write(pojoFile,"package com.junshijia.ecs.domain;\r\n\n","UTF-8",true);
+        FileUtils.write(pojoFile,"@Entity\n","UTF-8",true);
+
         FileUtils.write(pojoFile,"public class OneSecData2DB{\r\n\n","UTF-8",true);
         //写id
         FileUtils.write(pojoFile,"\tprivate int id;\n","UTF-8",true);
