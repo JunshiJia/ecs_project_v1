@@ -18,15 +18,20 @@ public class ReadCSV {
     private Set<String> edgeSet;
     private Set<String> tenMinSet;
     private Set<String> tenSecSet;
-
+    private Map<String,Integer>updateMap;
+    private Map<String,Integer>oneSecMap;
+    private Map<String,Integer>anyOneSecMap;
 
     public ReadCSV() {
         //整个大表的list
         this.dataList = new ArrayList<>();
         //各个子表的set
         this.updateSet = new LinkedHashSet<>();
+        this.updateMap = new LinkedHashMap<>();
         this.oneSecSet = new LinkedHashSet<>();
+        this.oneSecMap = new LinkedHashMap<>();
         this.anyOneSecSet = new LinkedHashSet<>();
+        this.anyOneSecMap = new LinkedHashMap<>();
         this.edgeSet = new LinkedHashSet<>();
         this.tenMinSet = new LinkedHashSet<>();
         this.tenSecSet = new LinkedHashSet<>();
@@ -86,17 +91,22 @@ public class ReadCSV {
                     if(values[19].equals("1")){data.setEdgeDetect(true);}
 
 
-                    //add to update set
+                    //add to update set and map
                     if(data.isUpdate()){
                         this.updateSet.add(data.getEnCoding());
+                        this.updateMap.put(data.getEnCoding(),data.getMainControlAddress());
                     }
+
+
                     //add to oneSec set
                     if(data.isStorageOneSec()){
                         this.oneSecSet.add(data.getEnCoding());
+                        this.oneSecMap.put(data.getEnCoding(),data.getMainControlAddress());
                     }
                     //add anyOneSec set
                     if(data.isAnyOneSec()){
                         this.anyOneSecSet.add(data.getEnCoding());
+                        this.anyOneSecMap.put(data.getEnCoding(),data.getMainControlAddress());
                     }
                     //add to edge set
                     if(data.isEdgeDetect()){
@@ -133,6 +143,10 @@ public class ReadCSV {
         return updateSet;
     }
 
+    public Map<String, Integer> getUpdateMap() {
+        return updateMap;
+    }
+
     public Set<String> getOneSecSet() {
         return oneSecSet;
     }
@@ -151,5 +165,13 @@ public class ReadCSV {
 
     public Set<String> getTenSecSet() {
         return tenSecSet;
+    }
+
+    public Map<String, Integer> getOneSecMap() {
+        return oneSecMap;
+    }
+
+    public Map<String, Integer> getAnyOneSecMap() {
+        return anyOneSecMap;
     }
 }

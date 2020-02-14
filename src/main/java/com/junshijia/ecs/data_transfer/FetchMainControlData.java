@@ -1,8 +1,8 @@
 package com.junshijia.ecs.data_transfer;
 
 import com.junshijia.ecs.domain.AnyOneSecData2DB;
-import com.junshijia.ecs.domain.OneSecData2DB_old;
-import com.junshijia.ecs.domain.UpdateData2DB_old;
+import com.junshijia.ecs.domain.OneSecData2DB;
+import com.junshijia.ecs.domain.UpdateData2DB;
 import com.junshijia.ecs.status.TurbineStatus;
 import com.junshijia.ecs.util.EcsUtils;
 import com.serotonin.modbus4j.BatchRead;
@@ -13,11 +13,9 @@ import com.serotonin.modbus4j.exception.ErrorResponseException;
 import com.serotonin.modbus4j.exception.ModbusInitException;
 import com.serotonin.modbus4j.exception.ModbusTransportException;
 import com.serotonin.modbus4j.ip.IpParameters;
-
 import org.apache.log4j.Logger;
 
-
-import java.util.Set;
+import java.util.Map;
 
 public class FetchMainControlData {
     //log
@@ -35,25 +33,28 @@ public class FetchMainControlData {
     private int port;
     private String ip;
     private int id;
-    //encoding set
-    private Set<String> updateSet;
-    private Set<String> oneSecSet;
-    private Set<String> anyOneSecSet;
+    //encoding map
+    private Map<String, Integer> updateMap;
+    private Map<String, Integer> oneSecMap;
+    private Map<String, Integer> anyOneSecMap;
     //domain
-    private UpdateData2DB_old DBUpdateData;
-    private OneSecData2DB_old oneSecData;
+    private UpdateData2DB updateData;
+    private OneSecData2DB oneSecData;
     private AnyOneSecData2DB anyOneSecData;
 
     public FetchMainControlData() {
     }
 
-    public FetchMainControlData(Set<String> updateSet,Set<String> oneSecSet,Set<String> anyOneSecSet) {
-        this.DBUpdateData = new UpdateData2DB_old();
-        this.oneSecData = new OneSecData2DB_old();
+    public FetchMainControlData(Map<String, Integer> updateMap, Map<String, Integer> OneSecMap, Map<String, Integer> anyOneSecMap) {
+        this.updateData = new UpdateData2DB();
+        this.oneSecData = new OneSecData2DB();
         this.anyOneSecData = new AnyOneSecData2DB();
-        this.updateSet = updateSet;
-        this.oneSecSet = oneSecSet;
-        this.anyOneSecSet = anyOneSecSet;
+
+        //this.anyOneSecData = new AnyOneSecData2DB();
+        this.updateMap = updateMap;
+        this.oneSecMap = OneSecMap;
+        this.anyOneSecMap = anyOneSecMap;
+
         this.log = Logger.getLogger(FetchMainControlData.class);
         this.setIpPortAdd();
         this.ipParameters = new IpParameters();
@@ -95,23 +96,27 @@ public class FetchMainControlData {
         boolean flag = true;
         this.setMasterAndInit();
         //1.add batch locator
-        this.updateBatch = EcsUtils.addBatchLocator(this.updateBatch, this.updateSet);
-        this.oneSecBatch = EcsUtils.addBatchLocator(this.oneSecBatch,this.oneSecSet);
-        this.anyOneSecBatch = EcsUtils.addBatchLocator(this.anyOneSecBatch,this.anyOneSecSet);
+        this.updateBatch = EcsUtils.addBatchLocator(this.updateBatch, this.updateMap);
+        this.oneSecBatch = EcsUtils.addBatchLocator(this.oneSecBatch,this.oneSecMap);
+        this.anyOneSecBatch = EcsUtils.addBatchLocator(this.anyOneSecBatch,this.anyOneSecMap);
 
         //2.read modbus data 2 map/list
         while (flag) {
             try {
                 BatchResults<Integer> updateResults = this.master.send(this.updateBatch);
                 BatchResults<Integer> anyOneSecResults = this.master.send(this.anyOneSecBatch);
-                EcsUtils.writeData2Domain(this.updateSet, updateResults, this.DBUpdateData);
-                EcsUtils.writeData2Domain(this.anyOneSecSet, anyOneSecResults, this.anyOneSecData);
+                BatchResults<Integer> oneSecResults = this.master.send(this.oneSecBatch);
+
+                EcsUtils.writeData2Domain(this.updateMap, updateResults, this.updateData);
+                EcsUtils.writeData2Domain(this.anyOneSecMap, anyOneSecResults, this.anyOneSecData);
+                EcsUtils.writeData2Domain(this.oneSecMap, oneSecResults, this.oneSecData);
+
+                this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
 
                 //此处应该判断主状态
-                this.status.setStatusCode(this.DBUpdateData.getC300219().intValue());
                 if (!this.status.isRunning()) {
-                    BatchResults<Integer> oneSecResults = this.master.send(this.oneSecBatch);
-                    EcsUtils.writeData2Domain(this.oneSecSet, oneSecResults, this.oneSecData);
+                    //BatchResults<Integer> oneSecResults = this.master.send(this.oneSecBatch);
+                    //EcsUtils.writeData2Domain(this.oneSecMap, oneSecResults, this.oneSecData);
                 }
 
                 flag = false;
@@ -134,11 +139,11 @@ public class FetchMainControlData {
     }
 
     //程序出口
-    public UpdateData2DB_old getDBUpdateData() {
-        return DBUpdateData;
+    public UpdateData2DB getUpdateData() {
+        return updateData;
     }
 
-    public OneSecData2DB_old getOneSecData() {
+    public OneSecData2DB getOneSecData() {
         return oneSecData;
     }
 

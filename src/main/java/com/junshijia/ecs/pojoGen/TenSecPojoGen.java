@@ -25,6 +25,10 @@ public class TenSecPojoGen {
     private void writeFile() throws IOException {
         //需要写出的文件目录
         File pojoFile = new File("src/main/java/com/junshijia/ecs/domain/TenSecData2DB.java");
+        //覆盖原文件
+        if(pojoFile.exists()){
+            pojoFile.delete();
+        }
         //开头
         FileUtils.write(pojoFile,"package com.junshijia.ecs.domain;\r\n\n","UTF-8",true);
         FileUtils.write(pojoFile,"public class TenSecData2DB{\r\n\n","UTF-8",true);
@@ -41,6 +45,7 @@ public class TenSecPojoGen {
                 FileUtils.write(pojoFile,"\tprivate Float " + enCoding + "Min;\n","UTF-8",true);
             }
         }
+
         //结尾
         FileUtils.write(pojoFile,"}\n","UTF-8",true);
     }

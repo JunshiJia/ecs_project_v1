@@ -27,6 +27,9 @@ public class UpdatePojoGen {
     private void writeFile() throws IOException {
         //需要写出的文件目录
         File pojoFile = new File("src/main/java/com/junshijia/ecs/domain/UpdateData2DB.java");
+        if(pojoFile.exists()){
+            pojoFile.delete();
+        }
         //开头
         FileUtils.write(pojoFile,"package com.junshijia.ecs.domain;\n\n","UTF-8",true);
         FileUtils.write(pojoFile,"@Entity\n@Table(name=\"allTurbine_data\")\n","UTF-8",true);
@@ -36,19 +39,20 @@ public class UpdatePojoGen {
                 "\t@GenericGenerator(name = \"id\",strategy = \"assigned\")\n" +
                 "\t@GeneratedValue(generator = \"id\")\n" +
                 "\t@Column(name = \"id\", nullable = false)\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\tprivate int id;\n","UTF-8",true);
         //写时间
         FileUtils.write(pojoFile,"\t@Temporal(TemporalType.TIMESTAMP) // 是用来定义日期类型\n" +
                 "\tprivate Date time;\n","UTF-8",true);
-        FileUtils.write(pojoFile,"\tprivate int id;\n","UTF-8",true);
+        //写wtid
         FileUtils.write(pojoFile,"\tprivate int wtId;\n","UTF-8",true);
         //写其他属性
         for(String enCoding : this.updateSet){
             if(enCoding.charAt(4)=='C' || enCoding.charAt(4)=='D'){
-                FileUtils.write(pojoFile,"\t@Column(name=\""+enCoding+"\")\n","UTF-8",true);
+                FileUtils.write(pojoFile,"\t@Column(name=\"`"+enCoding+"`\")\n","UTF-8",true);
                 FileUtils.write(pojoFile,"\tprivate boolean " + EcsUtils.deleteChar(enCoding) + ";\n","UTF-8",true);
             }
             else if(enCoding.charAt(4)=='H' || enCoding.charAt(4)=='I'){
-                FileUtils.write(pojoFile,"\t@Column(name=\""+enCoding+"\")\n","UTF-8",true);
+                FileUtils.write(pojoFile,"\t@Column(name=\"`"+enCoding+"`\")\n","UTF-8",true);
                 FileUtils.write(pojoFile,"\tprivate Float " + EcsUtils.deleteChar(enCoding) + ";\n","UTF-8",true);
             }
         }

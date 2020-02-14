@@ -8,12 +8,14 @@ import com.serotonin.modbus4j.locator.BaseLocator;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.Set;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.regex.Pattern;
 
-import static java.util.regex.Pattern.*;
+import static java.util.regex.Pattern.compile;
 
 public class EcsUtils {
     private EcsUtils(){}
@@ -127,7 +129,8 @@ public class EcsUtils {
     //注意：传入的value一定要对应属性类型否则报错
     public static void setFieldValue(String fieldName, Object value, Object obj){
         try {
-            Field field = obj.getClass().getDeclaredField(fieldName);
+            String name = deleteChar(fieldName);
+            Field field = obj.getClass().getDeclaredField(name);
             field.setAccessible(true);
             field.set(obj,value);
         } catch (NoSuchFieldException e) {
@@ -137,39 +140,48 @@ public class EcsUtils {
         }
     }
 
-    public static BatchRead<Integer> addBatchLocator(BatchRead<Integer> batch, Set<String> set){
+    public static BatchRead<Integer> addBatchLocator(BatchRead<Integer> batch, Map<String,Integer> map){
         batch.setContiguousRequests(false);
         int i = 0;
-        for(String data : set){
-            if(data.charAt(0)=='a') {
-                batch.addLocator(i++, BaseLocator.coilStatus(1,Integer.parseInt(data.substring(1))));
+        Iterator<Map.Entry<String, Integer>> entries = map.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry<String, Integer> entry = entries.next();
+            if(entry.getKey().charAt(4)=='C') {
+                batch.addLocator(i++, BaseLocator.coilStatus(1,entry.getValue()-1));
             }
-            else if(data.charAt(0)=='b'){
-                batch.addLocator(i++, BaseLocator.inputStatus(1,Integer.parseInt(data.substring(1))-100000));
+            else if(entry.getKey().charAt(4)=='D'){
+                batch.addLocator(i++, BaseLocator.inputStatus(1,entry.getValue()-100001));
             }
-            else if(data.charAt(0)=='c'){
-                batch.addLocator(i++, BaseLocator.inputRegister(1,Integer.parseInt(data.substring(1))-300000, DataType.FOUR_BYTE_FLOAT));
+            else if(entry.getKey().charAt(4)=='I'){
+                batch.addLocator(i++, BaseLocator.inputRegister(1,entry.getValue()-300001, DataType.FOUR_BYTE_FLOAT));
             }
-            else if(data.charAt(0)=='d'){
-                batch.addLocator(i++, BaseLocator.holdingRegister(1,Integer.parseInt(data.substring(1))-400000, DataType.FOUR_BYTE_FLOAT));
+            else if(entry.getKey().charAt(4)=='H'){
+                batch.addLocator(i++, BaseLocator.holdingRegister(1,entry.getValue()-400001, DataType.FOUR_BYTE_FLOAT));
             }
+
+        }
+        for(Integer  address : map.values()){
+
         }
         return batch;
     }
 
-    public static Set<String> writeData2Domain(Set<String> set, BatchResults<Integer> results, Object data){
+    public static void writeData2Domain(Map<String,Integer> map, BatchResults<Integer> results, Object data){
         int i = 0;
-        for(String encoding : set) {
+        Iterator<Map.Entry<String, Integer>> entries = map.entrySet().iterator();
+
+        while (entries.hasNext()) {
+
+            Map.Entry<String, Integer> entry = entries.next();
             //System.out.println("Key: "+ entry.getKey()+ " Value: "+entry.getValue());
-            if(encoding.charAt(0)=='a' || encoding.charAt(0)=='b'){
-                setFieldValue(encoding,results.getValue(i),data);
+            if(entry.getKey().charAt(4)=='C' || entry.getKey().charAt(4)=='D'){
+                setFieldValue(entry.getKey(),results.getValue(i),data);
             }
-            else if(encoding.charAt(0)=='c' || encoding.charAt(0)=='d'){
-                setFieldValue(encoding,results.getValue(i),data);
+            else if(entry.getKey().charAt(4)=='I' || entry.getKey().charAt(4)=='H'){
+                setFieldValue(entry.getKey(),results.getValue(i),data);
             }
             i++;
         }
-        return set;
     }
 
 }

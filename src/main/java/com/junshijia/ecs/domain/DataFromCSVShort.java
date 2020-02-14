@@ -7,7 +7,6 @@ package com.junshijia.ecs.domain;
 public class DataFromCSVShort {
 
     private Integer mainControlAddress;
-
     private String enCoding;
     private boolean update;
     private boolean storageOneSec;

@@ -20,8 +20,8 @@
         <!--是否显示sql语句，sql一般会很难看  默认为false-->
         <property name="hibernate.show_sql">true</property>
         <!--下一个层级的映射文件，用来配置bean对象与数据表之间的关系  -->
-        <mapping class="com.junshijia.ecs.domain.UpdateData2DB_old"/>
-        <mapping class="com.junshijia.ecs.domain.OneSecData2DB_old"/>
+        <mapping class="com.junshijia.ecs.domain.UpdateData2DB"/>
+        <mapping class="com.junshijia.ecs.domain.OneSecData2DB"/>
         <mapping class="com.junshijia.ecs.domain.AnyOneSecData2DB"/>
     </session-factory>
 </hibernate-configuration>

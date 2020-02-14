@@ -20,7 +20,11 @@ public class ReadCsv {
 
     @Test
     public void ReadCsvTest2(){
-
+        ReadCSV read = new ReadCSV();
+        Set<String> updateSet = read.getUpdateSet();
+        for(String data : updateSet){
+            System.out.println(data);
+        }
     }
 
     @Test

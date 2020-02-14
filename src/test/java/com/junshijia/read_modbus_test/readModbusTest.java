@@ -9,5 +9,6 @@ public class readModbusTest {
     public void readModbusOnce(){
         ReadCSV read = new ReadCSV();
         FetchMainControlData fetch = new FetchMainControlData();
+
     }
 }
