@@ -21,10 +21,22 @@ public class ReadCsv {
     @Test
     public void ReadCsvTest2(){
         ReadCSV read = new ReadCSV();
-        Set<String> updateSet = read.getUpdateSet();
-        for(String data : updateSet){
+        Set<String> tenMinSet = read.getTenMinSet();
+        Set<String> meanSet = read.getMeanSet();
+        Set<String> stdDivSet = read.getStdDivSet();
+        for(String data : tenMinSet){
             System.out.println(data);
         }
+        System.out.println(tenMinSet.size());
+        for(String data : meanSet){
+            System.out.println(data);
+        }
+        System.out.println(meanSet.size());
+        for(String data : stdDivSet){
+            System.out.println(data);
+        }
+        System.out.println(stdDivSet.size());
+        System.out.println(read.getTenMinMemorySet().size());
     }
 
     @Test

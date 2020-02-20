@@ -29,13 +29,19 @@ public class Mod2Domain2DB {
             try {
                 //初始化表
                 UpdateData2DB initData = new UpdateData2DB();
-                initData.setId(1);
-                session = EcsUtils.getSession();
-                tx = session.beginTransaction();
-                session.save(initData);
+
+
+                for(int i = 1; i <= 15; i++) {
+                    session = EcsUtils.getSession();
+                    tx = session.beginTransaction();
+                    initData.setId(i);
+                    session.save(initData);
+                    tx.commit();
+                    session.close();
+                }
                 //session.save(initOneSecData);
-                tx.commit();
-                session.close();
+
+
                 flag = false;
             } catch (HibernateException e) {
                 e.printStackTrace();
@@ -52,7 +58,7 @@ public class Mod2Domain2DB {
             for(int i = 0; i<6;i++) {
                 fetch.readFromSlave2Domain();
                 //set update data time
-                fetch.getUpdateData().setId(2);
+                fetch.getUpdateData().setId(1);
                 fetch.getUpdateData().setWtId(i*2);
                 fetch.getUpdateData().setTime(new Date());
                 //save one sec data and update data
