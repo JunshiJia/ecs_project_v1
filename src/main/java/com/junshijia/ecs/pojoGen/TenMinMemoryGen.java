@@ -9,12 +9,12 @@ import java.io.IOException;
 import java.util.Set;
 
 public class TenMinMemoryGen {
-    private Set<String> memoryDataSet;
+    private Set<String> tenMinSet;
 
     public TenMinMemoryGen() {
         //读取配置获得列表
         ReadCSV read = new ReadCSV();
-        this.memoryDataSet = read.getTenMinMemorySet();
+        this.tenMinSet = read.getTenMinSet();
         //写出到文件
         try {
             this.writeFile();
@@ -34,20 +34,19 @@ public class TenMinMemoryGen {
         FileUtils.write(pojoFile,"package com.junshijia.ecs.domain;\r\n\n","UTF-8",true);
         FileUtils.write(pojoFile,"public class TenMinMemory{\r\n\n","UTF-8",true);
         //属性
-        for(String enCoding : this.memoryDataSet){
+        for(String enCoding : this.tenMinSet){
             if(enCoding.charAt(4)=='C' || enCoding.charAt(4)=='D'){
-                System.out.println("not possible");
+                FileUtils.write(pojoFile,"\tprivate List<Boolean> " + EcsUtils.deleteChar(enCoding) + "List;\n","UTF-8",true);
             }
             else if(enCoding.charAt(4)=='H' || enCoding.charAt(4)=='I'){
-                FileUtils.write(pojoFile,"\tprivate List<Float> " + EcsUtils.deleteChar(enCoding) + ";\n","UTF-8",true);
+                FileUtils.write(pojoFile,"\tprivate List<Float> " + EcsUtils.deleteChar(enCoding) + "List;\n","UTF-8",true);
             }
         }
         //构造器
         FileUtils.write(pojoFile, "\tpublic TenMinMemory() {\n", "UTF-8", true);
-        for (String enCoding : this.memoryDataSet) {
-            if (enCoding.charAt(4) == 'H' || enCoding.charAt(4) == 'I') {
-                    FileUtils.write(pojoFile, "\t\tthis."+EcsUtils.deleteChar(enCoding)+" = new ArrayList<>();\n", "UTF-8", true);
-            }
+        //
+        for (String enCoding : this.tenMinSet) {
+            FileUtils.write(pojoFile, "\t\tthis."+EcsUtils.deleteChar(enCoding)+"List = new ArrayList<>();\n", "UTF-8", true);
         }
         FileUtils.write(pojoFile, "\t}\n", "UTF-8", true);
         //结尾

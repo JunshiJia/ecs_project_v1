@@ -53,7 +53,7 @@ public class TenMinPojoGen {
         FileUtils.write(pojoFile, "\tprivate int wtId;\n", "UTF-8", true);
         //写其他属性
         for (String enCoding : this.TenMinSet) {
-            if (enCoding.charAt(4) == 'C' || enCoding.charAt(4) == 'D') {
+            if (enCoding.charAt(4) == 'C' || enCoding.charAt(4) == 'D') {//忽略布尔量
                 //FileUtils.write(pojoFile,"\t@Column(name=\"`"+enCoding+"`\")\n","UTF-8",true);
                 //FileUtils.write(pojoFile,"\tprivate boolean " + EcsUtils.deleteChar(enCoding) + ";\n","UTF-8",true);
             }

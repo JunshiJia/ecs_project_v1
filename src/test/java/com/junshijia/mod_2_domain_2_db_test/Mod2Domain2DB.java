@@ -17,12 +17,14 @@ public class Mod2Domain2DB {
      */
     @Test
     public void Mod2Domain2DBTest1(){
+
         ReadCSV read = new ReadCSV();
-        FetchMainControlData fetch = new FetchMainControlData(read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap());
+        FetchMainControlData fetch = new FetchMainControlData(read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap(),read.getTenMinMap());
         //fetch.readFromSlave2Domain();
 
         Session session = null;
         Transaction tx = null;
+        long start2 = System.currentTimeMillis();
 
         boolean flag = true;
         while(flag) {
@@ -55,7 +57,8 @@ public class Mod2Domain2DB {
         }
 
         try {
-            for(int i = 0; i<6;i++) {
+            for(int i = 0; i< 100;i++) {
+                //long start = System.currentTimeMillis();
                 fetch.readFromSlave2Domain();
                 //set update data time
                 fetch.getUpdateData().setId(1);
@@ -77,8 +80,10 @@ public class Mod2Domain2DB {
                     //session.save(fetch.getOneSecData());
                 }
                 tx.commit();
+                //long end = System.currentTimeMillis();
+                //System.out.println(end-start);
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -86,6 +91,9 @@ public class Mod2Domain2DB {
         } catch (HibernateException e) {
             e.printStackTrace();
         }
+
+        long end2 = System.currentTimeMillis();
+        System.out.println(end2-start2);
 
     }
 }

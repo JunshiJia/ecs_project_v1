@@ -4,7 +4,9 @@ import com.junshijia.ecs.data_transfer.ReadCSV;
 import com.junshijia.ecs.domain.DataFromCSVShort;
 import org.junit.Test;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class ReadCsv {
@@ -28,23 +30,19 @@ public class ReadCsv {
             System.out.println(data);
         }
         System.out.println(tenMinSet.size());
-        for(String data : meanSet){
-            System.out.println(data);
-        }
-        System.out.println(meanSet.size());
-        for(String data : stdDivSet){
-            System.out.println(data);
-        }
-        System.out.println(stdDivSet.size());
+
         System.out.println(read.getTenMinMemorySet().size());
     }
 
     @Test
     public void ReadCsvTest3(){
         ReadCSV read = new ReadCSV();
-        Set<String> tenMinSet = read.getTenMinSet();
-        for(String data : tenMinSet){
-            System.out.println(data);
+        Map map = read.getUpdateMap();
+        Iterator<Map.Entry<String, Integer>> entries = map.entrySet().iterator();
+        System.out.println(map.size());
+        while (entries.hasNext()) {
+            Map.Entry<String, Integer> entry = entries.next();
+            System.out.println("Key: "+ entry.getKey()+ " Value: "+entry.getValue());
         }
     }
 }

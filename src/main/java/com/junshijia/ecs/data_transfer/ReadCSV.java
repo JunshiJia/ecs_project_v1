@@ -26,9 +26,12 @@ public class ReadCSV {
     private Set<String> maxNumSet;
     private Set<String> flowSet;
     private Set<String> tenMinMemorySet;
+    private Set<String> specialTenMinSet;
     private Map<String,Integer>updateMap;
     private Map<String,Integer>oneSecMap;
     private Map<String,Integer>anyOneSecMap;
+    private Map<String,Integer>tenMinMap;
+    //private Map<String,Integer>tenSecMap;
 
     public ReadCSV() {
         //整个大表的list
@@ -42,7 +45,9 @@ public class ReadCSV {
         this.anyOneSecMap = new LinkedHashMap<>();
         this.edgeSet = new LinkedHashSet<>();
         this.tenMinSet = new LinkedHashSet<>();
+        this.tenMinMap = new LinkedHashMap<>();
         this.tenSecSet = new LinkedHashSet<>();
+        this.specialTenMinSet = new LinkedHashSet<>();
         //10分钟单独的
         this.maxSet = new LinkedHashSet<>();
         this.meanSet = new LinkedHashSet<>();
@@ -141,6 +146,7 @@ public class ReadCSV {
                     if(data.isAndTenMin() || data.isMaxTenMin() || data.isMeanTenMin() || data.isMinTenMin()
                             || data.isNumberMaxTenMin() || data.isOnFlowTenMin() || data.isStdDevTenMin()){
                         this.tenMinSet.add(data.getEnCoding());
+                        this.tenMinMap.put(data.getEnCoding(),data.getMainControlAddress());
                     }
                     if(data.isAndTenMin()){
                         this.andSet.add(data.getEnCoding());
@@ -164,8 +170,7 @@ public class ReadCSV {
                         this.flowSet.add(data.getEnCoding());
                     }
                     //add to memory set
-                    this.tenMinMemorySet.addAll(meanSet);
-                    this.tenMinMemorySet.addAll(stdDivSet);
+                    this.tenMinMemorySet.addAll(this.tenMinSet);
                     //除去其中的布尔量只留下float
                     Iterator<String> it = tenMinMemorySet.iterator();
                     while(it.hasNext()){
@@ -253,4 +258,13 @@ public class ReadCSV {
     public Set<String> getTenMinMemorySet() {
         return tenMinMemorySet;
     }
+
+    public Set<String> getSpecialTenMinSet() {
+        return specialTenMinSet;
+    }
+
+    public Map<String, Integer> getTenMinMap() {
+        return tenMinMap;
+    }
+
 }
