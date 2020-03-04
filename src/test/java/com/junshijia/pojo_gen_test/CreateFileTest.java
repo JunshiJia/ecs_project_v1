@@ -52,4 +52,8 @@ public class CreateFileTest {
     public void memPojoGen(){
         TenMinMemoryGen memPojoGen = new TenMinMemoryGen();
     }
+    @Test
+    public void extraTenPojoGen(){
+        ExtraTenPojoGen extra = new ExtraTenPojoGen();
+    }
 }

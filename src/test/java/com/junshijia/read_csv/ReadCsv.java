@@ -31,7 +31,7 @@ public class ReadCsv {
         }
         System.out.println(tenMinSet.size());
 
-        System.out.println(read.getTenMinMemorySet().size());
+
     }
 
     @Test

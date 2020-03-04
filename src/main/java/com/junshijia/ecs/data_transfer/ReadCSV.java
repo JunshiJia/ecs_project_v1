@@ -25,13 +25,12 @@ public class ReadCSV {
     private Set<String> andSet;
     private Set<String> maxNumSet;
     private Set<String> flowSet;
-    private Set<String> tenMinMemorySet;
-    private Set<String> specialTenMinSet;
     private Map<String,Integer>updateMap;
     private Map<String,Integer>oneSecMap;
     private Map<String,Integer>anyOneSecMap;
     private Map<String,Integer>tenMinMap;
-    //private Map<String,Integer>tenSecMap;
+    //合并10分钟的set到另一个set
+    private Set<Set<String>> tenMinSets;
 
     public ReadCSV() {
         //整个大表的list
@@ -47,8 +46,8 @@ public class ReadCSV {
         this.tenMinSet = new LinkedHashSet<>();
         this.tenMinMap = new LinkedHashMap<>();
         this.tenSecSet = new LinkedHashSet<>();
-        this.specialTenMinSet = new LinkedHashSet<>();
         //10分钟单独的
+        this.tenMinSets = new LinkedHashSet<>();
         this.maxSet = new LinkedHashSet<>();
         this.meanSet = new LinkedHashSet<>();
         this.minSet = new LinkedHashSet<>();
@@ -56,7 +55,6 @@ public class ReadCSV {
         this.andSet = new LinkedHashSet<>();
         this.maxNumSet = new LinkedHashSet<>();
         this.flowSet = new LinkedHashSet<>();
-        this.tenMinMemorySet = new LinkedHashSet<>();
         //运行读取文件
         this.getData();
     }
@@ -169,16 +167,14 @@ public class ReadCSV {
                     if(data.isOnFlowTenMin()){
                         this.flowSet.add(data.getEnCoding());
                     }
-                    //add to memory set
-                    this.tenMinMemorySet.addAll(this.tenMinSet);
-                    //除去其中的布尔量只留下float
-                    Iterator<String> it = tenMinMemorySet.iterator();
-                    while(it.hasNext()){
-                        String enCoding = it.next();
-                        if (enCoding.charAt(4) == 'C' || enCoding.charAt(4) == 'D') {
-                            it.remove();
-                        }
-                    }
+                    this.tenMinSets.add(this.andSet);
+                    this.tenMinSets.add(this.maxSet);
+                    this.tenMinSets.add(this.meanSet);
+                    this.tenMinSets.add(this.minSet);
+                    this.tenMinSets.add(this.stdDivSet);
+                    this.tenMinSets.add(this.maxNumSet);
+                    this.tenMinSets.add(this.flowSet);
+
                     //add to big list
                     this.dataList.add(data);
                 }
@@ -251,20 +247,16 @@ public class ReadCSV {
     public Map<String, Integer> getAnyOneSecMap() {
         return anyOneSecMap;
     }
+
     public Map<String, Integer> getUpdateMap() {
         return updateMap;
-    }
-
-    public Set<String> getTenMinMemorySet() {
-        return tenMinMemorySet;
-    }
-
-    public Set<String> getSpecialTenMinSet() {
-        return specialTenMinSet;
     }
 
     public Map<String, Integer> getTenMinMap() {
         return tenMinMap;
     }
 
+    public Set<Set<String>> getTenMinSets() {
+        return tenMinSets;
+    }
 }
