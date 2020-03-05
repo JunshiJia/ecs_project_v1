@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bb0a3cc-4193-46b9-a73b-cfbdd5c296aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/calculation/ExtraTenMinCal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/calculation/TenMinCal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/ExtraTenData2DB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/turbine.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/math_test/mathTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/quick_test/GeneralTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/data_transfer/ReadCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/data_transfer/ReadCSV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/ExtraTenPojoGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/ExtraTenPojoGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/TenMinPojoGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/TenMinPojoGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/pojo_gen_test/CreateFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/pojo_gen_test/CreateFileTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/read_csv/ReadCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/read_csv/ReadCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/data_transfer/ReadCSV.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/data_transfer/ReadCSV.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/TenMinPojoGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/TenMinPojoGen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/junshijia/pojo_gen_test/CreateFileTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/junshijia/pojo_gen_test/CreateFileTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/junshijia/read_csv/ReadCsv.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/junshijia/read_csv/ReadCsv.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/calculation/TenMinCal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/calculation/TenMinCal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/TenMinData2DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/TenMinData2DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/util/EcsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/util/EcsUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/math_test/mathTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/math_test/mathExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/util/EcsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/util/EcsUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/junshijia/math_test/mathTest1.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +94,7 @@
       <recent name="D:\ecs_project_v1" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CreateFileTest.tenMinPojoGen">
+  <component name="RunManager" selected="JUnit.GeneralTest.test">
     <configuration name="CreateFileTest.extraTenPojoGen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ecs_project_v1" />
       <extension name="coverage">
@@ -132,17 +127,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FetTenMinMemoryData.tenMinDataTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GeneralTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ecs_project_v1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.junshijia.fetch_10min_memory_data_test.*" />
+          <option name="PATTERN" value="com.junshijia.quick_test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.junshijia.fetch_10min_memory_data_test" />
-      <option name="MAIN_CLASS_NAME" value="com.junshijia.fetch_10min_memory_data_test.FetTenMinMemoryData" />
-      <option name="METHOD_NAME" value="tenMinDataTest1" />
+      <option name="PACKAGE_NAME" value="com.junshijia.quick_test" />
+      <option name="MAIN_CLASS_NAME" value="com.junshijia.quick_test.GeneralTest" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,17 +159,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReadCsv.ReadCsvTest3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="mathTest.mathTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ecs_project_v1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.junshijia.read_csv.*" />
+          <option name="PATTERN" value="com.junshijia.math_test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.junshijia.read_csv" />
-      <option name="MAIN_CLASS_NAME" value="com.junshijia.read_csv.ReadCsv" />
-      <option name="METHOD_NAME" value="ReadCsvTest3" />
+      <option name="PACKAGE_NAME" value="com.junshijia.math_test" />
+      <option name="MAIN_CLASS_NAME" value="com.junshijia.math_test.mathTest" />
+      <option name="METHOD_NAME" value="mathTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -182,11 +177,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GeneralTest.test" />
+        <item itemvalue="JUnit.mathTest.mathTest" />
         <item itemvalue="JUnit.CreateFileTest.tenMinPojoGen" />
         <item itemvalue="JUnit.CreateFileTest.extraTenPojoGen" />
         <item itemvalue="JUnit.Mod2Domain2DB.Mod2Domain2DBTest1" />
-        <item itemvalue="JUnit.FetTenMinMemoryData.tenMinDataTest1" />
-        <item itemvalue="JUnit.ReadCsv.ReadCsvTest3" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +268,8 @@
       <workItem from="1582874895466" duration="6108000" />
       <workItem from="1583108704124" duration="13252000" />
       <workItem from="1583195060001" duration="21411000" />
-      <workItem from="1583281569016" duration="23557000" />
+      <workItem from="1583281569016" duration="23821000" />
+      <workItem from="1583367645454" duration="12489000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1577167766825</created>
@@ -303,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583288639509</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update ten min memory test">
+      <created>1583314219237</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1583314219237</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,18 +332,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Plugins/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1582188476168" />
-    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1582179815494">
+    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1583382474332">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1582179815494" />
+    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583382474332" />
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576542961955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1576542961955" />
-    <state x="1201" y="216" key="#com.intellij.ide.util.MemberChooser" timestamp="1583309901105">
+    <state x="1201" y="216" key="#com.intellij.ide.util.MemberChooser" timestamp="1583383391643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1201" y="216" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583309901105" />
+    <state x="1201" y="216" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583383391643" />
     <state x="617" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1581399401483">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -349,54 +352,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1581495491728" />
-    <state x="560" y="111" key="CommitChangelistDialog2" timestamp="1583288637497">
+    <state x="560" y="111" key="CommitChangelistDialog2" timestamp="1583314217791">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583288637497" />
+    <state x="560" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583314217791" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1583221206949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583221206949" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1583313655565">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1583386370383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583313655565" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1583313655565">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583386370383" />
+    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1583386370383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583313655565" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1583313655565">
+    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583386370383" />
+    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1583386370383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583313655565" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1583313655565">
+    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583386370383" />
+    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1583386370383">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583313655565" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583313420317">
+    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583386370383" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583314242851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583313420317" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1583313420317">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583314242851" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1583314242850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583313420317" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1583313420317">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583314242850" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1583314242850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583313420317" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1583313420317">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583314242850" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1583314242850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583313420317" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583314242850" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1581581648146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1581581648146" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1582187241580">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1583314225609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1582187241580" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583314225609" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1583223319532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

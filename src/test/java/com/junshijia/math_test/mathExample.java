@@ -5,13 +5,15 @@ import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
 import org.apache.commons.math3.stat.descriptive.rank.Median;
 import org.junit.Test;
 
-public class mathTest1 {
+public class mathExample {
     @Test
     public void test1(){
         double[] values = new double[] { 0.33, 1.33,0.27333, 0.3, 0.501,
                 0.444, 0.44, 0.34496, 0.33,0.3, 0.292, 0.667 };
         double[] values2 = new double[] { 0.89, 1.51,0.37999, 0.4, 0.701,
                 0.484, 0.54, 0.56496, 0.43,0.3, 0.392, 0.567 };
+
+
 
         //计数
         System.out.println("计算样本个数为：" +values.length);

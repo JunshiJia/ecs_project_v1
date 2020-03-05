@@ -14,6 +14,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -21,8 +22,6 @@ import static java.util.regex.Pattern.compile;
 
 public class EcsUtils {
     private EcsUtils(){}
-
-
     /**
      * 用于hibernate的utils
      */
@@ -41,12 +40,22 @@ public class EcsUtils {
         return factory.openSession();
     }
 
+    //list->array
+    public static double[] floatList2DoubleArray(List<Float> floatList){
+        double[] array = new double[floatList.size()];
+        for(int i = 0; i < floatList.size(); i++){
+            array[i] = floatList.get(i);
+        }
+        return array;
+    }
+
     //判断字符串是否是数字
     public static boolean isInteger(String str) {
         Pattern pattern = compile("^[-\\+]?[\\d]*$");
         return pattern.matcher(str).matches();
     }
 
+    //判断是否是字母
     public static boolean isAlpha(String str){
         char first = 0;
         try {
@@ -77,7 +86,7 @@ public class EcsUtils {
      * */
     public static String[] getFiledNames(Object o){
         Field[] fields=o.getClass().getDeclaredFields();
-        String[] fieldNames=new String[fields.length];
+        String[] fieldNames=new String[fields.length-2];
         for(int i=0;i<fields.length;i++){
             //System.out.println(fields[i].getType());
             fieldNames[i]=fields[i].getName();
@@ -223,6 +232,4 @@ public class EcsUtils {
             e.printStackTrace();
         }
     }
-
-
 }
