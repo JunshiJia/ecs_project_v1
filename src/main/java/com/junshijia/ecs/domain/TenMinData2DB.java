@@ -1,6 +1,7 @@
 package com.junshijia.ecs.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class TenMinData2DB{
@@ -9,6 +10,7 @@ public class TenMinData2DB{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private int wtId;
+	private Date time;
 	@Column(name="`HMI_Disc[910]Max`")
 	private Float HMI_Disc910Max;
 	@Column(name="`HMI_Disc[910]Mean`")
@@ -238,6 +240,10 @@ public class TenMinData2DB{
 	@Column(name="`HMI_IReg[9]And`")
 	private Boolean HMI_IReg9And;
 
+	public TenMinData2DB() {
+		this.time = new Date();
+	}
+
 	@Override
 	public String toString() {
 		return "TenMinData2DB{" +
@@ -358,6 +364,14 @@ public class TenMinData2DB{
 				", HMI_IReg9Mean=" + HMI_IReg9Mean +
 				", HMI_IReg9And=" + HMI_IReg9And +
 				'}';
+	}
+
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
 	public int getId() {

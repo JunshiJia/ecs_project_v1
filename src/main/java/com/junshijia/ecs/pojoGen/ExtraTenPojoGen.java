@@ -34,10 +34,10 @@ public class ExtraTenPojoGen {
 
         FileUtils.write(pojoFile,"\tprivate Date A1;\n","UTF-8",true);
         FileUtils.write(pojoFile,"\tprivate String A2;\n","UTF-8",true);
-        FileUtils.write(pojoFile,"\tprivate Integer A3;\n","UTF-8",true);
-        FileUtils.write(pojoFile,"\tprivate Integer A4;\n","UTF-8",true);
-        FileUtils.write(pojoFile,"\tprivate Integer A5;\n","UTF-8",true);
-        FileUtils.write(pojoFile,"\tprivate Integer A6;\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\tprivate Float A3;\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\tprivate Float A4;\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\tprivate Float A5;\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\tprivate Boolean A6;\n","UTF-8",true);
         //写其他属性
         for(int i = 7; i <= 27; i++ ){
             FileUtils.write(pojoFile,"\tprivate Float A" + i + ";\n","UTF-8",true);

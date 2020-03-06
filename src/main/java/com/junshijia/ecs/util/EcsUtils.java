@@ -86,13 +86,13 @@ public class EcsUtils {
      * */
     public static String[] getFiledNames(Object o){
         Field[] fields=o.getClass().getDeclaredFields();
-        String[] fieldNames=new String[fields.length-2];
+        String[] fieldNames=new String[fields.length];
         for(int i=0;i<fields.length;i++){
-            //System.out.println(fields[i].getType());
             fieldNames[i]=fields[i].getName();
         }
         return fieldNames;
     }
+
 
     //获取类的属性名的字符串
     public static String[] getFiledNameByClz(String path){
@@ -211,14 +211,11 @@ public class EcsUtils {
             Class<?> dataClass =data.getClass();
             //获取类对象中的方法                                               类中方法名   方法的参数类型
             addMethod = Class.forName("java.util.List").getDeclaredMethod("add", Object.class);
-
             for(String fieldName : fieldNames) {
                 getter = "get" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
                 getDomain = dataClass.getMethod(getter, null);
                 //System.out.println(getter+":"+results.getValue(i));
-                //true shi nali lai de
                 addMethod.invoke(getDomain.invoke(data, null), results.getValue(i));
-                //test
                 i++;
             }
 

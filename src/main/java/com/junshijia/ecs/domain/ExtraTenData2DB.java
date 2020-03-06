@@ -14,10 +14,10 @@ public class ExtraTenData2DB{
 	private int id;
 	private Date A1;
 	private String A2;
-	private Integer A3;
-	private Integer A4;
-	private Integer A5;
-	private Integer A6;
+	private Float A3;
+	private Float A4;
+	private Float A5;
+	private Boolean A6;
 	private Float A7;
 	private Float A8;
 	private Float A9;
@@ -95,7 +95,9 @@ public class ExtraTenData2DB{
 	private Float A81;
 	private Boolean A82;
 
-	public ExtraTenData2DB() {
+	public ExtraTenData2DB(String A2) {
+		this.A2 = A2;
+		this.A1 = new Date();
 		this.A14 = 0F;
 		this.A15 = 0F;
 		this.A16 = 0F;
@@ -143,6 +145,38 @@ public class ExtraTenData2DB{
 		this.A77 = 0F;
 		this.A78 = 0F;
 		this.A81 = 0F;
+	}
+
+	public Float getA3() {
+		return A3;
+	}
+
+	public void setA3(Float a3) {
+		A3 = a3;
+	}
+
+	public Float getA4() {
+		return A4;
+	}
+
+	public void setA4(Float a4) {
+		A4 = a4;
+	}
+
+	public Float getA5() {
+		return A5;
+	}
+
+	public void setA5(Float a5) {
+		A5 = a5;
+	}
+
+	public Boolean getA6() {
+		return A6;
+	}
+
+	public void setA6(Boolean a6) {
+		A6 = a6;
 	}
 
 	public Float getA14() {
@@ -711,38 +745,6 @@ public class ExtraTenData2DB{
 
 	public void setA2(String a2) {
 		A2 = a2;
-	}
-
-	public Integer getA3() {
-		return A3;
-	}
-
-	public void setA3(Integer a3) {
-		A3 = a3;
-	}
-
-	public Integer getA4() {
-		return A4;
-	}
-
-	public void setA4(Integer a4) {
-		A4 = a4;
-	}
-
-	public Integer getA5() {
-		return A5;
-	}
-
-	public void setA5(Integer a5) {
-		A5 = a5;
-	}
-
-	public Integer getA6() {
-		return A6;
-	}
-
-	public void setA6(Integer a6) {
-		A6 = a6;
 	}
 
 	public Float getA7() {

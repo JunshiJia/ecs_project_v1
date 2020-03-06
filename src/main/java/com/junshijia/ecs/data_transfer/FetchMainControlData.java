@@ -71,7 +71,7 @@ public class FetchMainControlData {
         ipParameters.setHost(this.ip);
         ipParameters.setPort(this.port);
         this.factory = new ModbusFactory();
-        this.status = new TurbineStatus();
+        //this.status = new TurbineStatus();
         //set field name
         this.fieldNames = EcsUtils.getFiledNames(tenMinData);
         //1.add batch locator
@@ -131,42 +131,41 @@ public class FetchMainControlData {
         int oneSecCount = this.updateMap.size();
         int anyOneCount = oneSecCount+this.oneSecMap.size();
         int tenMinCount = anyOneCount+this.anyOneSecMap.size();
-        //for(int k = 0; k < 100; k++) {
-        //2.read modbus data 2 map/list
-        boolean flag = true;
-        while (flag) {
-            try {
-                //BatchResults<Integer> updateResults = this.master.send(this.updateBatch);
-                //BatchResults<Integer> anyOneSecResults = this.master.send(this.anyOneSecBatch);
-                //BatchResults<Integer> oneSecResults = this.master.send(this.oneSecBatch);
-                BatchResults<Integer> results = this.master.send(this.batch);
-
-                EcsUtils.writeData2Domain(this.updateMap, results, this.updateData,0);
-                EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
-                EcsUtils.writeData2Domain(this.anyOneSecMap, results, this.anyOneSecData, anyOneCount);
-                EcsUtils.writeData2List(this.fieldNames, results, this.tenMinData, tenMinCount);
-
-
-                //this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
-
-                //此处应该判断主状态
-                //if (!this.status.isRunning()) {
-                    //BatchResults<Integer> oneSecResults = this.master.send(this.oneSecBatch);
-                    //EcsUtils.writeData2Domain(this.oneSecMap, oneSecResults, this.oneSecData);
-                //}
-
-                flag = false;
-            } catch (ModbusTransportException | ErrorResponseException e) {
-                log.error("Main control connection error, wait 5min and re-connect...");
+        boolean flag;
+        for(int k = 0; k < 600; k++) {
+            //2.read modbus data 2 map/list
+            flag = true;
+            while (flag) {
                 try {
-                    Thread.sleep(300000);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
+                    //BatchResults<Integer> updateResults = this.master.send(this.updateBatch);
+                    //BatchResults<Integer> anyOneSecResults = this.master.send(this.anyOneSecBatch);
+                    //BatchResults<Integer> oneSecResults = this.master.send(this.oneSecBatch);
+                    BatchResults<Integer> results = this.master.send(this.batch);
+
+                    EcsUtils.writeData2Domain(this.updateMap, results, this.updateData,0);
+                    EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
+                    EcsUtils.writeData2Domain(this.anyOneSecMap, results, this.anyOneSecData, anyOneCount);
+                    EcsUtils.writeData2List(this.fieldNames, results, this.tenMinData, tenMinCount);
+
+                    //this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
+                    //此处应该判断主状态
+                    //if (!this.status.isRunning()) {
+                        //BatchResults<Integer> oneSecResults = this.master.send(this.oneSecBatch);
+                        //EcsUtils.writeData2Domain(this.oneSecMap, oneSecResults, this.oneSecData);
+                    //}
+
+                    flag = false;
+                } catch (ModbusTransportException | ErrorResponseException e) {
+                    log.error("Main control connection error, wait 5min and re-connect...");
+                    try {
+                        Thread.sleep(300000);
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                    this.setMasterAndInit();
                 }
-                this.setMasterAndInit();
             }
         }
-        //}
 
         this.master.destroy();
     }

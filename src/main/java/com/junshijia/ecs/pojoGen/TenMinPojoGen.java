@@ -56,6 +56,7 @@ public class TenMinPojoGen {
         FileUtils.write(pojoFile,"\t@Id\n" + "\t@GeneratedValue(strategy = GenerationType.AUTO)\n","UTF-8",true);
         FileUtils.write(pojoFile, "\tprivate int id;\n", "UTF-8", true);
         FileUtils.write(pojoFile, "\tprivate int wtId;\n", "UTF-8", true);
+        FileUtils.write(pojoFile,"\tprivate Date time;\n","UTF-8",true);
 
         //写其他属性
         for (String enCoding : this.tenMinSet) {
