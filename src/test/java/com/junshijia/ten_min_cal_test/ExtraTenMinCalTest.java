@@ -1,15 +1,16 @@
 package com.junshijia.ten_min_cal_test;
 
-import com.junshijia.ecs.calculation.TenMinCal;
+import com.junshijia.ecs.calculation.ExtraTenMinCal;
 import com.junshijia.ecs.data_transfer.FetchMainControlData;
 import com.junshijia.ecs.data_transfer.ReadCSV;
+import com.junshijia.ecs.domain.ExtraTenData2DB;
 import com.junshijia.ecs.domain.TenMinData2DB;
 import com.junshijia.ecs.domain.TenMinMemory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TenMinCalTest {
+public class ExtraTenMinCalTest {
     private long startTime;
     private long endTime;
     private TenMinMemory data;
@@ -31,15 +32,14 @@ public class TenMinCalTest {
         fetch.readFromSlave2Domain();
 
         TenMinData2DB data2DB = new TenMinData2DB();
-        data=fetch.getTenMinMemoryData();
 
+        ExtraTenMinCal cal  = new ExtraTenMinCal(new ExtraTenData2DB("wt2"),fetch.getUpdateData(),fetch.getOneSecData());
 
+        fetch.readFromSlave2Domain();
 
-        TenMinCal cal = new TenMinCal(fetch.getTenMinMemoryData(),data2DB);
-        for(int i = 0; i < 100; i++){
-            cal.calculate();
-        }
+        cal.setDataTenMinLater(fetch.getTenMinMemoryData(),fetch.getUpdateData(),fetch.getOneSecData());
 
+        cal.calculate();
 
         System.out.println(cal.getData2DB());
 
@@ -49,6 +49,5 @@ public class TenMinCalTest {
     public void time2(){
         endTime = System.currentTimeMillis();    //获取结束时间
         System.out.println("程序运行时间：" + (endTime - startTime) + "ms");
-        System.out.println(data.toString());
     }
 }

@@ -56,6 +56,9 @@ public class ExtraTenPojoGen {
         for (int i = 14; i<= 27; i++) {
             FileUtils.write(pojoFile, "\t\tthis.A"+ i+" = 0F;\n", "UTF-8", true);
         }
+        for (int i = 28; i<= 43; i++) {
+            FileUtils.write(pojoFile, "\t\tthis.A"+ i+" = false;\n", "UTF-8", true);
+        }
         for (int i = 47; i<= 78; i++) {
             FileUtils.write(pojoFile, "\t\tthis.A"+ i+" = 0F;\n", "UTF-8", true);
         }

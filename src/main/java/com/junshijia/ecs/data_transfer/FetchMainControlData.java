@@ -132,7 +132,7 @@ public class FetchMainControlData {
         int anyOneCount = oneSecCount+this.oneSecMap.size();
         int tenMinCount = anyOneCount+this.anyOneSecMap.size();
         boolean flag;
-        for(int k = 0; k < 600; k++) {
+        for(int k = 0; k < 10; k++) {
             //2.read modbus data 2 map/list
             flag = true;
             while (flag) {
@@ -187,7 +187,7 @@ public class FetchMainControlData {
         return anyOneSecData;
     }
 
-    public TenMinMemory getTenMinData() {
+    public TenMinMemory getTenMinMemoryData() {
         return tenMinData;
     }
 

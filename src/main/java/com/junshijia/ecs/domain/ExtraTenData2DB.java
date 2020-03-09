@@ -94,10 +94,8 @@ public class ExtraTenData2DB{
 	private Float A80;
 	private Float A81;
 	private Boolean A82;
-
 	public ExtraTenData2DB(String A2) {
 		this.A2 = A2;
-		this.A1 = new Date();
 		this.A14 = 0F;
 		this.A15 = 0F;
 		this.A16 = 0F;
@@ -112,6 +110,22 @@ public class ExtraTenData2DB{
 		this.A25 = 0F;
 		this.A26 = 0F;
 		this.A27 = 0F;
+		this.A28 = false;
+		this.A29 = false;
+		this.A30 = false;
+		this.A31 = false;
+		this.A32 = false;
+		this.A33 = false;
+		this.A34 = false;
+		this.A35 = false;
+		this.A36 = false;
+		this.A37 = false;
+		this.A38 = false;
+		this.A39 = false;
+		this.A40 = false;
+		this.A41 = false;
+		this.A42 = false;
+		this.A43 = false;
 		this.A47 = 0F;
 		this.A48 = 0F;
 		this.A49 = 0F;
@@ -147,6 +161,111 @@ public class ExtraTenData2DB{
 		this.A81 = 0F;
 	}
 
+	@Override
+	public String toString() {
+		return "ExtraTenData2DB{" +
+				"id=" + id +
+				", A1=" + A1 +
+				", A2='" + A2 + '\'' +
+				", A3=" + A3 +
+				", A4=" + A4 +
+				", A5=" + A5 +
+				", A6=" + A6 +
+				", A7=" + A7 +
+				", A8=" + A8 +
+				", A9=" + A9 +
+				", A10=" + A10 +
+				", A11=" + A11 +
+				", A12=" + A12 +
+				", A13=" + A13 +
+				", A14=" + A14 +
+				", A15=" + A15 +
+				", A16=" + A16 +
+				", A17=" + A17 +
+				", A18=" + A18 +
+				", A19=" + A19 +
+				", A20=" + A20 +
+				", A21=" + A21 +
+				", A22=" + A22 +
+				", A23=" + A23 +
+				", A24=" + A24 +
+				", A25=" + A25 +
+				", A26=" + A26 +
+				", A27=" + A27 +
+				", A28=" + A28 +
+				", A29=" + A29 +
+				", A30=" + A30 +
+				", A31=" + A31 +
+				", A32=" + A32 +
+				", A33=" + A33 +
+				", A34=" + A34 +
+				", A35=" + A35 +
+				", A36=" + A36 +
+				", A37=" + A37 +
+				", A38=" + A38 +
+				", A39=" + A39 +
+				", A40=" + A40 +
+				", A41=" + A41 +
+				", A42=" + A42 +
+				", A43=" + A43 +
+				", A44=" + A44 +
+				", A45=" + A45 +
+				", A46=" + A46 +
+				", A47=" + A47 +
+				", A48=" + A48 +
+				", A49=" + A49 +
+				", A50=" + A50 +
+				", A51=" + A51 +
+				", A52=" + A52 +
+				", A53=" + A53 +
+				", A54=" + A54 +
+				", A55=" + A55 +
+				", A56=" + A56 +
+				", A57=" + A57 +
+				", A58=" + A58 +
+				", A59=" + A59 +
+				", A60=" + A60 +
+				", A61=" + A61 +
+				", A62=" + A62 +
+				", A63=" + A63 +
+				", A64=" + A64 +
+				", A65=" + A65 +
+				", A66=" + A66 +
+				", A67=" + A67 +
+				", A68=" + A68 +
+				", A69=" + A69 +
+				", A70=" + A70 +
+				", A71=" + A71 +
+				", A72=" + A72 +
+				", A73=" + A73 +
+				", A74=" + A74 +
+				", A75=" + A75 +
+				", A76=" + A76 +
+				", A77=" + A77 +
+				", A78=" + A78 +
+				", A79=" + A79 +
+				", A80=" + A80 +
+				", A81=" + A81 +
+				", A82=" + A82 +
+				'}';
+	}
+
+	public Date getA1() {
+		return A1;
+	}
+
+	public void setA1(Date a1) {
+		A1 = a1;
+	}
+
+	public String getA2() {
+		return A2;
+	}
+
+	public void setA2(String a2) {
+		A2 = a2;
+	}
+
 	public Float getA3() {
 		return A3;
 	}
@@ -177,6 +296,62 @@ public class ExtraTenData2DB{
 
 	public void setA6(Boolean a6) {
 		A6 = a6;
+	}
+
+	public Float getA7() {
+		return A7;
+	}
+
+	public void setA7(Float a7) {
+		A7 = a7;
+	}
+
+	public Float getA8() {
+		return A8;
+	}
+
+	public void setA8(Float a8) {
+		A8 = a8;
+	}
+
+	public Float getA9() {
+		return A9;
+	}
+
+	public void setA9(Float a9) {
+		A9 = a9;
+	}
+
+	public Float getA10() {
+		return A10;
+	}
+
+	public void setA10(Float a10) {
+		A10 = a10;
+	}
+
+	public Float getA11() {
+		return A11;
+	}
+
+	public void setA11(Float a11) {
+		A11 = a11;
+	}
+
+	public Float getA12() {
+		return A12;
+	}
+
+	public void setA12(Float a12) {
+		A12 = a12;
+	}
+
+	public Float getA13() {
+		return A13;
+	}
+
+	public void setA13(Float a13) {
+		A13 = a13;
 	}
 
 	public Float getA14() {
@@ -729,77 +904,5 @@ public class ExtraTenData2DB{
 
 	public void setA82(Boolean a82) {
 		A82 = a82;
-	}
-
-	public Date getA1() {
-		return A1;
-	}
-
-	public void setA1(Date a1) {
-		A1 = a1;
-	}
-
-	public String getA2() {
-		return A2;
-	}
-
-	public void setA2(String a2) {
-		A2 = a2;
-	}
-
-	public Float getA7() {
-		return A7;
-	}
-
-	public void setA7(Float a7) {
-		A7 = a7;
-	}
-
-	public Float getA8() {
-		return A8;
-	}
-
-	public void setA8(Float a8) {
-		A8 = a8;
-	}
-
-	public Float getA9() {
-		return A9;
-	}
-
-	public void setA9(Float a9) {
-		A9 = a9;
-	}
-
-	public Float getA10() {
-		return A10;
-	}
-
-	public void setA10(Float a10) {
-		A10 = a10;
-	}
-
-	public Float getA11() {
-		return A11;
-	}
-
-	public void setA11(Float a11) {
-		A11 = a11;
-	}
-
-	public Float getA12() {
-		return A12;
-	}
-
-	public void setA12(Float a12) {
-		A12 = a12;
-	}
-
-	public Float getA13() {
-		return A13;
-	}
-
-	public void setA13(Float a13) {
-		A13 = a13;
 	}
 }

@@ -29,10 +29,10 @@ public class TenMinCal {
         this.stdDiv = new StandardDeviation();
         this.setFieldNames();
     }
-
+    //前3个属性名不用
     private void setFieldNames(){
         Field[] fields = data2DB.getClass().getDeclaredFields();
-        this.fieldNames=new String[fields.length-3];
+        this.fieldNames=new String[fields.length];
         for(int i=0,j=0;i<fields.length;i++){
             if(fields[i].getName().charAt(0)=='H') {
                 fieldNames[j++] = fields[i].getName();
