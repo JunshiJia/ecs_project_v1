@@ -60,9 +60,8 @@ public class ReadCSV {
     }
 
     private void getData(){
-        String[] values = null;
-        String test = null;
-        DataFromCSVShort data = null;
+        String[] values;
+        DataFromCSVShort data;
         boolean flag;
         boolean flag2 = false;
         try (

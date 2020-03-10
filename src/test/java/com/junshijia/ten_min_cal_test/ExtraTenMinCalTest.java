@@ -34,8 +34,11 @@ public class ExtraTenMinCalTest {
         TenMinData2DB data2DB = new TenMinData2DB();
 
         ExtraTenMinCal cal  = new ExtraTenMinCal(new ExtraTenData2DB("wt2"),fetch.getUpdateData(),fetch.getOneSecData());
+        for(int i  =0 ; i< 600;i++){
+            fetch.readFromSlave2Domain();
+        }
 
-        fetch.readFromSlave2Domain();
+
 
         cal.setDataTenMinLater(fetch.getTenMinMemoryData(),fetch.getUpdateData(),fetch.getOneSecData());
 

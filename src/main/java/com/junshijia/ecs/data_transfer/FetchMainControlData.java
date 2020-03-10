@@ -27,11 +27,12 @@ public class FetchMainControlData {
     private IpParameters ipParameters;
     private ModbusFactory factory;
     private ModbusMaster master;
-    private BatchRead<Integer> updateBatch;
-    private BatchRead<Integer> oneSecBatch;
-    private BatchRead<Integer> anyOneSecBatch;
-    private BatchRead<Integer> tenMinBatch;
+    //batch and count
     private BatchRead<Integer> batch;
+    private int oneSecCount;
+    private int anyOneCount;
+    private int tenMinCount;
+    private BatchResults<Integer> results;
     //address ip port
     private int port;
     private String ip;
@@ -49,42 +50,26 @@ public class FetchMainControlData {
     //field names
     private String[] fieldNames;
 
-    public FetchMainControlData() {
-    }
-
     public FetchMainControlData(Map<String, Integer> updateMap, Map<String, Integer> oneSecMap,
                                 Map<String, Integer> anyOneSecMap, Map<String, Integer> tenMinMap) {
         this.updateData = new UpdateData2DB();
         this.oneSecData = new OneSecData2DB();
         this.anyOneSecData = new AnyOneSecData2DB();
         this.tenMinData = new TenMinMemory();
-
-        //this.anyOneSecData = new AnyOneSecData2DB();
         this.updateMap = updateMap;
         this.oneSecMap = oneSecMap;
         this.anyOneSecMap = anyOneSecMap;
         this.tenMinMap = tenMinMap;
-
         this.log = Logger.getLogger(FetchMainControlData.class);
         this.setIpPortAdd();
         this.ipParameters = new IpParameters();
         ipParameters.setHost(this.ip);
         ipParameters.setPort(this.port);
         this.factory = new ModbusFactory();
-        //this.status = new TurbineStatus();
-        //set field name
         this.fieldNames = EcsUtils.getFiledNames(tenMinData);
-        //1.add batch locator
-        //this.updateBatch = new BatchRead<>();
-        //this.oneSecBatch = new BatchRead<>();
-        //this.anyOneSecBatch = new BatchRead<>();
-        //this.tenMinBatch = new BatchRead<>();
         this.batch = new BatchRead<>();
-        //this.updateBatch = EcsUtils.addBatchLocator(this.updateBatch, this.updateMap);
-        //this.oneSecBatch = EcsUtils.addBatchLocator(this.oneSecBatch,this.oneSecMap);
-        //this.anyOneSecBatch = EcsUtils.addBatchLocator(this.anyOneSecBatch,this.anyOneSecMap);
-        //this.tenMinBatch = EcsUtils.addBatchLocator(this.tenMinBatch,this.tenMinMap);
         this.addBatch();
+        this.setMasterAndInit();
     }
     private void addBatch(){
         int count = 0;
@@ -98,6 +83,10 @@ public class FetchMainControlData {
 
         count += this.anyOneSecMap.size();
         EcsUtils.addBatchLocator(this.batch, this.tenMinMap, count);
+
+        this.oneSecCount = this.updateMap.size();
+        this.anyOneCount = oneSecCount+this.oneSecMap.size();
+        this.tenMinCount = anyOneCount+this.anyOneSecMap.size();
     }
 
     private void setMasterAndInit(){
@@ -127,47 +116,36 @@ public class FetchMainControlData {
     }
 
     public void readFromSlave2Domain() {
-        this.setMasterAndInit();
-        int oneSecCount = this.updateMap.size();
-        int anyOneCount = oneSecCount+this.oneSecMap.size();
-        int tenMinCount = anyOneCount+this.anyOneSecMap.size();
         boolean flag;
-        for(int k = 0; k < 10; k++) {
-            //2.read modbus data 2 map/list
-            flag = true;
-            while (flag) {
-                try {
-                    //BatchResults<Integer> updateResults = this.master.send(this.updateBatch);
-                    //BatchResults<Integer> anyOneSecResults = this.master.send(this.anyOneSecBatch);
+        //2.read modbus data 2 map/list
+        flag = true;
+        while (flag) {
+            try {
+                this.results = this.master.send(this.batch);
+
+                EcsUtils.writeData2Domain(this.updateMap, results, this.updateData,0);
+                EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
+                EcsUtils.writeData2Domain(this.anyOneSecMap, results, this.anyOneSecData, anyOneCount);
+                EcsUtils.writeData2List(this.fieldNames, results, this.tenMinData, tenMinCount);
+
+                //this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
+                //此处应该判断主状态
+                //if (!this.status.isRunning()) {
                     //BatchResults<Integer> oneSecResults = this.master.send(this.oneSecBatch);
-                    BatchResults<Integer> results = this.master.send(this.batch);
+                    //EcsUtils.writeData2Domain(this.oneSecMap, oneSecResults, this.oneSecData);
+                //}
 
-                    EcsUtils.writeData2Domain(this.updateMap, results, this.updateData,0);
-                    EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
-                    EcsUtils.writeData2Domain(this.anyOneSecMap, results, this.anyOneSecData, anyOneCount);
-                    EcsUtils.writeData2List(this.fieldNames, results, this.tenMinData, tenMinCount);
-
-                    //this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
-                    //此处应该判断主状态
-                    //if (!this.status.isRunning()) {
-                        //BatchResults<Integer> oneSecResults = this.master.send(this.oneSecBatch);
-                        //EcsUtils.writeData2Domain(this.oneSecMap, oneSecResults, this.oneSecData);
-                    //}
-
-                    flag = false;
-                } catch (ModbusTransportException | ErrorResponseException e) {
-                    log.error("Main control connection error, wait 5min and re-connect...");
-                    try {
-                        Thread.sleep(300000);
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                    this.setMasterAndInit();
+                flag = false;
+            } catch (ModbusTransportException | ErrorResponseException e) {
+                log.error("Main control connection error, wait 5min and re-connect...");
+                try {
+                    Thread.sleep(300000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
                 }
+                this.setMasterAndInit();
             }
         }
-
-        this.master.destroy();
     }
 
     public TurbineStatus getStatus() {

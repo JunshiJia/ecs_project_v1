@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bb0a3cc-4193-46b9-a73b-cfbdd5c296aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/ten_min_cal_test/ExtraTenMinCalTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/process/modbus2db.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/calculation/ExtraTenMinCal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/calculation/ExtraTenMinCal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/calculation/TenMinCal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/calculation/TenMinCal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/data_transfer/FetchMainControlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/data_transfer/FetchMainControlData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/ExtraTenData2DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/ExtraTenData2DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/ExtraTenPojoGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/ExtraTenPojoGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/fetch_10min_memory_data_test/FetTenMinMemoryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/fetch_10min_memory_data_test/FetTenMinMemoryData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/ten_min_cal_test/TenMinCalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/ten_min_cal_test/TenMinCalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/data_transfer/ReadCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/data_transfer/ReadCSV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/read_modbus_test/readModbusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/read_modbus_test/readModbusTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/ten_min_cal_test/ExtraTenMinCalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/ten_min_cal_test/ExtraTenMinCalTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/data_transfer/FetchMainControlData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/data_transfer/FetchMainControlData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/TenMinPojoGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/TenMinPojoGen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/junshijia/read_modbus_test/readModbusTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/junshijia/read_modbus_test/readModbusTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,22 +128,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FetTenMinMemoryData.tenMinDataTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ecs_project_v1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.junshijia.fetch_10min_memory_data_test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.junshijia.fetch_10min_memory_data_test" />
-      <option name="MAIN_CLASS_NAME" value="com.junshijia.fetch_10min_memory_data_test.FetTenMinMemoryData" />
-      <option name="METHOD_NAME" value="tenMinDataTest1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GeneralTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ecs_project_v1" />
       <extension name="coverage">
@@ -178,13 +160,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="readModbusTest.readModbusOnce" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ecs_project_v1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.junshijia.read_modbus_test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.junshijia.read_modbus_test" />
+      <option name="MAIN_CLASS_NAME" value="com.junshijia.read_modbus_test.readModbusTest" />
+      <option name="METHOD_NAME" value="readModbusOnce" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ExtraTenMinCalTest.tenMinCalTest1" />
+        <item itemvalue="JUnit.readModbusTest.readModbusOnce" />
         <item itemvalue="JUnit.CreateFileTest.extraTenPojoGen" />
         <item itemvalue="JUnit.GeneralTest.test" />
         <item itemvalue="JUnit.TenMinCalTest.tenMinCalTest1" />
-        <item itemvalue="JUnit.FetTenMinMemoryData.tenMinDataTest1" />
       </list>
     </recent_temporary>
   </component>
@@ -275,7 +273,8 @@
       <workItem from="1583367645454" duration="12660000" />
       <workItem from="1583454400593" duration="27549000" />
       <workItem from="1583491616455" duration="26000" />
-      <workItem from="1583713142623" duration="19505000" />
+      <workItem from="1583713142623" duration="19539000" />
+      <workItem from="1583799683539" duration="15974000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1577167766825</created>
@@ -326,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583491463335</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="finish extra 10 min cal">
+      <created>1583753850831</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1583753850831</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +345,8 @@
     <MESSAGE value="update ten min memory test" />
     <MESSAGE value="add ten min pojo, and cal" />
     <MESSAGE value="add ten min cal and extra ten min cal" />
-    <option name="LAST_COMMIT_MESSAGE" value="add ten min cal and extra ten min cal" />
+    <MESSAGE value="finish extra 10 min cal" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish extra 10 min cal" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Assign_Data_Sources" timestamp="1577419066032">
@@ -374,30 +381,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1581495491728" />
-    <state x="560" y="111" key="CommitChangelistDialog2" timestamp="1583491461813">
+    <state x="560" y="111" key="CommitChangelistDialog2" timestamp="1583753849531">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583491461813" />
+    <state x="560" y="111" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583753849531" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1583392866217">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583392866217" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1583748690397">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1583828318412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583748690397" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1583748690397">
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583828318412" />
+    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1583828318412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583748690397" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1583748690396">
+    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583828318412" />
+    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1583828318412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583748690396" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1583748690397">
+    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583828318412" />
+    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1583828318412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583748690397" />
+    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583828318412" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583314242851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -418,10 +425,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583491555382" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1583491626948">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1583800606286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583491626948" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583800606286" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1583223319532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
