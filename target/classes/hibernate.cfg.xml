@@ -6,7 +6,7 @@
 <hibernate-configuration>
     <session-factory>
         <!--1方言，便于hibernate对象操作转化为合适的数据库语句  -->
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <!--2驱动路径注意数据库类型  -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <!--3数据库路径  -->
@@ -23,5 +23,8 @@
         <mapping class="com.junshijia.ecs.domain.UpdateData2DB"/>
         <mapping class="com.junshijia.ecs.domain.OneSecData2DB"/>
         <mapping class="com.junshijia.ecs.domain.AnyOneSecData2DB"/>
+        <mapping class="com.junshijia.ecs.domain.TenMinData2DB"/>
+        <mapping class="com.junshijia.ecs.domain.ExtraTenData2DB"/>
+        <mapping class="com.junshijia.mod_2_domain_2_db_test.testTable"/>
     </session-factory>
 </hibernate-configuration>

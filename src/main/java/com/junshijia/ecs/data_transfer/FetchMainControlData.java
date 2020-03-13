@@ -46,7 +46,7 @@ public class FetchMainControlData {
     private UpdateData2DB updateData;
     private OneSecData2DB oneSecData;
     private AnyOneSecData2DB anyOneSecData;
-    private TenMinMemory tenMinData;
+    private TenMinMemory tenMinMemory;
     //field names
     private String[] fieldNames;
 
@@ -55,7 +55,7 @@ public class FetchMainControlData {
         this.updateData = new UpdateData2DB();
         this.oneSecData = new OneSecData2DB();
         this.anyOneSecData = new AnyOneSecData2DB();
-        this.tenMinData = new TenMinMemory();
+        this.tenMinMemory = new TenMinMemory();
         this.updateMap = updateMap;
         this.oneSecMap = oneSecMap;
         this.anyOneSecMap = anyOneSecMap;
@@ -66,7 +66,7 @@ public class FetchMainControlData {
         ipParameters.setHost(this.ip);
         ipParameters.setPort(this.port);
         this.factory = new ModbusFactory();
-        this.fieldNames = EcsUtils.getFiledNames(tenMinData);
+        this.fieldNames = EcsUtils.getFiledNames(tenMinMemory);
         this.batch = new BatchRead<>();
         this.addBatch();
         this.setMasterAndInit();
@@ -126,7 +126,7 @@ public class FetchMainControlData {
                 EcsUtils.writeData2Domain(this.updateMap, results, this.updateData,0);
                 EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
                 EcsUtils.writeData2Domain(this.anyOneSecMap, results, this.anyOneSecData, anyOneCount);
-                EcsUtils.writeData2List(this.fieldNames, results, this.tenMinData, tenMinCount);
+                EcsUtils.writeData2List(this.fieldNames, results, this.tenMinMemory, tenMinCount);
 
                 //this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
                 //此处应该判断主状态
@@ -148,8 +148,8 @@ public class FetchMainControlData {
         }
     }
 
-    public TurbineStatus getStatus() {
-        return status;
+    public void renewMemory(){
+        this.tenMinMemory = new TenMinMemory();
     }
 
     //程序出口
@@ -166,10 +166,14 @@ public class FetchMainControlData {
     }
 
     public TenMinMemory getTenMinMemoryData() {
-        return tenMinData;
+        return tenMinMemory;
     }
 
     public String[] getFieldNames() {
         return fieldNames;
+    }
+
+    public TurbineStatus getStatus() {
+        return status;
     }
 }

@@ -3,7 +3,6 @@ package com.junshijia.ten_min_cal_test;
 import com.junshijia.ecs.calculation.ExtraTenMinCal;
 import com.junshijia.ecs.data_transfer.FetchMainControlData;
 import com.junshijia.ecs.data_transfer.ReadCSV;
-import com.junshijia.ecs.domain.ExtraTenData2DB;
 import com.junshijia.ecs.domain.TenMinData2DB;
 import com.junshijia.ecs.domain.TenMinMemory;
 import org.junit.After;
@@ -33,14 +32,10 @@ public class ExtraTenMinCalTest {
 
         TenMinData2DB data2DB = new TenMinData2DB();
 
-        ExtraTenMinCal cal  = new ExtraTenMinCal(new ExtraTenData2DB("wt2"),fetch.getUpdateData(),fetch.getOneSecData());
+        ExtraTenMinCal cal  = new ExtraTenMinCal();
         for(int i  =0 ; i< 600;i++){
             fetch.readFromSlave2Domain();
         }
-
-
-
-        cal.setDataTenMinLater(fetch.getTenMinMemoryData(),fetch.getUpdateData(),fetch.getOneSecData());
 
         cal.calculate();
 

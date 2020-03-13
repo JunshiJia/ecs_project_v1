@@ -35,7 +35,7 @@ public class TenMinCalTest {
 
 
 
-        TenMinCal cal = new TenMinCal(fetch.getTenMinMemoryData(),data2DB);
+        TenMinCal cal = new TenMinCal();
         for(int i = 0; i < 100; i++){
             cal.calculate();
         }

@@ -22,24 +22,28 @@ public class ExtraTenMinCal {
     private int turbineArea;
     private int[] idealPower;
 
-    public ExtraTenMinCal(ExtraTenData2DB data, UpdateData2DB updateData, OneSecData2DB oneSecData) {
-        this.data = data;
-        this.updateData = updateData;
-        this.oneSecData = oneSecData;
-        //外部数据
+    public ExtraTenMinCal() {
         //1.风轮面积
         this.turbineArea = 100;
         this.idealPower = new int[30];
         for(int i = 0; i < 30; i++){
             idealPower[i] = i;
         }
+    }
+
+    public void InitData(ExtraTenData2DB data, UpdateData2DB updateData, OneSecData2DB oneSecData){
+        //外部数据
+        this.data = data;
+        this.updateData = updateData;
+        this.oneSecData = oneSecData;
         this.record();
     }
 
-    public void setDataTenMinLater(TenMinMemory memory, UpdateData2DB updateData, OneSecData2DB oneSecData){
+    public void setDataTenMinLaterAndCalculate(TenMinMemory memory, UpdateData2DB updateData, OneSecData2DB oneSecData){
         this.memoryData = memory;
         this.updateData = updateData;
         this.oneSecData = oneSecData;
+        this.calculate();
     }
     public void calculate(){
         double value;

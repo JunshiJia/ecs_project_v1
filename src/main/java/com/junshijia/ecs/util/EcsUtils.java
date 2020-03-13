@@ -1,6 +1,5 @@
 package com.junshijia.ecs.util;
 
-import com.junshijia.ecs.db_name.EcsNameStrategy;
 import com.junshijia.ecs.domain.TenMinMemory;
 import com.serotonin.modbus4j.BatchRead;
 import com.serotonin.modbus4j.BatchResults;
@@ -28,7 +27,7 @@ public class EcsUtils {
     private static SessionFactory factory;
     static{
         Configuration c = new Configuration();
-        c.setNamingStrategy(EcsNameStrategy.INSTANCE);
+        //c.setNamingStrategy(EcsNameStrategy.INSTANCE);
         c.configure();
         factory = c.buildSessionFactory();
     }

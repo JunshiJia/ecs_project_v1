@@ -21,26 +21,30 @@ public class TenMinCal {
     private Class<?> memoryClass;
     private Class<?> tenMinDataClass;
 
-    public TenMinCal(TenMinMemory memoryData, TenMinData2DB data2DB) {
-        this.memoryData = memoryData;
-        this.data2DB = data2DB;
-        this.memoryClass = memoryData.getClass();
-        this.tenMinDataClass = data2DB.getClass();
+    public TenMinCal() {
+        try {
+            this.memoryClass = Class.forName("com.junshijia.ecs.domain.TenMinMemory");
+            this.tenMinDataClass = Class.forName("com.junshijia.ecs.domain.TenMinData2DB");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         this.stdDiv = new StandardDeviation();
         this.setFieldNames();
     }
+    public void setDataAndCalculate(TenMinMemory memoryData, TenMinData2DB data2DB){
+        this.memoryData = memoryData;
+        this.data2DB = data2DB;
+        this.calculate();
+    }
     //前3个属性名不用
     private void setFieldNames(){
-        Field[] fields = data2DB.getClass().getDeclaredFields();
-        this.fieldNames=new String[fields.length];
+        Field[] fields =  this.tenMinDataClass.getDeclaredFields();
+        this.fieldNames=new String[fields.length-3];
         for(int i=0,j=0;i<fields.length;i++){
             if(fields[i].getName().charAt(0)=='H') {
                 fieldNames[j++] = fields[i].getName();
             }
         }
-    }
-
-    public void Test(){
     }
 
     public void calculate(){
@@ -53,7 +57,6 @@ public class TenMinCal {
         Float floatNum;
         Boolean boolValue;
         double[] array;
-
         try {
             for(String name : this.fieldNames){
                 nameLength = name.length();
