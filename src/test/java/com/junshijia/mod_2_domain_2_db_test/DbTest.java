@@ -12,7 +12,7 @@ public class DbTest {
     @Test
     public void dbTest(){
         Session session;
-        session= EcsUtils.getFactory().openSession(new AutoTableName("testTable","__table_yeah_"));
+        session= EcsUtils.getFactory().openSession(new AutoTableName(1));
         //session= EcsUtils.getFactory().openSession();
         Transaction tx = session.beginTransaction();
         //save one sec data and update data

@@ -26,7 +26,7 @@ public class ExtraTenPojoGen {
         }
         //开头
         FileUtils.write(pojoFile,"package com.junshijia.ecs.domain;\r\n\n","UTF-8",true);
-        FileUtils.write(pojoFile,"@Entity\n","UTF-8",true);
+        FileUtils.write(pojoFile,"@Entity\n@Table(name=\"ten_min_extra\")\n","UTF-8",true);
         FileUtils.write(pojoFile,"public class ExtraTenData2DB{\r\n\n","UTF-8",true);
         //写id
         FileUtils.write(pojoFile,"\t@Id\n" + "\t@GeneratedValue(strategy = GenerationType.AUTO)\n","UTF-8",true);

@@ -24,7 +24,8 @@ public class ExtraTenMinCalTest {
 
     @Test
     public void tenMinCalTest1(){
-        FetchMainControlData fetch = new FetchMainControlData(read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap(), read.getTenMinMap());
+        FetchMainControlData fetch = new FetchMainControlData("127.0.0.1",
+                read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap(), read.getTenMinMap());
         //开始计时
         startTime = System.currentTimeMillis();
 

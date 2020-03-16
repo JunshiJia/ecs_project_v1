@@ -8,7 +8,8 @@ public class readModbusTest {
     @Test
     public void readModbusOnce(){
         ReadCSV read = new ReadCSV();
-        FetchMainControlData fetch = new FetchMainControlData(read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap(), read.getTenMinMap());
+        FetchMainControlData fetch = new FetchMainControlData("127.0.0.1",
+                read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap(), read.getTenMinMap());
         fetch.readFromSlave2Domain();
         fetch.readFromSlave2Domain();
 

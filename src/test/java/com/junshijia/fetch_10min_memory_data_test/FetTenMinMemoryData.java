@@ -22,7 +22,8 @@ public class FetTenMinMemoryData {
 
     @Test
     public void tenMinDataTest1(){
-        FetchMainControlData fetch = new FetchMainControlData(read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap(), read.getTenMinMap());
+        FetchMainControlData fetch = new FetchMainControlData("127.0.0.1",
+                read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap(), read.getTenMinMap());
         fetch.readFromSlave2Domain();
         data=fetch.getTenMinMemoryData();
     }

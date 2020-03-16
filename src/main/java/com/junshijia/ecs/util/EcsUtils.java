@@ -31,6 +31,16 @@ public class EcsUtils {
         c.configure();
         factory = c.buildSessionFactory();
     }
+
+    public static void reConfig(){
+        if (factory!=null){
+            factory.close();
+        }
+        Configuration c = new Configuration();
+        c.configure();
+        factory = c.buildSessionFactory();
+    }
+
     public static SessionFactory getFactory(){
         return factory  ;
     }

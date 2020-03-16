@@ -4,11 +4,13 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name="one_sec")
 public class OneSecData2DB{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	private int wtId;
 	private Date time;
 	@Column(name="`HMI_IReg[153]`")
 	private Float HMI_IReg153;
@@ -89,6 +91,14 @@ public class OneSecData2DB{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getWtId() {
+		return wtId;
+	}
+
+	public void setWtId(int wtId) {
+		this.wtId = wtId;
 	}
 
 	public Date getTime() {

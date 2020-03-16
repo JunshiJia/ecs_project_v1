@@ -50,26 +50,31 @@ public class FetchMainControlData {
     //field names
     private String[] fieldNames;
 
-    public FetchMainControlData(Map<String, Integer> updateMap, Map<String, Integer> oneSecMap,
+    public FetchMainControlData(String ip, Map<String, Integer> updateMap, Map<String, Integer> oneSecMap,
                                 Map<String, Integer> anyOneSecMap, Map<String, Integer> tenMinMap) {
+        //domains
         this.updateData = new UpdateData2DB();
         this.oneSecData = new OneSecData2DB();
         this.anyOneSecData = new AnyOneSecData2DB();
         this.tenMinMemory = new TenMinMemory();
+        //外部的maps
         this.updateMap = updateMap;
         this.oneSecMap = oneSecMap;
         this.anyOneSecMap = anyOneSecMap;
         this.tenMinMap = tenMinMap;
+        //log
         this.log = Logger.getLogger(FetchMainControlData.class);
-        this.setIpPortAdd();
+        //通讯信息
+        this.setIpPortAdd(ip);
         this.ipParameters = new IpParameters();
-        ipParameters.setHost(this.ip);
-        ipParameters.setPort(this.port);
+        this.ipParameters.setHost(this.ip);
+        this.ipParameters.setPort(this.port);
         this.factory = new ModbusFactory();
         this.fieldNames = EcsUtils.getFiledNames(tenMinMemory);
         this.batch = new BatchRead<>();
         this.addBatch();
         this.setMasterAndInit();
+        this.status = new TurbineStatus();
     }
     private void addBatch(){
         int count = 0;
@@ -89,7 +94,7 @@ public class FetchMainControlData {
         this.tenMinCount = anyOneCount+this.anyOneSecMap.size();
     }
 
-    private void setMasterAndInit(){
+    public void setMasterAndInit(){
         this.master = factory.createTcpMaster(this.ipParameters, true);
         this.master.setTimeout(4000);
         this.master.setRetries(1);
@@ -109,7 +114,8 @@ public class FetchMainControlData {
             }
         }
     }
-    private void setIpPortAdd(){
+    private void setIpPortAdd(String ip){
+        this.ip = ip;
         this.ip = "127.0.0.1";
         this.port = 9876;
         this.id = 1;
@@ -122,19 +128,15 @@ public class FetchMainControlData {
         while (flag) {
             try {
                 this.results = this.master.send(this.batch);
-
+                //any1s + update + memoryData
                 EcsUtils.writeData2Domain(this.updateMap, results, this.updateData,0);
-                EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
                 EcsUtils.writeData2Domain(this.anyOneSecMap, results, this.anyOneSecData, anyOneCount);
                 EcsUtils.writeData2List(this.fieldNames, results, this.tenMinMemory, tenMinCount);
-
-                //this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
-                //此处应该判断主状态
-                //if (!this.status.isRunning()) {
-                    //BatchResults<Integer> oneSecResults = this.master.send(this.oneSecBatch);
-                    //EcsUtils.writeData2Domain(this.oneSecMap, oneSecResults, this.oneSecData);
-                //}
-
+                //应该判断主状态,是否需要存1s
+                this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
+                if (!this.status.isRunning()) {
+                    EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
+                }
                 flag = false;
             } catch (ModbusTransportException | ErrorResponseException e) {
                 log.error("Main control connection error, wait 5min and re-connect...");
@@ -145,6 +147,25 @@ public class FetchMainControlData {
                 }
                 this.setMasterAndInit();
             }
+        }
+    }
+
+    public void readFromSlave2DomainThrow() throws ErrorResponseException, ModbusTransportException {
+        boolean flag;
+        //2.read modbus data 2 map/list
+        flag = true;
+        while (flag) {
+            this.results = this.master.send(this.batch);
+            //any1s + update + memoryData
+            EcsUtils.writeData2Domain(this.updateMap, results, this.updateData,0);
+            EcsUtils.writeData2Domain(this.anyOneSecMap, results, this.anyOneSecData, anyOneCount);
+            EcsUtils.writeData2List(this.fieldNames, results, this.tenMinMemory, tenMinCount);
+            //应该判断主状态,是否需要存1s
+            this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
+            if (!this.status.isRunning()) {
+                EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
+            }
+            flag = false;
         }
     }
 
@@ -173,7 +194,7 @@ public class FetchMainControlData {
         return fieldNames;
     }
 
-    public TurbineStatus getStatus() {
-        return status;
+    public boolean isStatusBool() {
+        return this.status.isRunning();
     }
 }

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="allTurbine_data")
+@Table(name="allTurbines_data")
 public class UpdateData2DB{
 
 	@Id

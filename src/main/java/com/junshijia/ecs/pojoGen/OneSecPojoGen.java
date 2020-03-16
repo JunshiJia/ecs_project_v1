@@ -32,7 +32,7 @@ public class OneSecPojoGen {
         }
         //开头
         FileUtils.write(pojoFile,"package com.junshijia.ecs.domain;\r\n\n","UTF-8",true);
-        FileUtils.write(pojoFile,"@Entity\n","UTF-8",true);
+        FileUtils.write(pojoFile,"@Entity\n@Table(name=\"one_sec\")\n","UTF-8",true);
         FileUtils.write(pojoFile,"public class OneSecData2DB{\r\n\n","UTF-8",true);
         //写id
         FileUtils.write(pojoFile,"\t@Id\n" + "\t@GeneratedValue(strategy = GenerationType.AUTO)\n","UTF-8",true);

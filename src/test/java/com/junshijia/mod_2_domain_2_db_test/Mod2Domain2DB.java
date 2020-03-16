@@ -19,7 +19,8 @@ public class Mod2Domain2DB {
     public void Mod2Domain2DBTest1(){
 
         ReadCSV read = new ReadCSV();
-        FetchMainControlData fetch = new FetchMainControlData(read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap(),read.getTenMinMap());
+        FetchMainControlData fetch = new FetchMainControlData("127.0.0.1",
+                read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap(),read.getTenMinMap());
         //fetch.readFromSlave2Domain();
 
         Session session = null;
@@ -74,11 +75,6 @@ public class Mod2Domain2DB {
                 session.save(fetch.getOneSecData());
                 session.save(fetch.getAnyOneSecData());
 
-                //save one sec data
-                if(!fetch.getStatus().isRunning()){
-                    //fetch.getOneSecData().setTime(new Date());
-                    //session.save(fetch.getOneSecData());
-                }
                 tx.commit();
                 //long end = System.currentTimeMillis();
                 //System.out.println(end-start);

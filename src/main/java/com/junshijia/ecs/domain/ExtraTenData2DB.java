@@ -1,12 +1,10 @@
 package com.junshijia.ecs.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name="ten_min_extra")
 public class ExtraTenData2DB{
 
 	@Id
@@ -94,6 +92,10 @@ public class ExtraTenData2DB{
 	private Float A80;
 	private Float A81;
 	private Boolean A82;
+
+	public ExtraTenData2DB() {
+	}
+
 	public ExtraTenData2DB(String A2) {
 		this.A2 = A2;
 		this.A14 = 0F;
