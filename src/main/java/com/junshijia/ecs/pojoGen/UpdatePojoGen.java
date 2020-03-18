@@ -32,7 +32,7 @@ public class UpdatePojoGen {
         }
         //开头
         FileUtils.write(pojoFile,"package com.junshijia.ecs.domain;\n\n","UTF-8",true);
-        FileUtils.write(pojoFile,"@Entity\n@Table(name=\"allTurbine_data\")\n","UTF-8",true);
+        FileUtils.write(pojoFile,"@Entity\n@Table(name=\"allTurbines_data\")\n","UTF-8",true);
         FileUtils.write(pojoFile,"public class UpdateData2DB{\n\n","UTF-8",true);
         //写id
         FileUtils.write(pojoFile,"\t@Id\n" +

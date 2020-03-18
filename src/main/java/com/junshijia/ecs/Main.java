@@ -1,5 +1,6 @@
 package com.junshijia.ecs;
 
+import com.junshijia.ecs.create_table.CreateTableRoutine;
 import com.junshijia.ecs.process.InitUpdateTable;
 import com.junshijia.ecs.process.SingleTurbineDataProcess;
 import org.hibernate.cfg.Configuration;
@@ -14,7 +15,10 @@ public class Main {
         Configuration cfg = new Configuration().configure();
         SchemaExport export = new SchemaExport(cfg);
         export.drop(true, true);
-        //
+        //建立新表
+        CreateTableRoutine create = new CreateTableRoutine();
+
+
         int turbineNum = 10;
         InitUpdateTable initTables = new InitUpdateTable(turbineNum);
         SingleTurbineDataProcess process1 = new SingleTurbineDataProcess(1,"127.0.0.1");

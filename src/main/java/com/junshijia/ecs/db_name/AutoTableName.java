@@ -25,14 +25,25 @@ public class AutoTableName extends EmptyInterceptor {
         String time = formatter.format(date);
         StringBuilder sb = new StringBuilder();
         if(caseNum == 0){
-            sb.append("wt").append(id).append("V").append(this.buildSqlString.getVersion())
-                    .append("_oneSec").append(time);
+            sb.append("`").append("wt").append(id).append("_v").append(this.buildSqlString.getVersion())
+                    .append("_1s_").append(time).append("`");
             this.targetName = "one_sec";
             this.tableName = sb.toString();
         }else if(caseNum == 1){
-            sb.append("wt").append(id).append("V").append(this.buildSqlString.getVersion())
-                    .append("_anyOneSec").append(time);
+            sb.append("`").append("wt").append(id).append("_v").append(this.buildSqlString.getVersion())
+                    .append("_any1s_").append(time).append("`");
             this.targetName = "one_sec_any";
+            this.tableName = sb.toString();
+        }else if(caseNum == 2) {
+            sb.append("`").append("wt").append(id).append("_v").append(this.buildSqlString.getVersion())
+                    .append("_10mincalc").append("`");
+            this.targetName = "ten_min";
+            this.tableName = sb.toString();
+        }
+        else if(caseNum == 3) {
+            sb.append("`").append("wt").append(id).append("_v").append(this.buildSqlString.getVersion())
+                    .append("_10mincalextra").append("`");
+            this.targetName = "ten_min_extra";
             this.tableName = sb.toString();
         }
     }

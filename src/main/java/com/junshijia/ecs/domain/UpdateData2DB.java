@@ -8,7 +8,6 @@ import java.util.Date;
 @Entity
 @Table(name="allTurbines_data")
 public class UpdateData2DB{
-
 	@Id
 	@GenericGenerator(name = "id",strategy = "assigned")
 	@GeneratedValue(generator = "id")

@@ -2,56 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bb0a3cc-4193-46b9-a73b-cfbdd5c296aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/create_table/BuildSqlString.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/create_table/CreateTableRoutine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/version.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/create_table/CreateTableTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/create_table/PropertiesFileTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/data_transfer/FetchMainControlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/data_transfer/FetchMainControlData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/calculation/TenMinCal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/calculation/TenMinCal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/create_table/BuildSqlString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/create_table/BuildSqlString.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/db_name/AutoTableName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/db_name/AutoTableName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/AnyOneSecData2DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/AnyOneSecData2DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/ExtraTenData2DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/ExtraTenData2DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/OneSecData2DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/OneSecData2DB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/TenMinData2DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/TenMinData2DB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/UpdateData2DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/UpdateData2DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/AnyOneSecPojoGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/AnyOneSecPojoGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/ExtraTenPojoGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/ExtraTenPojoGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/OneSecPojoGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/OneSecPojoGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/TenMinPojoGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/TenMinPojoGen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/UpdatePojoGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/pojoGen/UpdatePojoGen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/process/SingleTurbineDataProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/process/SingleTurbineDataProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/util/EcsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/util/EcsUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/fetch_10min_memory_data_test/FetTenMinMemoryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/fetch_10min_memory_data_test/FetTenMinMemoryData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/mod_2_domain_2_db_test/DbTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/mod_2_domain_2_db_test/DbTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/mod_2_domain_2_db_test/Mod2Domain2DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/mod_2_domain_2_db_test/Mod2Domain2DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/modbus_2_domain_test/Modbus2Domain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/modbus_2_domain_test/Modbus2Domain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/read_modbus_test/readModbusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/read_modbus_test/readModbusTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/ten_min_cal_test/ExtraTenMinCalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/ten_min_cal_test/ExtraTenMinCalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/junshijia/ten_min_cal_test/TenMinCalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/junshijia/ten_min_cal_test/TenMinCalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/version.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/data_transfer/FetchMainControlData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/data_transfer/FetchMainControlData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/calculation/TenMinCal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/calculation/TenMinCal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/db_name/AutoTableName.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/db_name/AutoTableName.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/domain/AnyOneSecData2DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/domain/AnyOneSecData2DB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/domain/ExtraTenData2DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/domain/ExtraTenData2DB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/domain/OneSecData2DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/domain/OneSecData2DB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/domain/TenMinData2DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/domain/TenMinData2DB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/AnyOneSecPojoGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/AnyOneSecPojoGen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/ExtraTenPojoGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/ExtraTenPojoGen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/OneSecPojoGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/OneSecPojoGen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/TenMinPojoGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/TenMinPojoGen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/domain/UpdateData2DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/domain/UpdateData2DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/UpdatePojoGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/pojoGen/UpdatePojoGen.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/process/SingleTurbineDataProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/process/SingleTurbineDataProcess.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/util/EcsUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/util/EcsUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/junshijia/fetch_10min_memory_data_test/FetTenMinMemoryData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/junshijia/fetch_10min_memory_data_test/FetTenMinMemoryData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/junshijia/mod_2_domain_2_db_test/DbTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/junshijia/mod_2_domain_2_db_test/DbTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/junshijia/mod_2_domain_2_db_test/Mod2Domain2DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/junshijia/mod_2_domain_2_db_test/Mod2Domain2DB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/junshijia/modbus_2_domain_test/Modbus2Domain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/junshijia/modbus_2_domain_test/Modbus2Domain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/junshijia/read_modbus_test/readModbusTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/junshijia/read_modbus_test/readModbusTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/junshijia/ten_min_cal_test/ExtraTenMinCalTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/junshijia/ten_min_cal_test/ExtraTenMinCalTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/junshijia/ten_min_cal_test/TenMinCalTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/junshijia/ten_min_cal_test/TenMinCalTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,11 +88,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pojogen" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.updates" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -138,7 +110,20 @@
       <recent name="D:\ecs_project_v1" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CreateFileTest.tenMinPojoGen">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.junshijia.ecs.Main" />
+      <module name="ecs_project_v1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.junshijia.ecs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CreateFileTest.tenMinPojoGen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ecs_project_v1" />
       <extension name="coverage">
@@ -187,22 +172,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DbTest.dbTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ecs_project_v1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.junshijia.mod_2_domain_2_db_test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.junshijia.mod_2_domain_2_db_test" />
-      <option name="MAIN_CLASS_NAME" value="com.junshijia.mod_2_domain_2_db_test.DbTest" />
-      <option name="METHOD_NAME" value="dbTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PropertiesFileTest.propertiesFileT1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ecs_project_v1" />
       <extension name="coverage">
@@ -221,11 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CreateFileTest.tenMinPojoGen" />
         <item itemvalue="JUnit.CreateTableTest.createTableRoutine" />
         <item itemvalue="JUnit.CreateTableTest.createTableInCode" />
         <item itemvalue="JUnit.PropertiesFileTest.propertiesFileT1" />
-        <item itemvalue="JUnit.DbTest.dbTest" />
       </list>
     </recent_temporary>
   </component>
@@ -326,7 +295,8 @@
       <workItem from="1583986801882" duration="3371000" />
       <workItem from="1584058945331" duration="8695000" />
       <workItem from="1584149019453" duration="15146000" />
-      <workItem from="1584318125698" duration="22084000" />
+      <workItem from="1584318125698" duration="22279000" />
+      <workItem from="1584404753603" duration="18412000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1577167766825</created>
@@ -398,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584070983089</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="create tables">
+      <created>1584350876572</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1584350876572</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +391,8 @@
     <MESSAGE value="finish extra 10 min cal" />
     <MESSAGE value="starts process block" />
     <MESSAGE value="new dynamic table name handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="new dynamic table name handling" />
+    <MESSAGE value="create tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="create tables" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Assign_Data_Sources" timestamp="1577419066032">
@@ -429,19 +407,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Plugins/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1582188476168" />
-    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1584348441039">
+    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1584408194881">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584348441039" />
+    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584408194881" />
     <state x="2411" y="193" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040/1920.0.1366.728@1920.0.1366.728" timestamp="1583986921037" />
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576542961955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1576542961955" />
-    <state x="1201" y="216" key="#com.intellij.ide.util.MemberChooser" timestamp="1584348828156">
+    <state x="1201" y="216" key="#com.intellij.ide.util.MemberChooser" timestamp="1584430151482">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1201" y="216" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584348828156" />
+    <state x="1201" y="216" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584430151482" />
     <state x="617" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1581399401483">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -450,34 +428,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1581495491728" />
-    <state x="871" y="107" width="800" height="808" key="CommitChangelistDialog2" timestamp="1584070981387">
+    <state x="871" y="107" width="800" height="808" key="CommitChangelistDialog2" timestamp="1584350873948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="871" y="107" width="800" height="808" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584070981387" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1584347062798">
+    <state x="871" y="107" width="800" height="808" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584350873948" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1584491709344">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584347062798" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584491709344" />
     <state x="2446" y="193" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1366.728@1920.0.1366.728" timestamp="1583984304901" />
-    <state width="1877" height="245" key="GridCell.Tab.0.bottom" timestamp="1584350669382">
+    <state width="1877" height="111" key="GridCell.Tab.0.bottom" timestamp="1584436344116">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="245" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584350669382" />
+    <state width="1877" height="111" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584436344116" />
     <state width="1323" height="154" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1366.728@1920.0.1366.728" timestamp="1583987006179" />
-    <state width="1877" height="245" key="GridCell.Tab.0.center" timestamp="1584350669382">
+    <state width="1877" height="111" key="GridCell.Tab.0.center" timestamp="1584436344116">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="245" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584350669382" />
+    <state width="1877" height="111" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584436344116" />
     <state width="1323" height="154" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1366.728@1920.0.1366.728" timestamp="1583987006179" />
-    <state width="1877" height="245" key="GridCell.Tab.0.left" timestamp="1584350669381">
+    <state width="1877" height="111" key="GridCell.Tab.0.left" timestamp="1584436344116">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="245" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584350669381" />
+    <state width="1877" height="111" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584436344116" />
     <state width="1323" height="154" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1366.728@1920.0.1366.728" timestamp="1583987006179" />
-    <state width="1877" height="245" key="GridCell.Tab.0.right" timestamp="1584350669382">
+    <state width="1877" height="111" key="GridCell.Tab.0.right" timestamp="1584436344116">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="245" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584350669382" />
+    <state width="1877" height="111" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584436344116" />
     <state width="1323" height="154" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1366.728@1920.0.1366.728" timestamp="1583987006179" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583314242851">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -495,14 +473,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583314242850" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1583974434575">
+    <state x="461" y="162" key="SettingsEditor" timestamp="1584492552739">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583974434575" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1583800606286">
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584492552739" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1584405697244">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583800606286" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584405697244" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1583223319532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -511,10 +489,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1577238850962" />
-    <state x="1920" y="0" width="1382" height="814" key="dock-window-1" timestamp="1583713876341">
+    <state x="1920" y="0" width="1382" height="814" maximized="true" key="dock-window-1" timestamp="1584409137224">
       <screen x="1920" y="0" width="1366" height="728" />
     </state>
-    <state x="1920" y="0" width="1382" height="814" key="dock-window-1/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1583713876341" />
+    <state x="1920" y="0" width="1382" height="814" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1584409137224" />
     <state x="654" y="311" key="git4idea.merge.GitPullDialog" timestamp="1581390684396">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

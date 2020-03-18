@@ -34,6 +34,7 @@ public class TenMinCal {
     public void setDataAndCalculate(TenMinMemory memoryData, TenMinData2DB data2DB){
         this.memoryData = memoryData;
         this.data2DB = data2DB;
+        this.data2DB.setTime(new Date());
         this.calculate();
     }
     //前3个属性名不用

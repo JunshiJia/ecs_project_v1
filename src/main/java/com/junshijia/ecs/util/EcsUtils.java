@@ -12,9 +12,8 @@ import org.hibernate.cfg.Configuration;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.regex.Pattern;
 
 import static java.util.regex.Pattern.compile;
@@ -33,7 +32,7 @@ public class EcsUtils {
     }
 
     public static void reConfig(){
-        if (factory!=null){
+        if (!factory.isClosed()){
             factory.close();
         }
         Configuration c = new Configuration();
@@ -47,6 +46,18 @@ public class EcsUtils {
 
     public static Session getSession(){
         return factory.openSession();
+    }
+
+    //ons sec table name
+    public static String oneSecNameGen(int id, String version, String type){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMM");
+        Calendar cal = Calendar.getInstance();
+        Date date = cal.getTime();
+        String time = formatter.format(date);
+        StringBuilder sb = new StringBuilder();
+        sb.append("WT").append(id).append("V").append(version)
+                .append(type).append(time);
+        return sb.toString();
     }
 
     //list->array

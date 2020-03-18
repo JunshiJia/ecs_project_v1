@@ -15,16 +15,33 @@
         <property name="connection.username">root</property>
         <!--5数据库密码  -->
         <property name="connection.password">123456</property>
+        <!--自动建表，表名=tablename  -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!--是否显示sql语句，sql一般会很难看  默认为false
+        <property name="hibernate.show_sql">false</property>-->
 
-        <!--<property name="hibernate.hbm2ddl.auto">update</property>-->
-        <!--是否显示sql语句，sql一般会很难看  默认为false-->
-        <property name="hibernate.show_sql">false</property>
+        <!--c3p0配置-->
+        <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+        <!--c3p0具体配置-->
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.timeout">120</property>
+        <property name="automaticTestTable">Test</property>
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <property name="hibernate.c3p0.idle_test_period">120</property>
+        <property name="hibernate.c3p0.acquire_increment">1</property>
+        <property name="c3p0.testConnectionOnCheckout">true</property>
+        <property name="c3p0.idleConnectionTestPeriod">18000</property>
+        <property name="c3p0.maxIdleTime">25000</property>
+        <property name="c3p0.idle_test_period">120</property>
+
+
+
         <!--下一个层级的映射文件，用来配置bean对象与数据表之间的关系  -->
         <mapping class="com.junshijia.ecs.domain.UpdateData2DB"/>
         <mapping class="com.junshijia.ecs.domain.OneSecData2DB"/>
         <mapping class="com.junshijia.ecs.domain.AnyOneSecData2DB"/>
         <mapping class="com.junshijia.ecs.domain.TenMinData2DB"/>
         <mapping class="com.junshijia.ecs.domain.ExtraTenData2DB"/>
-        <mapping class="com.junshijia.mod_2_domain_2_db_test.testTable"/>
     </session-factory>
 </hibernate-configuration>

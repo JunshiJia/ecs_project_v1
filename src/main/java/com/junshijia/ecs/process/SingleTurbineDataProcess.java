@@ -49,7 +49,7 @@ public class SingleTurbineDataProcess {
         long during = 0;
         long total = 0;
         //starts loop
-        //while(true) {
+        while(true) {
             for(counter = 0; counter < 599; counter++) {
                 startTime = System.currentTimeMillis();
                 //1.get modbus data
@@ -68,7 +68,7 @@ public class SingleTurbineDataProcess {
                 System.out.println("each cycle using time: "+during);
                 if(counter == 0){
                     //init extra ten min calculation data
-                    this.extraTenMinCal.InitData(new ExtraTenData2DB(""+this.turbineId),
+                    this.extraTenMinCal.InitData(new ExtraTenData2DB(Integer.toString(this.turbineId)),
                             this.fetch.getUpdateData(),this.fetch.getOneSecData());
                 }else if(counter == 598) {
                     startTime = System.currentTimeMillis();
@@ -82,6 +82,8 @@ public class SingleTurbineDataProcess {
                     this.tenMinDatas2db();
                     //6.renew memory data
                     this.fetch.renewMemory();
+                    //7.关闭session以免链接数太多
+                    EcsUtils.reConfig();
                     //watch time
                     endTime = System.currentTimeMillis();
                     during = endTime-startTime;
@@ -96,8 +98,7 @@ public class SingleTurbineDataProcess {
                 System.out.println("after sleep use time: "+(endTime-startTime));
                 total += endTime - startTime;
             }
-    //    }
-
+        }
     }
 
     private void realTimeData2db(){
@@ -117,19 +118,21 @@ public class SingleTurbineDataProcess {
                 //save any1sec and update
                 this.session.update(this.fetch.getUpdateData());
                 this.session.save(this.fetch.getAnyOneSecData());
+                this.tx.commit();
+                session.close();
                 //判断是否存one Sec
                 //if(this.fetch.isStatusBool()) {
                 if(true) {//test
+
                     this.tableName.setTableNames(0);
                     this.session = EcsUtils.getFactory().openSession(this.tableName);
                     this.tx = session.beginTransaction();
                     this.fetch.getOneSecData().setWtId(this.turbineId);
                     this.fetch.getOneSecData().setTime(new Date());
                     this.session.save(this.fetch.getOneSecData());
+                    this.tx.commit();
+                    session.close();
                 }
-                //close session
-                this.tx.commit();
-                session.close();
                 flag = false;
             } catch (HibernateException e) {
                 e.printStackTrace();
@@ -143,14 +146,22 @@ public class SingleTurbineDataProcess {
         boolean flag = true;
         while(flag) {
             try {
-                //1.begin db session
-                this.session = EcsUtils.getSession();
-                this.tx = session.beginTransaction();
-                //save one sec data and update data
+                //save 10min
+                this.tableName.setTableNames(2);
+                this.session = EcsUtils.getFactory().openSession(this.tableName);
+                this.tx = this.session.beginTransaction();
                 this.session.save(this.tenMinCal.getData2DB());
+                this.tx.commit();
+                this.session.close();
+
+                //save extra 10min
+                this.tableName.setTableNames(3);
+                this.session = EcsUtils.getFactory().openSession(this.tableName);
+                this.tx = this.session.beginTransaction();
                 this.session.save(this.extraTenMinCal.getData2DB());
                 this.tx.commit();
                 this.session.close();
+
                 flag = false;
             } catch (HibernateException e) {
                 e.printStackTrace();
@@ -160,10 +171,10 @@ public class SingleTurbineDataProcess {
     }
 
     private void waitRoutine(long time){
-        if(time > 950){
+        if(time > 980){
             System.out.println("too slow");
         }else {
-            time = 950 - time;
+            time = 980 - time;
             System.out.println("sleep: "+time);
             try {
                 Thread.sleep(time);
@@ -175,7 +186,7 @@ public class SingleTurbineDataProcess {
 
     private void dbExceptionHandle(){
         this.counter = 0;
-        System.out.println("db error...");
+        System.out.println("db error,w8 500s...");
         if(session!=null) {
             this.session.close();
         }
@@ -189,7 +200,7 @@ public class SingleTurbineDataProcess {
 
     private void handleModbusError(){
         this.counter = 0;
-        System.out.println("db error...");
+        System.out.println("modbus error...");
         if(session!=null) {
             this.session.close();
         }
