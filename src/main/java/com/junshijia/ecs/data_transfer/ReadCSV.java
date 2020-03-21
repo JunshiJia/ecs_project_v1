@@ -95,8 +95,8 @@ public class ReadCSV {
                     data.setMainControlAddress(Integer.parseInt(values[1]));
                     data.setEnCoding(values[2]);
                     if(values[5].equals("1")){data.setUpdate(true);}
-                    if(values[7].equals("1")){data.setStorageOneSec(true);}
-                    if(values[8].equals("1")){data.setAnyOneSec(true);}
+                    if(values[8].equals("1")){data.setStorageOneSec(true);}
+                    if(values[6].equals("1")){data.setAnyOneSec(true);}
                     if(values[9].equals("1")){data.setAndTenMin(true);}
                     if(values[10].equals("1")){data.setNumberMaxTenMin(true);}
                     if(values[11].equals("1")){data.setMeanTenMin(true);}
@@ -108,15 +108,11 @@ public class ReadCSV {
                     if(values[17].equals("1")){data.setMaxTenSec(true);}
                     if(values[18].equals("1")){data.setMinTenSec(true);}
                     if(values[19].equals("1")){data.setEdgeDetect(true);}
-
-
                     //add to update set and map
                     if(data.isUpdate()){
                         this.updateSet.add(data.getEnCoding());
                         this.updateMap.put(data.getEnCoding(),data.getMainControlAddress());
                     }
-
-
                     //add to oneSec set
                     if(data.isStorageOneSec()){
                         this.oneSecSet.add(data.getEnCoding());
@@ -131,14 +127,12 @@ public class ReadCSV {
                     if(data.isEdgeDetect()){
                         this.edgeSet.add(data.getEnCoding());
                     }
-
                     //add to ten sec set
                     if(data.isMaxTenSec() || data.isMeanTenSec()){
                         if(data.getEnCoding().charAt(0)!='a' && data.getEnCoding().charAt(0)!='b') {
                             this.tenSecSet.add(data.getEnCoding());
                         }
                     }
-
                     //add to ten min set
                     if(data.isAndTenMin() || data.isMaxTenMin() || data.isMeanTenMin() || data.isMinTenMin()
                             || data.isNumberMaxTenMin() || data.isOnFlowTenMin() || data.isStdDevTenMin()){
@@ -173,7 +167,6 @@ public class ReadCSV {
                     this.tenMinSets.add(this.stdDivSet);
                     this.tenMinSets.add(this.maxNumSet);
                     this.tenMinSets.add(this.flowSet);
-
                     //add to big list
                     this.dataList.add(data);
                 }

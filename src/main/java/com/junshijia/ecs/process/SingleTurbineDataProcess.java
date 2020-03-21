@@ -13,6 +13,7 @@ import com.serotonin.modbus4j.exception.ModbusTransportException;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.exception.SQLGrammarException;
 
 import java.util.Date;
 
@@ -48,17 +49,26 @@ public class SingleTurbineDataProcess {
         long endTime = 0;
         long during = 0;
         long total = 0;
+        boolean modbusFlag;
         //starts loop
         while(true) {
+            modbusFlag = true;
             for(counter = 0; counter < 599; counter++) {
                 startTime = System.currentTimeMillis();
                 //1.get modbus data
-                try {
-                    this.fetch.readFromSlave2DomainThrow();
-                } catch (ErrorResponseException e) {
-                    e.printStackTrace();
-                } catch (ModbusTransportException e) {
-                    this.handleModbusError();
+                while(modbusFlag) {
+                    try {
+                        this.fetch.readFromSlave2DomainThrow();
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        modbusFlag = false;
+                    } catch (ErrorResponseException | ModbusTransportException e) {
+                        this.modbusErrorHandle();
+                        e.printStackTrace();
+                    }
                 }
                 //2.modbus data 2 db every second
                 this.realTimeData2db();
@@ -66,24 +76,25 @@ public class SingleTurbineDataProcess {
                 endTime = System.currentTimeMillis();
                 during = endTime - startTime;
                 System.out.println("each cycle using time: "+during);
-                if(counter == 0){
+                System.out.println(fetch.getOneSecData());
+                if(counter == 2){
                     //init extra ten min calculation data
-                    this.extraTenMinCal.InitData(new ExtraTenData2DB(Integer.toString(this.turbineId)),
-                            this.fetch.getUpdateData(),this.fetch.getOneSecData());
+                    this.extraTenMinCal.InitData(
+                            this.fetch.getUpdateData());
                 }else if(counter == 598) {
                     startTime = System.currentTimeMillis();
                     //3.cal normal ten min data
                     this.tenMinCal.setDataAndCalculate(this.fetch.getTenMinMemoryData(),new TenMinData2DB());
                     //4.cal extra ten min data
-                    this.extraTenMinCal.setDataTenMinLaterAndCalculate(this.fetch.getTenMinMemoryData(),
-                            this.fetch.getUpdateData(),this.fetch.getOneSecData());
+                    this.extraTenMinCal.setDataTenMinLaterAndCalculate(this.turbineId, this.fetch.getTenMinMemoryData(),
+                            this.fetch.getUpdateData());
                     //5.datas 2 db
                     System.out.println(this.tenMinCal.getData2DB().toString());
                     this.tenMinDatas2db();
                     //6.renew memory data
                     this.fetch.renewMemory();
                     //7.关闭session以免链接数太多
-                    EcsUtils.reConfig();
+
                     //watch time
                     endTime = System.currentTimeMillis();
                     during = endTime-startTime;
@@ -91,6 +102,7 @@ public class SingleTurbineDataProcess {
                     System.out.println("10 min calculate time = "+during+"ms");
                     System.out.println("total time = "+total+"ms");
                 }
+
                 //this.session.close();
                 //w8 until 1 second
                 this.waitRoutine(during);
@@ -108,6 +120,7 @@ public class SingleTurbineDataProcess {
                 //any one sec and update first
                 this.tableName.setTableNames(1);
                 this.session = EcsUtils.getFactory().openSession(this.tableName);
+                session.clear();
                 this.tx = session.beginTransaction();
                 //set time and id
                 this.fetch.getUpdateData().setId(this.turbineId);
@@ -119,13 +132,13 @@ public class SingleTurbineDataProcess {
                 this.session.update(this.fetch.getUpdateData());
                 this.session.save(this.fetch.getAnyOneSecData());
                 this.tx.commit();
-                session.close();
+                this.session.close();
                 //判断是否存one Sec
                 //if(this.fetch.isStatusBool()) {
                 if(true) {//test
-
                     this.tableName.setTableNames(0);
                     this.session = EcsUtils.getFactory().openSession(this.tableName);
+                    session.clear();
                     this.tx = session.beginTransaction();
                     this.fetch.getOneSecData().setWtId(this.turbineId);
                     this.fetch.getOneSecData().setTime(new Date());
@@ -152,6 +165,7 @@ public class SingleTurbineDataProcess {
                 this.tx = this.session.beginTransaction();
                 this.session.save(this.tenMinCal.getData2DB());
                 this.tx.commit();
+                session.clear();
                 this.session.close();
 
                 //save extra 10min
@@ -160,14 +174,29 @@ public class SingleTurbineDataProcess {
                 this.tx = this.session.beginTransaction();
                 this.session.save(this.extraTenMinCal.getData2DB());
                 this.tx.commit();
+                session.clear();
                 this.session.close();
 
                 flag = false;
+            } catch (SQLGrammarException e2){
+                System.out.println("e2........");
+                e2.printStackTrace();
+                this.nanHandle();
             } catch (HibernateException e) {
+                System.out.println("e1........");
                 e.printStackTrace();
                 this.dbExceptionHandle();
             }
         }
+    }
+
+    private void nanHandle(){
+        this.tableName.setTableNames(3);
+        this.session = EcsUtils.getFactory().openSession(this.tableName);
+        this.tx = this.session.beginTransaction();
+        this.session.save(new ExtraTenData2DB());
+        this.tx.commit();
+        this.session.close();
     }
 
     private void waitRoutine(long time){
@@ -198,9 +227,9 @@ public class SingleTurbineDataProcess {
         //EcsUtils.reConfig();
     }
 
-    private void handleModbusError(){
+    private void modbusErrorHandle(){
         this.counter = 0;
-        System.out.println("modbus error...");
+        System.out.println("modbus error, w8 500s...");
         if(session!=null) {
             this.session.close();
         }
@@ -210,5 +239,6 @@ public class SingleTurbineDataProcess {
             ex.printStackTrace();
         }
     }
+
 
 }

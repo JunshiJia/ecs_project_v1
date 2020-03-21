@@ -10,7 +10,7 @@
         <!--2驱动路径注意数据库类型  -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <!--3数据库路径  -->
-        <property name="connection.url">jdbc:mysql://localhost:3306/new_ecs?useSSL=false</property>
+        <property name="connection.url">jdbc:mysql://192.168.101.242:3306/new_ecs?useSSL=false</property>
         <!--4数据库用户名  -->
         <property name="connection.username">root</property>
         <!--5数据库密码  -->
@@ -19,21 +19,31 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <!--是否显示sql语句，sql一般会很难看  默认为false
         <property name="hibernate.show_sql">false</property>-->
+        <property name="hibernate.cache.use_second_level_cache">false</property>
 
         <!--c3p0配置-->
         <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
-        <!--c3p0具体配置-->
-        <property name="hibernate.c3p0.max_size">20</property>
-        <property name="hibernate.c3p0.min_size">5</property>
+
+        <property name="hibernate.c3p0.max_size">100</property>
+        <property name="hibernate.c3p0.min_size">10</property>
         <property name="hibernate.c3p0.timeout">120</property>
         <property name="automaticTestTable">Test</property>
         <property name="hibernate.c3p0.max_statements">100</property>
         <property name="hibernate.c3p0.idle_test_period">120</property>
-        <property name="hibernate.c3p0.acquire_increment">1</property>
+        <property name="hibernate.c3p0.acquire_increment">3</property>
         <property name="c3p0.testConnectionOnCheckout">true</property>
         <property name="c3p0.idleConnectionTestPeriod">18000</property>
         <property name="c3p0.maxIdleTime">25000</property>
         <property name="c3p0.idle_test_period">120</property>
+
+        <!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+        <property name="acquireRetryAttempts">30</property>
+        <!--两次连接中间隔时间，单位毫秒。Default: 1000 -->
+        <property name="acquireRetryDelay">600000</property>
+        <!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
+        <property name="idleConnectionTestPeriod">600</property>
+
+
 
 
 

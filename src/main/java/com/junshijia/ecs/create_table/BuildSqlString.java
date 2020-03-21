@@ -49,7 +49,7 @@ public class BuildSqlString {
         //1秒数据
         for(int i = 1; i <= this.turbineNum; i++) {
             StringBuilder sb = new StringBuilder();
-            sb.append("WT").append(i).append("_V").append(version).append("_1s_")
+            sb.append("wt").append(i).append("_v").append(version).append("_1s_")
                     .append(time);
             String oneSecSql = "CREATE TABLE `" + sb.toString() + "` (\n" +
                     "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
@@ -72,14 +72,14 @@ public class BuildSqlString {
                     "  `HMI_IReg[1423]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[153]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[155]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1644]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1645]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1646]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1647]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1648]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1649]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1665]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1666]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1572]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1573]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1574]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1575]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1576]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1577]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1672]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1673]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[237]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[238]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[239]` float DEFAULT NULL,\n" +
@@ -92,18 +92,18 @@ public class BuildSqlString {
                     "  `time` datetime DEFAULT NULL,\n" +
                     "  `wtId` int(11) NOT NULL,\n" +
                     "  PRIMARY KEY (`id`)\n" +
-                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
+                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
             this.sqlList.add(oneSecSql);
         }
         //any1秒数据
         for(int i = 1; i <= this.turbineNum; i++){
             StringBuilder sb = new StringBuilder();
-            sb.append("WT").append(i).append("_V").append(version).append("_any1s_")
+            sb.append("wt").append(i).append("_v").append(version).append("_any1s_")
                     .append(time);
             String anyOneSecSql = "CREATE TABLE `"+sb.toString()+"` (\n" +
                     "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
-                    "  `HMI_Disc[1653]` bit(1) DEFAULT NULL,\n" +
                     "  `HMI_IReg[107]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[108]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[110]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[121]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[1405]` float DEFAULT NULL,\n" +
@@ -113,14 +113,14 @@ public class BuildSqlString {
                     "  `HMI_IReg[1422]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[1423]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[155]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1611]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1612]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1613]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1643]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1644]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1645]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1646]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1667]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1563]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1564]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1565]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1575]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1576]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1577]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1584]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1670]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[1691]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[1692]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[1693]` float DEFAULT NULL,\n" +
@@ -139,20 +139,16 @@ public class BuildSqlString {
                     "  `HMI_IReg[243]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[244]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[245]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[6]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[7]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[8]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[9]` float DEFAULT NULL,\n" +
                     "  `time` datetime DEFAULT NULL,\n" +
                     "  `wtId` int(11) NOT NULL,\n" +
                     "  PRIMARY KEY (`id`)\n" +
-                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
+                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
             this.sqlList.add(anyOneSecSql);
         }
-
+        //10分钟计算
         for(int i = 1; i <= this.turbineNum; i++) {
             StringBuilder sb = new StringBuilder();
-            sb.append("WT").append(i).append("_V").append(version).append("_10mincalc");
+            sb.append("wt").append(i).append("_v").append(version).append("_10mincalc");
             String tenMinSql = "CREATE TABLE `" + sb.toString() + "` (\n" +
                     "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                     "  `HMI_Disc[332]_Min` float DEFAULT NULL,\n" +
@@ -165,8 +161,6 @@ public class BuildSqlString {
                     "  `HMI_Disc[413]_Onflow` float DEFAULT NULL,\n" +
                     "  `HMI_Disc[413]_Min` float DEFAULT NULL,\n" +
                     "  `HMI_Disc[413]_StdDiv` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[476]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[476]_StdDiv` float DEFAULT NULL,\n" +
                     "  `HMI_Disc[910]_And` bit(1) DEFAULT NULL,\n" +
                     "  `HMI_Disc[910]_Max` float DEFAULT NULL,\n" +
                     "  `HMI_Disc[910]_MaxNum` float DEFAULT NULL,\n" +
@@ -181,12 +175,14 @@ public class BuildSqlString {
                     "  `HMI_IReg[105]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[106]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[107]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[108]_Max` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[110]_Max` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[110]_MaxNum` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[110]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[110]_Min` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[110]_StdDiv` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[118]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[119]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[121]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[122]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[1405]_Mean` float DEFAULT NULL,\n" +
@@ -212,25 +208,24 @@ public class BuildSqlString {
                     "  `HMI_IReg[155]_Max` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[155]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[155]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1611]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1612]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1613]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1637]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1638]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1639]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1640]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1641]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1642]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1643]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1644]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1645]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1646]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1665]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1666]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1677]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1678]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1563]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1564]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1565]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1575]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1576]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1577]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1578]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1579]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1580]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1581]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1582]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1583]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1584]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1672]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1673]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[167]_And` bit(1) DEFAULT NULL,\n" +
                     "  `HMI_IReg[167]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1683]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[1691]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[1692]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[1693]_Mean` float DEFAULT NULL,\n" +
@@ -258,27 +253,16 @@ public class BuildSqlString {
                     "  `HMI_IReg[243]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[244]_Mean` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[245]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[248]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[6]_And` bit(1) DEFAULT NULL,\n" +
-                    "  `HMI_IReg[6]_Onflow` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[6]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[7]_And` bit(1) DEFAULT NULL,\n" +
-                    "  `HMI_IReg[7]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[8]_And` bit(1) DEFAULT NULL,\n" +
-                    "  `HMI_IReg[8]_Onflow` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[8]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[9]_And` bit(1) DEFAULT NULL,\n" +
-                    "  `HMI_IReg[9]_Mean` float DEFAULT NULL,\n" +
                     "  `time` datetime DEFAULT NULL,\n" +
                     "  `wtId` int(11) NOT NULL,\n" +
                     "  PRIMARY KEY (`id`)\n" +
-                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
+                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
             this.sqlList.add(tenMinSql);
         }
-
+        //10分钟额外计算
         for(int i = 1; i <= this.turbineNum; i++) {
             StringBuilder sb = new StringBuilder();
-            sb.append("WT").append(i).append("_V").append(version).append("_10mincalextra");
+            sb.append("wt").append(i).append("_v").append(version).append("_10mincalextra");
             String extraTenSql = "CREATE TABLE `" + sb.toString() + "` (\n" +
                     "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                     "  `A1` datetime DEFAULT NULL,\n" +
@@ -364,7 +348,7 @@ public class BuildSqlString {
                     "  `A82` bit(1) DEFAULT NULL,\n" +
                     "  `A9` float DEFAULT NULL,\n" +
                     "  PRIMARY KEY (`id`)\n" +
-                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
+                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
             this.sqlList.add(extraTenSql);
         }
     }

@@ -30,7 +30,7 @@ public class EcsUtils {
         c.configure();
         factory = c.buildSessionFactory();
     }
-
+    //线程不安全
     public static void reConfig(){
         if (!factory.isClosed()){
             factory.close();
@@ -186,7 +186,6 @@ public class EcsUtils {
         }
     }
 
-
     public static BatchRead<Integer> addBatchLocator(BatchRead<Integer> batch, Map<String,Integer> map, int i){
         batch.setContiguousRequests(false);
         Iterator<Map.Entry<String, Integer>> entries = map.entrySet().iterator();
@@ -199,10 +198,10 @@ public class EcsUtils {
                 batch.addLocator(i, BaseLocator.inputStatus(1,entry.getValue()-100001));
             }
             else if(entry.getKey().charAt(4)=='I'){
-                batch.addLocator(i, BaseLocator.inputRegister(1,entry.getValue()-300001, DataType.FOUR_BYTE_FLOAT));
+                batch.addLocator(i, BaseLocator.inputRegister(1,entry.getValue()-300001, DataType.FOUR_BYTE_FLOAT_SWAPPED));
             }
             else if(entry.getKey().charAt(4)=='H'){
-                batch.addLocator(i, BaseLocator.holdingRegister(1,entry.getValue()-400001, DataType.FOUR_BYTE_FLOAT));
+                batch.addLocator(i, BaseLocator.holdingRegister(1,entry.getValue()-400001, DataType.FOUR_BYTE_FLOAT_SWAPPED));
             }else{
                 System.out.println("error....");
             }

@@ -11,7 +11,7 @@ public class CreateTableRoutine {
     private List<String> sqlList;
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/new_ecs?useSSL=false";
+    static final String DB_URL = "jdbc:mysql://192.168.101.242/new_ecs?useSSL=false";
 
     //  Database credentials
     static final String USER = "root";

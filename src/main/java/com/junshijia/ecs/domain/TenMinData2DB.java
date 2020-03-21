@@ -52,6 +52,8 @@ public class TenMinData2DB{
 	private Float HMI_IReg106Mean;
 	@Column(name="`HMI_IReg[107]_Mean`")
 	private Float HMI_IReg107Mean;
+	@Column(name="`HMI_IReg[108]_Max`")
+	private Float HMI_IReg108Max;
 	@Column(name="`HMI_IReg[110]_Max`")
 	private Float HMI_IReg110Max;
 	@Column(name="`HMI_IReg[110]_Mean`")
@@ -64,6 +66,8 @@ public class TenMinData2DB{
 	private Float HMI_IReg110MaxNum;
 	@Column(name="`HMI_IReg[118]_Mean`")
 	private Float HMI_IReg118Mean;
+	@Column(name="`HMI_IReg[119]_Mean`")
+	private Float HMI_IReg119Mean;
 	@Column(name="`HMI_IReg[121]_Mean`")
 	private Float HMI_IReg121Mean;
 	@Column(name="`HMI_IReg[122]_Mean`")
@@ -112,8 +116,6 @@ public class TenMinData2DB{
 	private Float HMI_IReg244Mean;
 	@Column(name="`HMI_IReg[245]_Mean`")
 	private Float HMI_IReg245Mean;
-	@Column(name="`HMI_IReg[248]_Mean`")
-	private Float HMI_IReg248Mean;
 	@Column(name="`HMI_IReg[1405]_Mean`")
 	private Float HMI_IReg1405Mean;
 	@Column(name="`HMI_IReg[1406]_Mean`")
@@ -140,40 +142,38 @@ public class TenMinData2DB{
 	private Float HMI_IReg1423Mean;
 	@Column(name="`HMI_IReg[1426]_Mean`")
 	private Float HMI_IReg1426Mean;
-	@Column(name="`HMI_IReg[1611]_Mean`")
-	private Float HMI_IReg1611Mean;
-	@Column(name="`HMI_IReg[1612]_Mean`")
-	private Float HMI_IReg1612Mean;
-	@Column(name="`HMI_IReg[1613]_Mean`")
-	private Float HMI_IReg1613Mean;
-	@Column(name="`HMI_IReg[1637]_Mean`")
-	private Float HMI_IReg1637Mean;
-	@Column(name="`HMI_IReg[1638]_Mean`")
-	private Float HMI_IReg1638Mean;
-	@Column(name="`HMI_IReg[1639]_Mean`")
-	private Float HMI_IReg1639Mean;
-	@Column(name="`HMI_IReg[1640]_Mean`")
-	private Float HMI_IReg1640Mean;
-	@Column(name="`HMI_IReg[1641]_Mean`")
-	private Float HMI_IReg1641Mean;
-	@Column(name="`HMI_IReg[1642]_Mean`")
-	private Float HMI_IReg1642Mean;
-	@Column(name="`HMI_IReg[1643]_Mean`")
-	private Float HMI_IReg1643Mean;
-	@Column(name="`HMI_IReg[1644]_Mean`")
-	private Float HMI_IReg1644Mean;
-	@Column(name="`HMI_IReg[1645]_Mean`")
-	private Float HMI_IReg1645Mean;
-	@Column(name="`HMI_IReg[1646]_Mean`")
-	private Float HMI_IReg1646Mean;
-	@Column(name="`HMI_IReg[1665]_Mean`")
-	private Float HMI_IReg1665Mean;
-	@Column(name="`HMI_IReg[1666]_Mean`")
-	private Float HMI_IReg1666Mean;
-	@Column(name="`HMI_IReg[1677]_Mean`")
-	private Float HMI_IReg1677Mean;
-	@Column(name="`HMI_IReg[1678]_Mean`")
-	private Float HMI_IReg1678Mean;
+	@Column(name="`HMI_IReg[1563]_Mean`")
+	private Float HMI_IReg1563Mean;
+	@Column(name="`HMI_IReg[1564]_Mean`")
+	private Float HMI_IReg1564Mean;
+	@Column(name="`HMI_IReg[1565]_Mean`")
+	private Float HMI_IReg1565Mean;
+	@Column(name="`HMI_IReg[1575]_Mean`")
+	private Float HMI_IReg1575Mean;
+	@Column(name="`HMI_IReg[1576]_Mean`")
+	private Float HMI_IReg1576Mean;
+	@Column(name="`HMI_IReg[1577]_Mean`")
+	private Float HMI_IReg1577Mean;
+	@Column(name="`HMI_IReg[1578]_Mean`")
+	private Float HMI_IReg1578Mean;
+	@Column(name="`HMI_IReg[1579]_Mean`")
+	private Float HMI_IReg1579Mean;
+	@Column(name="`HMI_IReg[1580]_Mean`")
+	private Float HMI_IReg1580Mean;
+	@Column(name="`HMI_IReg[1581]_Mean`")
+	private Float HMI_IReg1581Mean;
+	@Column(name="`HMI_IReg[1582]_Mean`")
+	private Float HMI_IReg1582Mean;
+	@Column(name="`HMI_IReg[1583]_Mean`")
+	private Float HMI_IReg1583Mean;
+	@Column(name="`HMI_IReg[1584]_Mean`")
+	private Float HMI_IReg1584Mean;
+	@Column(name="`HMI_IReg[1672]_Mean`")
+	private Float HMI_IReg1672Mean;
+	@Column(name="`HMI_IReg[1673]_Mean`")
+	private Float HMI_IReg1673Mean;
+	@Column(name="`HMI_IReg[1683]_Mean`")
+	private Float HMI_IReg1683Mean;
 	@Column(name="`HMI_IReg[1691]_Mean`")
 	private Float HMI_IReg1691Mean;
 	@Column(name="`HMI_IReg[1692]_Mean`")
@@ -216,30 +216,6 @@ public class TenMinData2DB{
 	private Float HMI_Disc413StdDiv;
 	@Column(name="`HMI_Disc[413]_Onflow`")
 	private Float HMI_Disc413Flow;
-	@Column(name="`HMI_Disc[476]_Min`")
-	private Float HMI_Disc476Min;
-	@Column(name="`HMI_Disc[476]_StdDiv`")
-	private Float HMI_Disc476StdDiv;
-	@Column(name="`HMI_IReg[6]_Mean`")
-	private Float HMI_IReg6Mean;
-	@Column(name="`HMI_IReg[6]_And`")
-	private Boolean HMI_IReg6And;
-	@Column(name="`HMI_IReg[6]_Onflow`")
-	private Float HMI_IReg6Flow;
-	@Column(name="`HMI_IReg[7]_Mean`")
-	private Float HMI_IReg7Mean;
-	@Column(name="`HMI_IReg[7]_And`")
-	private Boolean HMI_IReg7And;
-	@Column(name="`HMI_IReg[8]_Mean`")
-	private Float HMI_IReg8Mean;
-	@Column(name="`HMI_IReg[8]_And`")
-	private Boolean HMI_IReg8And;
-	@Column(name="`HMI_IReg[8]_Onflow`")
-	private Float HMI_IReg8Flow;
-	@Column(name="`HMI_IReg[9]_Mean`")
-	private Float HMI_IReg9Mean;
-	@Column(name="`HMI_IReg[9]_And`")
-	private Boolean HMI_IReg9And;
 
 	@Override
 	public String toString() {
@@ -267,12 +243,14 @@ public class TenMinData2DB{
 				", HMI_IReg105Mean=" + HMI_IReg105Mean +
 				", HMI_IReg106Mean=" + HMI_IReg106Mean +
 				", HMI_IReg107Mean=" + HMI_IReg107Mean +
+				", HMI_IReg108Max=" + HMI_IReg108Max +
 				", HMI_IReg110Max=" + HMI_IReg110Max +
 				", HMI_IReg110Mean=" + HMI_IReg110Mean +
 				", HMI_IReg110Min=" + HMI_IReg110Min +
 				", HMI_IReg110StdDiv=" + HMI_IReg110StdDiv +
 				", HMI_IReg110MaxNum=" + HMI_IReg110MaxNum +
 				", HMI_IReg118Mean=" + HMI_IReg118Mean +
+				", HMI_IReg119Mean=" + HMI_IReg119Mean +
 				", HMI_IReg121Mean=" + HMI_IReg121Mean +
 				", HMI_IReg122Mean=" + HMI_IReg122Mean +
 				", HMI_IReg201Mean=" + HMI_IReg201Mean +
@@ -297,7 +275,6 @@ public class TenMinData2DB{
 				", HMI_IReg243Mean=" + HMI_IReg243Mean +
 				", HMI_IReg244Mean=" + HMI_IReg244Mean +
 				", HMI_IReg245Mean=" + HMI_IReg245Mean +
-				", HMI_IReg248Mean=" + HMI_IReg248Mean +
 				", HMI_IReg1405Mean=" + HMI_IReg1405Mean +
 				", HMI_IReg1406Mean=" + HMI_IReg1406Mean +
 				", HMI_IReg1407Mean=" + HMI_IReg1407Mean +
@@ -311,23 +288,22 @@ public class TenMinData2DB{
 				", HMI_IReg1422StdDiv=" + HMI_IReg1422StdDiv +
 				", HMI_IReg1423Mean=" + HMI_IReg1423Mean +
 				", HMI_IReg1426Mean=" + HMI_IReg1426Mean +
-				", HMI_IReg1611Mean=" + HMI_IReg1611Mean +
-				", HMI_IReg1612Mean=" + HMI_IReg1612Mean +
-				", HMI_IReg1613Mean=" + HMI_IReg1613Mean +
-				", HMI_IReg1637Mean=" + HMI_IReg1637Mean +
-				", HMI_IReg1638Mean=" + HMI_IReg1638Mean +
-				", HMI_IReg1639Mean=" + HMI_IReg1639Mean +
-				", HMI_IReg1640Mean=" + HMI_IReg1640Mean +
-				", HMI_IReg1641Mean=" + HMI_IReg1641Mean +
-				", HMI_IReg1642Mean=" + HMI_IReg1642Mean +
-				", HMI_IReg1643Mean=" + HMI_IReg1643Mean +
-				", HMI_IReg1644Mean=" + HMI_IReg1644Mean +
-				", HMI_IReg1645Mean=" + HMI_IReg1645Mean +
-				", HMI_IReg1646Mean=" + HMI_IReg1646Mean +
-				", HMI_IReg1665Mean=" + HMI_IReg1665Mean +
-				", HMI_IReg1666Mean=" + HMI_IReg1666Mean +
-				", HMI_IReg1677Mean=" + HMI_IReg1677Mean +
-				", HMI_IReg1678Mean=" + HMI_IReg1678Mean +
+				", HMI_IReg1563Mean=" + HMI_IReg1563Mean +
+				", HMI_IReg1564Mean=" + HMI_IReg1564Mean +
+				", HMI_IReg1565Mean=" + HMI_IReg1565Mean +
+				", HMI_IReg1575Mean=" + HMI_IReg1575Mean +
+				", HMI_IReg1576Mean=" + HMI_IReg1576Mean +
+				", HMI_IReg1577Mean=" + HMI_IReg1577Mean +
+				", HMI_IReg1578Mean=" + HMI_IReg1578Mean +
+				", HMI_IReg1579Mean=" + HMI_IReg1579Mean +
+				", HMI_IReg1580Mean=" + HMI_IReg1580Mean +
+				", HMI_IReg1581Mean=" + HMI_IReg1581Mean +
+				", HMI_IReg1582Mean=" + HMI_IReg1582Mean +
+				", HMI_IReg1583Mean=" + HMI_IReg1583Mean +
+				", HMI_IReg1584Mean=" + HMI_IReg1584Mean +
+				", HMI_IReg1672Mean=" + HMI_IReg1672Mean +
+				", HMI_IReg1673Mean=" + HMI_IReg1673Mean +
+				", HMI_IReg1683Mean=" + HMI_IReg1683Mean +
 				", HMI_IReg1691Mean=" + HMI_IReg1691Mean +
 				", HMI_IReg1692Mean=" + HMI_IReg1692Mean +
 				", HMI_IReg1693Mean=" + HMI_IReg1693Mean +
@@ -349,19 +325,10 @@ public class TenMinData2DB{
 				", HMI_Disc413Min=" + HMI_Disc413Min +
 				", HMI_Disc413StdDiv=" + HMI_Disc413StdDiv +
 				", HMI_Disc413Flow=" + HMI_Disc413Flow +
-				", HMI_Disc476Min=" + HMI_Disc476Min +
-				", HMI_Disc476StdDiv=" + HMI_Disc476StdDiv +
-				", HMI_IReg6Mean=" + HMI_IReg6Mean +
-				", HMI_IReg6And=" + HMI_IReg6And +
-				", HMI_IReg6Flow=" + HMI_IReg6Flow +
-				", HMI_IReg7Mean=" + HMI_IReg7Mean +
-				", HMI_IReg7And=" + HMI_IReg7And +
-				", HMI_IReg8Mean=" + HMI_IReg8Mean +
-				", HMI_IReg8And=" + HMI_IReg8And +
-				", HMI_IReg8Flow=" + HMI_IReg8Flow +
-				", HMI_IReg9Mean=" + HMI_IReg9Mean +
-				", HMI_IReg9And=" + HMI_IReg9And +
 				'}';
+	}
+
+	public TenMinData2DB() {
 	}
 
 	public int getId() {
@@ -548,6 +515,14 @@ public class TenMinData2DB{
 		this.HMI_IReg107Mean = HMI_IReg107Mean;
 	}
 
+	public Float getHMI_IReg108Max() {
+		return HMI_IReg108Max;
+	}
+
+	public void setHMI_IReg108Max(Float HMI_IReg108Max) {
+		this.HMI_IReg108Max = HMI_IReg108Max;
+	}
+
 	public Float getHMI_IReg110Max() {
 		return HMI_IReg110Max;
 	}
@@ -594,6 +569,14 @@ public class TenMinData2DB{
 
 	public void setHMI_IReg118Mean(Float HMI_IReg118Mean) {
 		this.HMI_IReg118Mean = HMI_IReg118Mean;
+	}
+
+	public Float getHMI_IReg119Mean() {
+		return HMI_IReg119Mean;
+	}
+
+	public void setHMI_IReg119Mean(Float HMI_IReg119Mean) {
+		this.HMI_IReg119Mean = HMI_IReg119Mean;
 	}
 
 	public Float getHMI_IReg121Mean() {
@@ -788,14 +771,6 @@ public class TenMinData2DB{
 		this.HMI_IReg245Mean = HMI_IReg245Mean;
 	}
 
-	public Float getHMI_IReg248Mean() {
-		return HMI_IReg248Mean;
-	}
-
-	public void setHMI_IReg248Mean(Float HMI_IReg248Mean) {
-		this.HMI_IReg248Mean = HMI_IReg248Mean;
-	}
-
 	public Float getHMI_IReg1405Mean() {
 		return HMI_IReg1405Mean;
 	}
@@ -900,140 +875,132 @@ public class TenMinData2DB{
 		this.HMI_IReg1426Mean = HMI_IReg1426Mean;
 	}
 
-	public Float getHMI_IReg1611Mean() {
-		return HMI_IReg1611Mean;
+	public Float getHMI_IReg1563Mean() {
+		return HMI_IReg1563Mean;
 	}
 
-	public void setHMI_IReg1611Mean(Float HMI_IReg1611Mean) {
-		this.HMI_IReg1611Mean = HMI_IReg1611Mean;
+	public void setHMI_IReg1563Mean(Float HMI_IReg1563Mean) {
+		this.HMI_IReg1563Mean = HMI_IReg1563Mean;
 	}
 
-	public Float getHMI_IReg1612Mean() {
-		return HMI_IReg1612Mean;
+	public Float getHMI_IReg1564Mean() {
+		return HMI_IReg1564Mean;
 	}
 
-	public void setHMI_IReg1612Mean(Float HMI_IReg1612Mean) {
-		this.HMI_IReg1612Mean = HMI_IReg1612Mean;
+	public void setHMI_IReg1564Mean(Float HMI_IReg1564Mean) {
+		this.HMI_IReg1564Mean = HMI_IReg1564Mean;
 	}
 
-	public Float getHMI_IReg1613Mean() {
-		return HMI_IReg1613Mean;
+	public Float getHMI_IReg1565Mean() {
+		return HMI_IReg1565Mean;
 	}
 
-	public void setHMI_IReg1613Mean(Float HMI_IReg1613Mean) {
-		this.HMI_IReg1613Mean = HMI_IReg1613Mean;
+	public void setHMI_IReg1565Mean(Float HMI_IReg1565Mean) {
+		this.HMI_IReg1565Mean = HMI_IReg1565Mean;
 	}
 
-	public Float getHMI_IReg1637Mean() {
-		return HMI_IReg1637Mean;
+	public Float getHMI_IReg1575Mean() {
+		return HMI_IReg1575Mean;
 	}
 
-	public void setHMI_IReg1637Mean(Float HMI_IReg1637Mean) {
-		this.HMI_IReg1637Mean = HMI_IReg1637Mean;
+	public void setHMI_IReg1575Mean(Float HMI_IReg1575Mean) {
+		this.HMI_IReg1575Mean = HMI_IReg1575Mean;
 	}
 
-	public Float getHMI_IReg1638Mean() {
-		return HMI_IReg1638Mean;
+	public Float getHMI_IReg1576Mean() {
+		return HMI_IReg1576Mean;
 	}
 
-	public void setHMI_IReg1638Mean(Float HMI_IReg1638Mean) {
-		this.HMI_IReg1638Mean = HMI_IReg1638Mean;
+	public void setHMI_IReg1576Mean(Float HMI_IReg1576Mean) {
+		this.HMI_IReg1576Mean = HMI_IReg1576Mean;
 	}
 
-	public Float getHMI_IReg1639Mean() {
-		return HMI_IReg1639Mean;
+	public Float getHMI_IReg1577Mean() {
+		return HMI_IReg1577Mean;
 	}
 
-	public void setHMI_IReg1639Mean(Float HMI_IReg1639Mean) {
-		this.HMI_IReg1639Mean = HMI_IReg1639Mean;
+	public void setHMI_IReg1577Mean(Float HMI_IReg1577Mean) {
+		this.HMI_IReg1577Mean = HMI_IReg1577Mean;
 	}
 
-	public Float getHMI_IReg1640Mean() {
-		return HMI_IReg1640Mean;
+	public Float getHMI_IReg1578Mean() {
+		return HMI_IReg1578Mean;
 	}
 
-	public void setHMI_IReg1640Mean(Float HMI_IReg1640Mean) {
-		this.HMI_IReg1640Mean = HMI_IReg1640Mean;
+	public void setHMI_IReg1578Mean(Float HMI_IReg1578Mean) {
+		this.HMI_IReg1578Mean = HMI_IReg1578Mean;
 	}
 
-	public Float getHMI_IReg1641Mean() {
-		return HMI_IReg1641Mean;
+	public Float getHMI_IReg1579Mean() {
+		return HMI_IReg1579Mean;
 	}
 
-	public void setHMI_IReg1641Mean(Float HMI_IReg1641Mean) {
-		this.HMI_IReg1641Mean = HMI_IReg1641Mean;
+	public void setHMI_IReg1579Mean(Float HMI_IReg1579Mean) {
+		this.HMI_IReg1579Mean = HMI_IReg1579Mean;
 	}
 
-	public Float getHMI_IReg1642Mean() {
-		return HMI_IReg1642Mean;
+	public Float getHMI_IReg1580Mean() {
+		return HMI_IReg1580Mean;
 	}
 
-	public void setHMI_IReg1642Mean(Float HMI_IReg1642Mean) {
-		this.HMI_IReg1642Mean = HMI_IReg1642Mean;
+	public void setHMI_IReg1580Mean(Float HMI_IReg1580Mean) {
+		this.HMI_IReg1580Mean = HMI_IReg1580Mean;
 	}
 
-	public Float getHMI_IReg1643Mean() {
-		return HMI_IReg1643Mean;
+	public Float getHMI_IReg1581Mean() {
+		return HMI_IReg1581Mean;
 	}
 
-	public void setHMI_IReg1643Mean(Float HMI_IReg1643Mean) {
-		this.HMI_IReg1643Mean = HMI_IReg1643Mean;
+	public void setHMI_IReg1581Mean(Float HMI_IReg1581Mean) {
+		this.HMI_IReg1581Mean = HMI_IReg1581Mean;
 	}
 
-	public Float getHMI_IReg1644Mean() {
-		return HMI_IReg1644Mean;
+	public Float getHMI_IReg1582Mean() {
+		return HMI_IReg1582Mean;
 	}
 
-	public void setHMI_IReg1644Mean(Float HMI_IReg1644Mean) {
-		this.HMI_IReg1644Mean = HMI_IReg1644Mean;
+	public void setHMI_IReg1582Mean(Float HMI_IReg1582Mean) {
+		this.HMI_IReg1582Mean = HMI_IReg1582Mean;
 	}
 
-	public Float getHMI_IReg1645Mean() {
-		return HMI_IReg1645Mean;
+	public Float getHMI_IReg1583Mean() {
+		return HMI_IReg1583Mean;
 	}
 
-	public void setHMI_IReg1645Mean(Float HMI_IReg1645Mean) {
-		this.HMI_IReg1645Mean = HMI_IReg1645Mean;
+	public void setHMI_IReg1583Mean(Float HMI_IReg1583Mean) {
+		this.HMI_IReg1583Mean = HMI_IReg1583Mean;
 	}
 
-	public Float getHMI_IReg1646Mean() {
-		return HMI_IReg1646Mean;
+	public Float getHMI_IReg1584Mean() {
+		return HMI_IReg1584Mean;
 	}
 
-	public void setHMI_IReg1646Mean(Float HMI_IReg1646Mean) {
-		this.HMI_IReg1646Mean = HMI_IReg1646Mean;
+	public void setHMI_IReg1584Mean(Float HMI_IReg1584Mean) {
+		this.HMI_IReg1584Mean = HMI_IReg1584Mean;
 	}
 
-	public Float getHMI_IReg1665Mean() {
-		return HMI_IReg1665Mean;
+	public Float getHMI_IReg1672Mean() {
+		return HMI_IReg1672Mean;
 	}
 
-	public void setHMI_IReg1665Mean(Float HMI_IReg1665Mean) {
-		this.HMI_IReg1665Mean = HMI_IReg1665Mean;
+	public void setHMI_IReg1672Mean(Float HMI_IReg1672Mean) {
+		this.HMI_IReg1672Mean = HMI_IReg1672Mean;
 	}
 
-	public Float getHMI_IReg1666Mean() {
-		return HMI_IReg1666Mean;
+	public Float getHMI_IReg1673Mean() {
+		return HMI_IReg1673Mean;
 	}
 
-	public void setHMI_IReg1666Mean(Float HMI_IReg1666Mean) {
-		this.HMI_IReg1666Mean = HMI_IReg1666Mean;
+	public void setHMI_IReg1673Mean(Float HMI_IReg1673Mean) {
+		this.HMI_IReg1673Mean = HMI_IReg1673Mean;
 	}
 
-	public Float getHMI_IReg1677Mean() {
-		return HMI_IReg1677Mean;
+	public Float getHMI_IReg1683Mean() {
+		return HMI_IReg1683Mean;
 	}
 
-	public void setHMI_IReg1677Mean(Float HMI_IReg1677Mean) {
-		this.HMI_IReg1677Mean = HMI_IReg1677Mean;
-	}
-
-	public Float getHMI_IReg1678Mean() {
-		return HMI_IReg1678Mean;
-	}
-
-	public void setHMI_IReg1678Mean(Float HMI_IReg1678Mean) {
-		this.HMI_IReg1678Mean = HMI_IReg1678Mean;
+	public void setHMI_IReg1683Mean(Float HMI_IReg1683Mean) {
+		this.HMI_IReg1683Mean = HMI_IReg1683Mean;
 	}
 
 	public Float getHMI_IReg1691Mean() {
@@ -1202,101 +1169,5 @@ public class TenMinData2DB{
 
 	public void setHMI_Disc413Flow(Float HMI_Disc413Flow) {
 		this.HMI_Disc413Flow = HMI_Disc413Flow;
-	}
-
-	public Float getHMI_Disc476Min() {
-		return HMI_Disc476Min;
-	}
-
-	public void setHMI_Disc476Min(Float HMI_Disc476Min) {
-		this.HMI_Disc476Min = HMI_Disc476Min;
-	}
-
-	public Float getHMI_Disc476StdDiv() {
-		return HMI_Disc476StdDiv;
-	}
-
-	public void setHMI_Disc476StdDiv(Float HMI_Disc476StdDiv) {
-		this.HMI_Disc476StdDiv = HMI_Disc476StdDiv;
-	}
-
-	public Float getHMI_IReg6Mean() {
-		return HMI_IReg6Mean;
-	}
-
-	public void setHMI_IReg6Mean(Float HMI_IReg6Mean) {
-		this.HMI_IReg6Mean = HMI_IReg6Mean;
-	}
-
-	public Boolean getHMI_IReg6And() {
-		return HMI_IReg6And;
-	}
-
-	public void setHMI_IReg6And(Boolean HMI_IReg6And) {
-		this.HMI_IReg6And = HMI_IReg6And;
-	}
-
-	public Float getHMI_IReg6Flow() {
-		return HMI_IReg6Flow;
-	}
-
-	public void setHMI_IReg6Flow(Float HMI_IReg6Flow) {
-		this.HMI_IReg6Flow = HMI_IReg6Flow;
-	}
-
-	public Float getHMI_IReg7Mean() {
-		return HMI_IReg7Mean;
-	}
-
-	public void setHMI_IReg7Mean(Float HMI_IReg7Mean) {
-		this.HMI_IReg7Mean = HMI_IReg7Mean;
-	}
-
-	public Boolean getHMI_IReg7And() {
-		return HMI_IReg7And;
-	}
-
-	public void setHMI_IReg7And(Boolean HMI_IReg7And) {
-		this.HMI_IReg7And = HMI_IReg7And;
-	}
-
-	public Float getHMI_IReg8Mean() {
-		return HMI_IReg8Mean;
-	}
-
-	public void setHMI_IReg8Mean(Float HMI_IReg8Mean) {
-		this.HMI_IReg8Mean = HMI_IReg8Mean;
-	}
-
-	public Boolean getHMI_IReg8And() {
-		return HMI_IReg8And;
-	}
-
-	public void setHMI_IReg8And(Boolean HMI_IReg8And) {
-		this.HMI_IReg8And = HMI_IReg8And;
-	}
-
-	public Float getHMI_IReg8Flow() {
-		return HMI_IReg8Flow;
-	}
-
-	public void setHMI_IReg8Flow(Float HMI_IReg8Flow) {
-		this.HMI_IReg8Flow = HMI_IReg8Flow;
-	}
-
-	public Float getHMI_IReg9Mean() {
-		return HMI_IReg9Mean;
-	}
-
-	public void setHMI_IReg9Mean(Float HMI_IReg9Mean) {
-		this.HMI_IReg9Mean = HMI_IReg9Mean;
-	}
-
-	public Boolean getHMI_IReg9And() {
-		return HMI_IReg9And;
-	}
-
-	public void setHMI_IReg9And(Boolean HMI_IReg9And) {
-		this.HMI_IReg9And = HMI_IReg9And;
 	}
 }

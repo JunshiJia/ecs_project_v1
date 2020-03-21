@@ -17,8 +17,10 @@ public class TenMinMemory{
 	private List<Float> HMI_IReg105List;
 	private List<Float> HMI_IReg106List;
 	private List<Float> HMI_IReg107List;
+	private List<Float> HMI_IReg108List;
 	private List<Float> HMI_IReg110List;
 	private List<Float> HMI_IReg118List;
+	private List<Float> HMI_IReg119List;
 	private List<Float> HMI_IReg121List;
 	private List<Float> HMI_IReg122List;
 	private List<Float> HMI_IReg201List;
@@ -37,7 +39,6 @@ public class TenMinMemory{
 	private List<Float> HMI_IReg243List;
 	private List<Float> HMI_IReg244List;
 	private List<Float> HMI_IReg245List;
-	private List<Float> HMI_IReg248List;
 	private List<Float> HMI_IReg1405List;
 	private List<Float> HMI_IReg1406List;
 	private List<Float> HMI_IReg1407List;
@@ -48,23 +49,22 @@ public class TenMinMemory{
 	private List<Float> HMI_IReg1422List;
 	private List<Float> HMI_IReg1423List;
 	private List<Float> HMI_IReg1426List;
-	private List<Float> HMI_IReg1611List;
-	private List<Float> HMI_IReg1612List;
-	private List<Float> HMI_IReg1613List;
-	private List<Float> HMI_IReg1637List;
-	private List<Float> HMI_IReg1638List;
-	private List<Float> HMI_IReg1639List;
-	private List<Float> HMI_IReg1640List;
-	private List<Float> HMI_IReg1641List;
-	private List<Float> HMI_IReg1642List;
-	private List<Float> HMI_IReg1643List;
-	private List<Float> HMI_IReg1644List;
-	private List<Float> HMI_IReg1645List;
-	private List<Float> HMI_IReg1646List;
-	private List<Float> HMI_IReg1665List;
-	private List<Float> HMI_IReg1666List;
-	private List<Float> HMI_IReg1677List;
-	private List<Float> HMI_IReg1678List;
+	private List<Float> HMI_IReg1563List;
+	private List<Float> HMI_IReg1564List;
+	private List<Float> HMI_IReg1565List;
+	private List<Float> HMI_IReg1575List;
+	private List<Float> HMI_IReg1576List;
+	private List<Float> HMI_IReg1577List;
+	private List<Float> HMI_IReg1578List;
+	private List<Float> HMI_IReg1579List;
+	private List<Float> HMI_IReg1580List;
+	private List<Float> HMI_IReg1581List;
+	private List<Float> HMI_IReg1582List;
+	private List<Float> HMI_IReg1583List;
+	private List<Float> HMI_IReg1584List;
+	private List<Float> HMI_IReg1672List;
+	private List<Float> HMI_IReg1673List;
+	private List<Float> HMI_IReg1683List;
 	private List<Float> HMI_IReg1691List;
 	private List<Float> HMI_IReg1692List;
 	private List<Float> HMI_IReg1693List;
@@ -81,12 +81,6 @@ public class TenMinMemory{
 	private List<Boolean> HMI_Disc383List;
 	private List<Boolean> HMI_Disc409List;
 	private List<Boolean> HMI_Disc413List;
-	private List<Boolean> HMI_Disc476List;
-	private List<Float> HMI_IReg6List;
-	private List<Float> HMI_IReg7List;
-	private List<Float> HMI_IReg8List;
-	private List<Float> HMI_IReg9List;
-
 	public TenMinMemory() {
 		this.HMI_Disc910List = new ArrayList<>();
 		this.HMI_Disc912List = new ArrayList<>();
@@ -100,8 +94,10 @@ public class TenMinMemory{
 		this.HMI_IReg105List = new ArrayList<>();
 		this.HMI_IReg106List = new ArrayList<>();
 		this.HMI_IReg107List = new ArrayList<>();
+		this.HMI_IReg108List = new ArrayList<>();
 		this.HMI_IReg110List = new ArrayList<>();
 		this.HMI_IReg118List = new ArrayList<>();
+		this.HMI_IReg119List = new ArrayList<>();
 		this.HMI_IReg121List = new ArrayList<>();
 		this.HMI_IReg122List = new ArrayList<>();
 		this.HMI_IReg201List = new ArrayList<>();
@@ -120,7 +116,6 @@ public class TenMinMemory{
 		this.HMI_IReg243List = new ArrayList<>();
 		this.HMI_IReg244List = new ArrayList<>();
 		this.HMI_IReg245List = new ArrayList<>();
-		this.HMI_IReg248List = new ArrayList<>();
 		this.HMI_IReg1405List = new ArrayList<>();
 		this.HMI_IReg1406List = new ArrayList<>();
 		this.HMI_IReg1407List = new ArrayList<>();
@@ -131,23 +126,22 @@ public class TenMinMemory{
 		this.HMI_IReg1422List = new ArrayList<>();
 		this.HMI_IReg1423List = new ArrayList<>();
 		this.HMI_IReg1426List = new ArrayList<>();
-		this.HMI_IReg1611List = new ArrayList<>();
-		this.HMI_IReg1612List = new ArrayList<>();
-		this.HMI_IReg1613List = new ArrayList<>();
-		this.HMI_IReg1637List = new ArrayList<>();
-		this.HMI_IReg1638List = new ArrayList<>();
-		this.HMI_IReg1639List = new ArrayList<>();
-		this.HMI_IReg1640List = new ArrayList<>();
-		this.HMI_IReg1641List = new ArrayList<>();
-		this.HMI_IReg1642List = new ArrayList<>();
-		this.HMI_IReg1643List = new ArrayList<>();
-		this.HMI_IReg1644List = new ArrayList<>();
-		this.HMI_IReg1645List = new ArrayList<>();
-		this.HMI_IReg1646List = new ArrayList<>();
-		this.HMI_IReg1665List = new ArrayList<>();
-		this.HMI_IReg1666List = new ArrayList<>();
-		this.HMI_IReg1677List = new ArrayList<>();
-		this.HMI_IReg1678List = new ArrayList<>();
+		this.HMI_IReg1563List = new ArrayList<>();
+		this.HMI_IReg1564List = new ArrayList<>();
+		this.HMI_IReg1565List = new ArrayList<>();
+		this.HMI_IReg1575List = new ArrayList<>();
+		this.HMI_IReg1576List = new ArrayList<>();
+		this.HMI_IReg1577List = new ArrayList<>();
+		this.HMI_IReg1578List = new ArrayList<>();
+		this.HMI_IReg1579List = new ArrayList<>();
+		this.HMI_IReg1580List = new ArrayList<>();
+		this.HMI_IReg1581List = new ArrayList<>();
+		this.HMI_IReg1582List = new ArrayList<>();
+		this.HMI_IReg1583List = new ArrayList<>();
+		this.HMI_IReg1584List = new ArrayList<>();
+		this.HMI_IReg1672List = new ArrayList<>();
+		this.HMI_IReg1673List = new ArrayList<>();
+		this.HMI_IReg1683List = new ArrayList<>();
 		this.HMI_IReg1691List = new ArrayList<>();
 		this.HMI_IReg1692List = new ArrayList<>();
 		this.HMI_IReg1693List = new ArrayList<>();
@@ -164,11 +158,6 @@ public class TenMinMemory{
 		this.HMI_Disc383List = new ArrayList<>();
 		this.HMI_Disc409List = new ArrayList<>();
 		this.HMI_Disc413List = new ArrayList<>();
-		this.HMI_Disc476List = new ArrayList<>();
-		this.HMI_IReg6List = new ArrayList<>();
-		this.HMI_IReg7List = new ArrayList<>();
-		this.HMI_IReg8List = new ArrayList<>();
-		this.HMI_IReg9List = new ArrayList<>();
 	}
 
 	@Override
@@ -186,8 +175,10 @@ public class TenMinMemory{
 				", HMI_IReg105List=" + HMI_IReg105List +
 				", HMI_IReg106List=" + HMI_IReg106List +
 				", HMI_IReg107List=" + HMI_IReg107List +
+				", HMI_IReg108List=" + HMI_IReg108List +
 				", HMI_IReg110List=" + HMI_IReg110List +
 				", HMI_IReg118List=" + HMI_IReg118List +
+				", HMI_IReg119List=" + HMI_IReg119List +
 				", HMI_IReg121List=" + HMI_IReg121List +
 				", HMI_IReg122List=" + HMI_IReg122List +
 				", HMI_IReg201List=" + HMI_IReg201List +
@@ -206,7 +197,6 @@ public class TenMinMemory{
 				", HMI_IReg243List=" + HMI_IReg243List +
 				", HMI_IReg244List=" + HMI_IReg244List +
 				", HMI_IReg245List=" + HMI_IReg245List +
-				", HMI_IReg248List=" + HMI_IReg248List +
 				", HMI_IReg1405List=" + HMI_IReg1405List +
 				", HMI_IReg1406List=" + HMI_IReg1406List +
 				", HMI_IReg1407List=" + HMI_IReg1407List +
@@ -217,23 +207,22 @@ public class TenMinMemory{
 				", HMI_IReg1422List=" + HMI_IReg1422List +
 				", HMI_IReg1423List=" + HMI_IReg1423List +
 				", HMI_IReg1426List=" + HMI_IReg1426List +
-				", HMI_IReg1611List=" + HMI_IReg1611List +
-				", HMI_IReg1612List=" + HMI_IReg1612List +
-				", HMI_IReg1613List=" + HMI_IReg1613List +
-				", HMI_IReg1637List=" + HMI_IReg1637List +
-				", HMI_IReg1638List=" + HMI_IReg1638List +
-				", HMI_IReg1639List=" + HMI_IReg1639List +
-				", HMI_IReg1640List=" + HMI_IReg1640List +
-				", HMI_IReg1641List=" + HMI_IReg1641List +
-				", HMI_IReg1642List=" + HMI_IReg1642List +
-				", HMI_IReg1643List=" + HMI_IReg1643List +
-				", HMI_IReg1644List=" + HMI_IReg1644List +
-				", HMI_IReg1645List=" + HMI_IReg1645List +
-				", HMI_IReg1646List=" + HMI_IReg1646List +
-				", HMI_IReg1665List=" + HMI_IReg1665List +
-				", HMI_IReg1666List=" + HMI_IReg1666List +
-				", HMI_IReg1677List=" + HMI_IReg1677List +
-				", HMI_IReg1678List=" + HMI_IReg1678List +
+				", HMI_IReg1563List=" + HMI_IReg1563List +
+				", HMI_IReg1564List=" + HMI_IReg1564List +
+				", HMI_IReg1565List=" + HMI_IReg1565List +
+				", HMI_IReg1575List=" + HMI_IReg1575List +
+				", HMI_IReg1576List=" + HMI_IReg1576List +
+				", HMI_IReg1577List=" + HMI_IReg1577List +
+				", HMI_IReg1578List=" + HMI_IReg1578List +
+				", HMI_IReg1579List=" + HMI_IReg1579List +
+				", HMI_IReg1580List=" + HMI_IReg1580List +
+				", HMI_IReg1581List=" + HMI_IReg1581List +
+				", HMI_IReg1582List=" + HMI_IReg1582List +
+				", HMI_IReg1583List=" + HMI_IReg1583List +
+				", HMI_IReg1584List=" + HMI_IReg1584List +
+				", HMI_IReg1672List=" + HMI_IReg1672List +
+				", HMI_IReg1673List=" + HMI_IReg1673List +
+				", HMI_IReg1683List=" + HMI_IReg1683List +
 				", HMI_IReg1691List=" + HMI_IReg1691List +
 				", HMI_IReg1692List=" + HMI_IReg1692List +
 				", HMI_IReg1693List=" + HMI_IReg1693List +
@@ -250,11 +239,6 @@ public class TenMinMemory{
 				", HMI_Disc383List=" + HMI_Disc383List +
 				", HMI_Disc409List=" + HMI_Disc409List +
 				", HMI_Disc413List=" + HMI_Disc413List +
-				", HMI_Disc476List=" + HMI_Disc476List +
-				", HMI_IReg6List=" + HMI_IReg6List +
-				", HMI_IReg7List=" + HMI_IReg7List +
-				", HMI_IReg8List=" + HMI_IReg8List +
-				", HMI_IReg9List=" + HMI_IReg9List +
 				'}';
 	}
 
@@ -354,6 +338,14 @@ public class TenMinMemory{
 		this.HMI_IReg107List = HMI_IReg107List;
 	}
 
+	public List<Float> getHMI_IReg108List() {
+		return HMI_IReg108List;
+	}
+
+	public void setHMI_IReg108List(List<Float> HMI_IReg108List) {
+		this.HMI_IReg108List = HMI_IReg108List;
+	}
+
 	public List<Float> getHMI_IReg110List() {
 		return HMI_IReg110List;
 	}
@@ -368,6 +360,14 @@ public class TenMinMemory{
 
 	public void setHMI_IReg118List(List<Float> HMI_IReg118List) {
 		this.HMI_IReg118List = HMI_IReg118List;
+	}
+
+	public List<Float> getHMI_IReg119List() {
+		return HMI_IReg119List;
+	}
+
+	public void setHMI_IReg119List(List<Float> HMI_IReg119List) {
+		this.HMI_IReg119List = HMI_IReg119List;
 	}
 
 	public List<Float> getHMI_IReg121List() {
@@ -514,14 +514,6 @@ public class TenMinMemory{
 		this.HMI_IReg245List = HMI_IReg245List;
 	}
 
-	public List<Float> getHMI_IReg248List() {
-		return HMI_IReg248List;
-	}
-
-	public void setHMI_IReg248List(List<Float> HMI_IReg248List) {
-		this.HMI_IReg248List = HMI_IReg248List;
-	}
-
 	public List<Float> getHMI_IReg1405List() {
 		return HMI_IReg1405List;
 	}
@@ -602,140 +594,132 @@ public class TenMinMemory{
 		this.HMI_IReg1426List = HMI_IReg1426List;
 	}
 
-	public List<Float> getHMI_IReg1611List() {
-		return HMI_IReg1611List;
+	public List<Float> getHMI_IReg1563List() {
+		return HMI_IReg1563List;
 	}
 
-	public void setHMI_IReg1611List(List<Float> HMI_IReg1611List) {
-		this.HMI_IReg1611List = HMI_IReg1611List;
+	public void setHMI_IReg1563List(List<Float> HMI_IReg1563List) {
+		this.HMI_IReg1563List = HMI_IReg1563List;
 	}
 
-	public List<Float> getHMI_IReg1612List() {
-		return HMI_IReg1612List;
+	public List<Float> getHMI_IReg1564List() {
+		return HMI_IReg1564List;
 	}
 
-	public void setHMI_IReg1612List(List<Float> HMI_IReg1612List) {
-		this.HMI_IReg1612List = HMI_IReg1612List;
+	public void setHMI_IReg1564List(List<Float> HMI_IReg1564List) {
+		this.HMI_IReg1564List = HMI_IReg1564List;
 	}
 
-	public List<Float> getHMI_IReg1613List() {
-		return HMI_IReg1613List;
+	public List<Float> getHMI_IReg1565List() {
+		return HMI_IReg1565List;
 	}
 
-	public void setHMI_IReg1613List(List<Float> HMI_IReg1613List) {
-		this.HMI_IReg1613List = HMI_IReg1613List;
+	public void setHMI_IReg1565List(List<Float> HMI_IReg1565List) {
+		this.HMI_IReg1565List = HMI_IReg1565List;
 	}
 
-	public List<Float> getHMI_IReg1637List() {
-		return HMI_IReg1637List;
+	public List<Float> getHMI_IReg1575List() {
+		return HMI_IReg1575List;
 	}
 
-	public void setHMI_IReg1637List(List<Float> HMI_IReg1637List) {
-		this.HMI_IReg1637List = HMI_IReg1637List;
+	public void setHMI_IReg1575List(List<Float> HMI_IReg1575List) {
+		this.HMI_IReg1575List = HMI_IReg1575List;
 	}
 
-	public List<Float> getHMI_IReg1638List() {
-		return HMI_IReg1638List;
+	public List<Float> getHMI_IReg1576List() {
+		return HMI_IReg1576List;
 	}
 
-	public void setHMI_IReg1638List(List<Float> HMI_IReg1638List) {
-		this.HMI_IReg1638List = HMI_IReg1638List;
+	public void setHMI_IReg1576List(List<Float> HMI_IReg1576List) {
+		this.HMI_IReg1576List = HMI_IReg1576List;
 	}
 
-	public List<Float> getHMI_IReg1639List() {
-		return HMI_IReg1639List;
+	public List<Float> getHMI_IReg1577List() {
+		return HMI_IReg1577List;
 	}
 
-	public void setHMI_IReg1639List(List<Float> HMI_IReg1639List) {
-		this.HMI_IReg1639List = HMI_IReg1639List;
+	public void setHMI_IReg1577List(List<Float> HMI_IReg1577List) {
+		this.HMI_IReg1577List = HMI_IReg1577List;
 	}
 
-	public List<Float> getHMI_IReg1640List() {
-		return HMI_IReg1640List;
+	public List<Float> getHMI_IReg1578List() {
+		return HMI_IReg1578List;
 	}
 
-	public void setHMI_IReg1640List(List<Float> HMI_IReg1640List) {
-		this.HMI_IReg1640List = HMI_IReg1640List;
+	public void setHMI_IReg1578List(List<Float> HMI_IReg1578List) {
+		this.HMI_IReg1578List = HMI_IReg1578List;
 	}
 
-	public List<Float> getHMI_IReg1641List() {
-		return HMI_IReg1641List;
+	public List<Float> getHMI_IReg1579List() {
+		return HMI_IReg1579List;
 	}
 
-	public void setHMI_IReg1641List(List<Float> HMI_IReg1641List) {
-		this.HMI_IReg1641List = HMI_IReg1641List;
+	public void setHMI_IReg1579List(List<Float> HMI_IReg1579List) {
+		this.HMI_IReg1579List = HMI_IReg1579List;
 	}
 
-	public List<Float> getHMI_IReg1642List() {
-		return HMI_IReg1642List;
+	public List<Float> getHMI_IReg1580List() {
+		return HMI_IReg1580List;
 	}
 
-	public void setHMI_IReg1642List(List<Float> HMI_IReg1642List) {
-		this.HMI_IReg1642List = HMI_IReg1642List;
+	public void setHMI_IReg1580List(List<Float> HMI_IReg1580List) {
+		this.HMI_IReg1580List = HMI_IReg1580List;
 	}
 
-	public List<Float> getHMI_IReg1643List() {
-		return HMI_IReg1643List;
+	public List<Float> getHMI_IReg1581List() {
+		return HMI_IReg1581List;
 	}
 
-	public void setHMI_IReg1643List(List<Float> HMI_IReg1643List) {
-		this.HMI_IReg1643List = HMI_IReg1643List;
+	public void setHMI_IReg1581List(List<Float> HMI_IReg1581List) {
+		this.HMI_IReg1581List = HMI_IReg1581List;
 	}
 
-	public List<Float> getHMI_IReg1644List() {
-		return HMI_IReg1644List;
+	public List<Float> getHMI_IReg1582List() {
+		return HMI_IReg1582List;
 	}
 
-	public void setHMI_IReg1644List(List<Float> HMI_IReg1644List) {
-		this.HMI_IReg1644List = HMI_IReg1644List;
+	public void setHMI_IReg1582List(List<Float> HMI_IReg1582List) {
+		this.HMI_IReg1582List = HMI_IReg1582List;
 	}
 
-	public List<Float> getHMI_IReg1645List() {
-		return HMI_IReg1645List;
+	public List<Float> getHMI_IReg1583List() {
+		return HMI_IReg1583List;
 	}
 
-	public void setHMI_IReg1645List(List<Float> HMI_IReg1645List) {
-		this.HMI_IReg1645List = HMI_IReg1645List;
+	public void setHMI_IReg1583List(List<Float> HMI_IReg1583List) {
+		this.HMI_IReg1583List = HMI_IReg1583List;
 	}
 
-	public List<Float> getHMI_IReg1646List() {
-		return HMI_IReg1646List;
+	public List<Float> getHMI_IReg1584List() {
+		return HMI_IReg1584List;
 	}
 
-	public void setHMI_IReg1646List(List<Float> HMI_IReg1646List) {
-		this.HMI_IReg1646List = HMI_IReg1646List;
+	public void setHMI_IReg1584List(List<Float> HMI_IReg1584List) {
+		this.HMI_IReg1584List = HMI_IReg1584List;
 	}
 
-	public List<Float> getHMI_IReg1665List() {
-		return HMI_IReg1665List;
+	public List<Float> getHMI_IReg1672List() {
+		return HMI_IReg1672List;
 	}
 
-	public void setHMI_IReg1665List(List<Float> HMI_IReg1665List) {
-		this.HMI_IReg1665List = HMI_IReg1665List;
+	public void setHMI_IReg1672List(List<Float> HMI_IReg1672List) {
+		this.HMI_IReg1672List = HMI_IReg1672List;
 	}
 
-	public List<Float> getHMI_IReg1666List() {
-		return HMI_IReg1666List;
+	public List<Float> getHMI_IReg1673List() {
+		return HMI_IReg1673List;
 	}
 
-	public void setHMI_IReg1666List(List<Float> HMI_IReg1666List) {
-		this.HMI_IReg1666List = HMI_IReg1666List;
+	public void setHMI_IReg1673List(List<Float> HMI_IReg1673List) {
+		this.HMI_IReg1673List = HMI_IReg1673List;
 	}
 
-	public List<Float> getHMI_IReg1677List() {
-		return HMI_IReg1677List;
+	public List<Float> getHMI_IReg1683List() {
+		return HMI_IReg1683List;
 	}
 
-	public void setHMI_IReg1677List(List<Float> HMI_IReg1677List) {
-		this.HMI_IReg1677List = HMI_IReg1677List;
-	}
-
-	public List<Float> getHMI_IReg1678List() {
-		return HMI_IReg1678List;
-	}
-
-	public void setHMI_IReg1678List(List<Float> HMI_IReg1678List) {
-		this.HMI_IReg1678List = HMI_IReg1678List;
+	public void setHMI_IReg1683List(List<Float> HMI_IReg1683List) {
+		this.HMI_IReg1683List = HMI_IReg1683List;
 	}
 
 	public List<Float> getHMI_IReg1691List() {
@@ -864,45 +848,5 @@ public class TenMinMemory{
 
 	public void setHMI_Disc413List(List<Boolean> HMI_Disc413List) {
 		this.HMI_Disc413List = HMI_Disc413List;
-	}
-
-	public List<Boolean> getHMI_Disc476List() {
-		return HMI_Disc476List;
-	}
-
-	public void setHMI_Disc476List(List<Boolean> HMI_Disc476List) {
-		this.HMI_Disc476List = HMI_Disc476List;
-	}
-
-	public List<Float> getHMI_IReg6List() {
-		return HMI_IReg6List;
-	}
-
-	public void setHMI_IReg6List(List<Float> HMI_IReg6List) {
-		this.HMI_IReg6List = HMI_IReg6List;
-	}
-
-	public List<Float> getHMI_IReg7List() {
-		return HMI_IReg7List;
-	}
-
-	public void setHMI_IReg7List(List<Float> HMI_IReg7List) {
-		this.HMI_IReg7List = HMI_IReg7List;
-	}
-
-	public List<Float> getHMI_IReg8List() {
-		return HMI_IReg8List;
-	}
-
-	public void setHMI_IReg8List(List<Float> HMI_IReg8List) {
-		this.HMI_IReg8List = HMI_IReg8List;
-	}
-
-	public List<Float> getHMI_IReg9List() {
-		return HMI_IReg9List;
-	}
-
-	public void setHMI_IReg9List(List<Float> HMI_IReg9List) {
-		this.HMI_IReg9List = HMI_IReg9List;
 	}
 }

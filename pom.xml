@@ -76,7 +76,19 @@
             <name>Infinite Automation Release Repository</name>
             <url>https://maven.mangoautomation.net/repository/ias-release/</url>
         </repository>
+
+        <repository>
+            <id>central</id>
+            <url>http://host:port/content/groups/public</url>
+        </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>http://host:port/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
         <dependency>
@@ -126,12 +138,6 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
-            <version>5.4.0.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-c3p0</artifactId>
             <version>3.6.10.Final</version>
         </dependency>
 
@@ -140,7 +146,6 @@
             <artifactId>c3p0</artifactId>
             <version>0.9.5.2</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.apache.commons</groupId>

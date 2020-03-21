@@ -76,6 +76,14 @@ public class FetchMainControlData {
         this.setMasterAndInit();
         this.status = new TurbineStatus();
     }
+
+    private void setIpPortAdd(String ip){
+        this.ip = ip;
+        //this.ip = "127.0.0.1";
+        this.port = 715;
+        this.id = 1;
+    }
+
     private void addBatch(){
         int count = 0;
         EcsUtils.addBatchLocator(this.batch, this.updateMap, count);
@@ -113,12 +121,6 @@ public class FetchMainControlData {
                 }
             }
         }
-    }
-    private void setIpPortAdd(String ip){
-        this.ip = ip;
-        this.ip = "127.0.0.1";
-        this.port = 9876;
-        this.id = 1;
     }
 
     public void readFromSlave2Domain() {
@@ -162,9 +164,9 @@ public class FetchMainControlData {
             EcsUtils.writeData2List(this.fieldNames, results, this.tenMinMemory, tenMinCount);
             //应该判断主状态,是否需要存1s
             this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
-            if (!this.status.isRunning()) {
+            //if (!this.status.isRunning()) {
                 EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
-            }
+            //}
             flag = false;
         }
     }

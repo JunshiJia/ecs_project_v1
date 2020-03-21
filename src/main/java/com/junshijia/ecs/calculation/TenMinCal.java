@@ -68,7 +68,7 @@ public class TenMinCal {
                         method = this.memoryClass.getMethod(getterName, null);
                         floatList = (List<Float>) method.invoke(this.memoryData, null);
                         floatNum = Collections.max(floatList);
-                        this.setFieldValue(name, floatNum);
+                        this.setFieldValue(name, this.checkInfAndNan(floatNum));
                     }
                 }else if(name.substring(nameLength-3).equals("ean")){
                     if(check(name)) {
@@ -78,7 +78,7 @@ public class TenMinCal {
                         floatList = (List<Float>) method.invoke(this.memoryData, null);
                         array = EcsUtils.floatList2DoubleArray(floatList);
                         floatNum = (float)StatUtils.mean(array);
-                        this.setFieldValue(name, floatNum);
+                        this.setFieldValue(name, this.checkInfAndNan(floatNum));
                     }
                 }else if(name.substring(nameLength-3).equals("Min")){
                     if(check(name)) {
@@ -87,7 +87,7 @@ public class TenMinCal {
                         method = this.memoryClass.getMethod(getterName, null);
                         floatList = (List<Float>) method.invoke(this.memoryData, null);
                         floatNum = Collections.max(floatList);
-                        this.setFieldValue(name, floatNum);
+                        this.setFieldValue(name, this.checkInfAndNan(floatNum));
                     }
                 }else if(name.substring(nameLength-3).equals("And")){
                     if(!check(name)) {
@@ -112,17 +112,24 @@ public class TenMinCal {
                         floatList = (List<Float>) method.invoke(this.memoryData, null);
                         array = EcsUtils.floatList2DoubleArray(floatList);
                         floatNum = (float)this.stdDiv.evaluate(array);
-                        this.setFieldValue(name, floatNum);
+                        this.setFieldValue(name, this.checkInfAndNan(floatNum));
                     }
                 }else if(name.substring(nameLength-3).equals("low")){
                     if(check(name)) {
+                        //先平均风速
                         fieldName = name.substring(0, (nameLength - 4));
                         getterName = "get" + fieldName + "List";
                         method = this.memoryClass.getMethod(getterName, null);
                         floatList = (List<Float>) method.invoke(this.memoryData, null);
                         array = EcsUtils.floatList2DoubleArray(floatList);
-                        floatNum = (float)this.stdDiv.evaluate(array);
-                        this.setFieldValue(name, floatNum);
+                        floatNum = (float)StatUtils.mean(array);
+                        //后标准偏差
+                        getterName = "get" + fieldName + "List";
+                        method = this.memoryClass.getMethod(getterName, null);
+                        floatList = (List<Float>) method.invoke(this.memoryData, null);
+                        array = EcsUtils.floatList2DoubleArray(floatList);
+                        floatNum = (float)this.stdDiv.evaluate(array)/floatNum;
+                        this.setFieldValue(name, this.checkInfAndNan(floatNum));
                     }
                 }else if(name.substring(nameLength-3).equals("Num")){
                     fieldName = name.substring(0, (nameLength - 6));
@@ -131,7 +138,7 @@ public class TenMinCal {
                     if(check(name)) {
                         floatList = (List<Float>) method.invoke(this.memoryData, null);
                         floatNum = this.floatMaxNum(floatList);
-                        this.setFieldValue(name, floatNum);
+                        this.setFieldValue(name, this.checkInfAndNan(floatNum));
                     }else{
                         boolList = (List<Boolean>) method.invoke(this.memoryData, null);
                         boolValue = this.boolMaxNum(boolList);
@@ -211,6 +218,14 @@ public class TenMinCal {
             }
         }
         return result;
+    }
+
+    private float checkInfAndNan(float num){
+        if(Float.isInfinite(num)){
+            num = 99999999999999999F;
+        }else if(Float.isNaN(num))
+            num = 0F;
+        return num;
     }
 
 }

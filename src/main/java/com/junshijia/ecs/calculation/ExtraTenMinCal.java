@@ -1,12 +1,14 @@
 package com.junshijia.ecs.calculation;
 
 import com.junshijia.ecs.domain.ExtraTenData2DB;
-import com.junshijia.ecs.domain.OneSecData2DB;
 import com.junshijia.ecs.domain.TenMinMemory;
 import com.junshijia.ecs.domain.UpdateData2DB;
 import com.junshijia.ecs.util.EcsUtils;
 import org.apache.commons.math3.stat.StatUtils;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.Date;
 
@@ -15,7 +17,6 @@ public class ExtraTenMinCal {
     //10 min data 2 db
     private TenMinMemory memoryData;
     private UpdateData2DB updateData;
-    private OneSecData2DB oneSecData;
     //用于电量模块计算
     private float recordData[];
     //外部数据
@@ -31,18 +32,20 @@ public class ExtraTenMinCal {
         }
     }
 
-    public void InitData(ExtraTenData2DB data, UpdateData2DB updateData, OneSecData2DB oneSecData){
+    public void InitData(UpdateData2DB updateData){
         //外部数据
-        this.data = data;
-        this.updateData = updateData;
-        this.oneSecData = oneSecData;
-        this.record();
+        this.recordData = new float[4];
+        this.recordData[0] = updateData.getHMI_IReg107();
+        this.recordData[1] = updateData.getHMI_IReg1407();
+        this.recordData[2] = updateData.getHMI_IReg118();
+        this.recordData[3] = updateData.getHMI_IReg1408();
     }
 
-    public void setDataTenMinLaterAndCalculate(TenMinMemory memory, UpdateData2DB updateData, OneSecData2DB oneSecData){
+    public void setDataTenMinLaterAndCalculate(int turbineId,
+            TenMinMemory memory, UpdateData2DB updateData){
+        this.data = new ExtraTenData2DB(Integer.toString(turbineId));
         this.memoryData = memory;
         this.updateData = updateData;
-        this.oneSecData = oneSecData;
         this.calculate();
     }
     public void calculate(){
@@ -71,7 +74,7 @@ public class ExtraTenMinCal {
         //A8 需要外部资源
         this.setA8();
         //A9-A12 10分钟之后
-        this.data.setA9(this.oneSecData.getHMI_IReg153()-this.recordData[0]);
+        this.data.setA9(this.updateData.getHMI_IReg107()-this.recordData[0]);
         this.data.setA10(this.updateData.getHMI_IReg1407()-this.recordData[1]);
         this.data.setA11(this.updateData.getHMI_IReg118()-this.recordData[2]);
         this.data.setA12(this.updateData.getHMI_IReg1408()-this.recordData[3]);
@@ -86,6 +89,8 @@ public class ExtraTenMinCal {
         this.data.setA80(this.updateData.getHMI_IReg216());
         //time
         this.data.setA1(new Date());
+        //
+        this.checkNan();
     }
 
     private Float calBin(double value){
@@ -104,11 +109,7 @@ public class ExtraTenMinCal {
     }
     //a9-a12 10分钟之前
     private void record(){
-        this.recordData = new float[4];
-        this.recordData[0] = this.oneSecData.getHMI_IReg153();
-        this.recordData[1] = this.updateData.getHMI_IReg1407();
-        this.recordData[2] = this.updateData.getHMI_IReg118();
-        this.recordData[3] = this.updateData.getHMI_IReg1408();
+
     }
     //算cp
     private void calCp(double ro,double v){
@@ -204,6 +205,38 @@ public class ExtraTenMinCal {
             System.out.println("degree error2...");
         }
     }
+
+    private void checkNan(){
+        //遍历所有data的属性
+        //遍历所有data的属性
+        try {
+            Class<?> clz = data.getClass();
+            // 获取实体类的所有属性，返回Field数组
+            Field[] fields = clz.getDeclaredFields();
+
+            for (Field field : fields) {
+                field.setAccessible(true);
+                if(field.getGenericType().toString().equals("class java.lang.Float")){
+                    Method m = (Method) clz.getMethod("get" + field.getName());
+                    Float f  = (Float) m.invoke(data);// 调用getter方法获取属性值
+                    if(f!=null) {
+                        if (Float.isNaN(f)) {
+                            field.set(data,0F);
+                        }else if(Float.isInfinite(f)){
+                            field.set(data,999999999999999999F);
+                        }
+                    }
+                }
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
     //出口
     public ExtraTenData2DB getData2DB() {
         return data;
