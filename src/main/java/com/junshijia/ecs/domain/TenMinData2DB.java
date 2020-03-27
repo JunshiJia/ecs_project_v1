@@ -12,209 +12,209 @@ public class TenMinData2DB{
 	private int id;
 	private int wtId;
 	private Date time;
-	@Column(name="`HMI_Disc[910]_Max`")
+	@Column(name="`HMI_Disc[910]_Max`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc910Max;
-	@Column(name="`HMI_Disc[910]_Mean`")
+	@Column(name="`HMI_Disc[910]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc910Mean;
 	@Column(name="`HMI_Disc[910]_And`")
 	private Boolean HMI_Disc910And;
-	@Column(name="`HMI_Disc[910]_MaxNum`")
+	@Column(name="`HMI_Disc[910]_MaxNum`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc910MaxNum;
-	@Column(name="`HMI_Disc[912]_MaxNum`")
+	@Column(name="`HMI_Disc[912]_MaxNum`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc912MaxNum;
-	@Column(name="`HMI_IReg[155]_Max`")
+	@Column(name="`HMI_IReg[155]_Max`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg155Max;
-	@Column(name="`HMI_IReg[155]_Mean`")
+	@Column(name="`HMI_IReg[155]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg155Mean;
-	@Column(name="`HMI_IReg[155]_Min`")
+	@Column(name="`HMI_IReg[155]_Min`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg155Min;
-	@Column(name="`HMI_IReg[167]_Mean`")
+	@Column(name="`HMI_IReg[167]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg167Mean;
 	@Column(name="`HMI_IReg[167]_And`")
 	private Boolean HMI_IReg167And;
-	@Column(name="`HMI_IReg[199]_Mean`")
+	@Column(name="`HMI_IReg[199]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg199Mean;
-	@Column(name="`HMI_IReg[101]_Max`")
+	@Column(name="`HMI_IReg[101]_Max`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg101Max;
-	@Column(name="`HMI_IReg[101]_Mean`")
+	@Column(name="`HMI_IReg[101]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg101Mean;
-	@Column(name="`HMI_IReg[101]_Min`")
+	@Column(name="`HMI_IReg[101]_Min`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg101Min;
-	@Column(name="`HMI_IReg[102]_Mean`")
+	@Column(name="`HMI_IReg[102]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg102Mean;
-	@Column(name="`HMI_IReg[103]_Mean`")
+	@Column(name="`HMI_IReg[103]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg103Mean;
-	@Column(name="`HMI_IReg[104]_Mean`")
+	@Column(name="`HMI_IReg[104]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg104Mean;
-	@Column(name="`HMI_IReg[105]_Mean`")
+	@Column(name="`HMI_IReg[105]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg105Mean;
-	@Column(name="`HMI_IReg[106]_Mean`")
+	@Column(name="`HMI_IReg[106]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg106Mean;
-	@Column(name="`HMI_IReg[107]_Mean`")
+	@Column(name="`HMI_IReg[107]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg107Mean;
-	@Column(name="`HMI_IReg[108]_Max`")
+	@Column(name="`HMI_IReg[108]_Max`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg108Max;
-	@Column(name="`HMI_IReg[110]_Max`")
+	@Column(name="`HMI_IReg[110]_Max`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg110Max;
-	@Column(name="`HMI_IReg[110]_Mean`")
+	@Column(name="`HMI_IReg[110]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg110Mean;
-	@Column(name="`HMI_IReg[110]_Min`")
+	@Column(name="`HMI_IReg[110]_Min`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg110Min;
-	@Column(name="`HMI_IReg[110]_StdDiv`")
+	@Column(name="`HMI_IReg[110]_StdDiv`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg110StdDiv;
-	@Column(name="`HMI_IReg[110]_MaxNum`")
+	@Column(name="`HMI_IReg[110]_MaxNum`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg110MaxNum;
-	@Column(name="`HMI_IReg[118]_Mean`")
+	@Column(name="`HMI_IReg[118]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg118Mean;
-	@Column(name="`HMI_IReg[119]_Mean`")
+	@Column(name="`HMI_IReg[119]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg119Mean;
-	@Column(name="`HMI_IReg[121]_Mean`")
+	@Column(name="`HMI_IReg[121]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg121Mean;
-	@Column(name="`HMI_IReg[122]_Mean`")
+	@Column(name="`HMI_IReg[122]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg122Mean;
-	@Column(name="`HMI_IReg[201]_Mean`")
+	@Column(name="`HMI_IReg[201]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg201Mean;
-	@Column(name="`HMI_IReg[203]_Mean`")
+	@Column(name="`HMI_IReg[203]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg203Mean;
-	@Column(name="`HMI_IReg[210]_Max`")
+	@Column(name="`HMI_IReg[210]_Max`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg210Max;
-	@Column(name="`HMI_IReg[210]_Mean`")
+	@Column(name="`HMI_IReg[210]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg210Mean;
-	@Column(name="`HMI_IReg[210]_Min`")
+	@Column(name="`HMI_IReg[210]_Min`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg210Min;
-	@Column(name="`HMI_IReg[210]_StdDiv`")
+	@Column(name="`HMI_IReg[210]_StdDiv`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg210StdDiv;
-	@Column(name="`HMI_IReg[210]_Onflow`")
+	@Column(name="`HMI_IReg[210]_Onflow`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg210Flow;
-	@Column(name="`HMI_IReg[206]_Mean`")
+	@Column(name="`HMI_IReg[206]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg206Mean;
-	@Column(name="`HMI_IReg[206]_StdDiv`")
+	@Column(name="`HMI_IReg[206]_StdDiv`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg206StdDiv;
 	@Column(name="`HMI_IReg[206]_And`")
 	private Boolean HMI_IReg206And;
-	@Column(name="`HMI_IReg[214]_Mean`")
+	@Column(name="`HMI_IReg[214]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg214Mean;
-	@Column(name="`HMI_IReg[216]_Mean`")
+	@Column(name="`HMI_IReg[216]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg216Mean;
-	@Column(name="`HMI_IReg[224]_Mean`")
+	@Column(name="`HMI_IReg[224]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg224Mean;
-	@Column(name="`HMI_IReg[237]_Mean`")
+	@Column(name="`HMI_IReg[237]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg237Mean;
-	@Column(name="`HMI_IReg[238]_Mean`")
+	@Column(name="`HMI_IReg[238]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg238Mean;
-	@Column(name="`HMI_IReg[239]_Mean`")
+	@Column(name="`HMI_IReg[239]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg239Mean;
-	@Column(name="`HMI_IReg[240]_Mean`")
+	@Column(name="`HMI_IReg[240]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg240Mean;
-	@Column(name="`HMI_IReg[241]_Mean`")
+	@Column(name="`HMI_IReg[241]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg241Mean;
-	@Column(name="`HMI_IReg[242]_Mean`")
+	@Column(name="`HMI_IReg[242]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg242Mean;
-	@Column(name="`HMI_IReg[243]_Mean`")
+	@Column(name="`HMI_IReg[243]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg243Mean;
-	@Column(name="`HMI_IReg[244]_Mean`")
+	@Column(name="`HMI_IReg[244]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg244Mean;
-	@Column(name="`HMI_IReg[245]_Mean`")
+	@Column(name="`HMI_IReg[245]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg245Mean;
-	@Column(name="`HMI_IReg[1405]_Mean`")
+	@Column(name="`HMI_IReg[1405]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1405Mean;
-	@Column(name="`HMI_IReg[1406]_Mean`")
+	@Column(name="`HMI_IReg[1406]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1406Mean;
-	@Column(name="`HMI_IReg[1407]_Mean`")
+	@Column(name="`HMI_IReg[1407]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1407Mean;
-	@Column(name="`HMI_IReg[1408]_Mean`")
+	@Column(name="`HMI_IReg[1408]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1408Mean;
-	@Column(name="`HMI_IReg[1418]_Mean`")
+	@Column(name="`HMI_IReg[1418]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1418Mean;
-	@Column(name="`HMI_IReg[1419]_Mean`")
+	@Column(name="`HMI_IReg[1419]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1419Mean;
-	@Column(name="`HMI_IReg[1420]_Mean`")
+	@Column(name="`HMI_IReg[1420]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1420Mean;
-	@Column(name="`HMI_IReg[1422]_Max`")
+	@Column(name="`HMI_IReg[1422]_Max`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1422Max;
-	@Column(name="`HMI_IReg[1422]_Mean`")
+	@Column(name="`HMI_IReg[1422]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1422Mean;
-	@Column(name="`HMI_IReg[1422]_Min`")
+	@Column(name="`HMI_IReg[1422]_Min`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1422Min;
-	@Column(name="`HMI_IReg[1422]_StdDiv`")
+	@Column(name="`HMI_IReg[1422]_StdDiv`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1422StdDiv;
-	@Column(name="`HMI_IReg[1423]_Mean`")
+	@Column(name="`HMI_IReg[1423]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1423Mean;
-	@Column(name="`HMI_IReg[1426]_Mean`")
+	@Column(name="`HMI_IReg[1426]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1426Mean;
-	@Column(name="`HMI_IReg[1563]_Mean`")
+	@Column(name="`HMI_IReg[1563]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1563Mean;
-	@Column(name="`HMI_IReg[1564]_Mean`")
+	@Column(name="`HMI_IReg[1564]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1564Mean;
-	@Column(name="`HMI_IReg[1565]_Mean`")
+	@Column(name="`HMI_IReg[1565]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1565Mean;
-	@Column(name="`HMI_IReg[1575]_Mean`")
+	@Column(name="`HMI_IReg[1575]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1575Mean;
-	@Column(name="`HMI_IReg[1576]_Mean`")
+	@Column(name="`HMI_IReg[1576]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1576Mean;
-	@Column(name="`HMI_IReg[1577]_Mean`")
+	@Column(name="`HMI_IReg[1577]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1577Mean;
-	@Column(name="`HMI_IReg[1578]_Mean`")
+	@Column(name="`HMI_IReg[1578]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1578Mean;
-	@Column(name="`HMI_IReg[1579]_Mean`")
+	@Column(name="`HMI_IReg[1579]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1579Mean;
-	@Column(name="`HMI_IReg[1580]_Mean`")
+	@Column(name="`HMI_IReg[1580]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1580Mean;
-	@Column(name="`HMI_IReg[1581]_Mean`")
+	@Column(name="`HMI_IReg[1581]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1581Mean;
-	@Column(name="`HMI_IReg[1582]_Mean`")
+	@Column(name="`HMI_IReg[1582]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1582Mean;
-	@Column(name="`HMI_IReg[1583]_Mean`")
+	@Column(name="`HMI_IReg[1583]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1583Mean;
-	@Column(name="`HMI_IReg[1584]_Mean`")
+	@Column(name="`HMI_IReg[1584]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1584Mean;
-	@Column(name="`HMI_IReg[1672]_Mean`")
+	@Column(name="`HMI_IReg[1672]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1672Mean;
-	@Column(name="`HMI_IReg[1673]_Mean`")
+	@Column(name="`HMI_IReg[1673]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1673Mean;
-	@Column(name="`HMI_IReg[1683]_Mean`")
+	@Column(name="`HMI_IReg[1683]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1683Mean;
-	@Column(name="`HMI_IReg[1691]_Mean`")
+	@Column(name="`HMI_IReg[1691]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1691Mean;
-	@Column(name="`HMI_IReg[1692]_Mean`")
+	@Column(name="`HMI_IReg[1692]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1692Mean;
-	@Column(name="`HMI_IReg[1693]_Mean`")
+	@Column(name="`HMI_IReg[1693]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1693Mean;
-	@Column(name="`HMI_IReg[1694]_Mean`")
+	@Column(name="`HMI_IReg[1694]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1694Mean;
-	@Column(name="`HMI_IReg[1508]_Mean`")
+	@Column(name="`HMI_IReg[1508]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1508Mean;
-	@Column(name="`HMI_IReg[1514]_Mean`")
+	@Column(name="`HMI_IReg[1514]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1514Mean;
-	@Column(name="`HMI_IReg[1515]_Mean`")
+	@Column(name="`HMI_IReg[1515]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1515Mean;
-	@Column(name="`HMI_IReg[1516]_Mean`")
+	@Column(name="`HMI_IReg[1516]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1516Mean;
-	@Column(name="`HMI_IReg[1517]_Mean`")
+	@Column(name="`HMI_IReg[1517]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1517Mean;
-	@Column(name="`HMI_IReg[1518]_Mean`")
+	@Column(name="`HMI_IReg[1518]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1518Mean;
-	@Column(name="`HMI_IReg[1519]_Mean`")
+	@Column(name="`HMI_IReg[1519]_Mean`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1519Mean;
-	@Column(name="`HMI_Disc[332]_Min`")
+	@Column(name="`HMI_Disc[332]_Min`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc332Min;
-	@Column(name="`HMI_Disc[341]_Min`")
+	@Column(name="`HMI_Disc[341]_Min`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc341Min;
-	@Column(name="`HMI_Disc[341]_StdDiv`")
+	@Column(name="`HMI_Disc[341]_StdDiv`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc341StdDiv;
-	@Column(name="`HMI_Disc[383]_Min`")
+	@Column(name="`HMI_Disc[383]_Min`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc383Min;
-	@Column(name="`HMI_Disc[409]_Min`")
+	@Column(name="`HMI_Disc[409]_Min`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc409Min;
-	@Column(name="`HMI_Disc[409]_StdDiv`")
+	@Column(name="`HMI_Disc[409]_StdDiv`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc409StdDiv;
-	@Column(name="`HMI_Disc[409]_Onflow`")
+	@Column(name="`HMI_Disc[409]_Onflow`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc409Flow;
-	@Column(name="`HMI_Disc[413]_Min`")
+	@Column(name="`HMI_Disc[413]_Min`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc413Min;
-	@Column(name="`HMI_Disc[413]_StdDiv`")
+	@Column(name="`HMI_Disc[413]_StdDiv`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc413StdDiv;
-	@Column(name="`HMI_Disc[413]_Onflow`")
+	@Column(name="`HMI_Disc[413]_Onflow`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_Disc413Flow;
 
 	@Override
@@ -326,9 +326,6 @@ public class TenMinData2DB{
 				", HMI_Disc413StdDiv=" + HMI_Disc413StdDiv +
 				", HMI_Disc413Flow=" + HMI_Disc413Flow +
 				'}';
-	}
-
-	public TenMinData2DB() {
 	}
 
 	public int getId() {

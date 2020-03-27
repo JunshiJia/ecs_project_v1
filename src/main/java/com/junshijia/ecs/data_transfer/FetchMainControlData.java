@@ -135,7 +135,7 @@ public class FetchMainControlData {
                 EcsUtils.writeData2Domain(this.anyOneSecMap, results, this.anyOneSecData, anyOneCount);
                 EcsUtils.writeData2List(this.fieldNames, results, this.tenMinMemory, tenMinCount);
                 //应该判断主状态,是否需要存1s
-                this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
+                this.status.setStatusCode((int)this.updateData.getHMI_IReg110());
                 if (!this.status.isRunning()) {
                     EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
                 }
@@ -155,20 +155,16 @@ public class FetchMainControlData {
     public void readFromSlave2DomainThrow() throws ErrorResponseException, ModbusTransportException {
         boolean flag;
         //2.read modbus data 2 map/list
-        flag = true;
-        while (flag) {
-            this.results = this.master.send(this.batch);
-            //any1s + update + memoryData
-            EcsUtils.writeData2Domain(this.updateMap, results, this.updateData,0);
-            EcsUtils.writeData2Domain(this.anyOneSecMap, results, this.anyOneSecData, anyOneCount);
-            EcsUtils.writeData2List(this.fieldNames, results, this.tenMinMemory, tenMinCount);
-            //应该判断主状态,是否需要存1s
-            this.status.setStatusCode(this.updateData.getHMI_IReg110().intValue());
-            //if (!this.status.isRunning()) {
-                EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
-            //}
-            flag = false;
-        }
+        this.results = this.master.send(this.batch);
+        //any1s + update + memoryData
+        EcsUtils.writeData2Domain(this.updateMap, results, this.updateData,0);
+        EcsUtils.writeData2Domain(this.anyOneSecMap, results, this.anyOneSecData, anyOneCount);
+        EcsUtils.writeData2List(this.fieldNames, results, this.tenMinMemory, tenMinCount);
+        //应该判断主状态,是否需要存1s
+        this.status.setStatusCode((int)this.updateData.getHMI_IReg110());
+        //if (!this.status.isRunning()) {
+            EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
+        //}
     }
 
     public void renewMemory(){

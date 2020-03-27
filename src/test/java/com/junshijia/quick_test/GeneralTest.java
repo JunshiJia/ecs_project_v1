@@ -6,16 +6,14 @@ import org.junit.Test;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 
 public class GeneralTest {
     @Test
     public void test(){
-        ExtraTenData2DB data = new ExtraTenData2DB();
-        data.setA8((0/0F));
-        checkNan(data);
-        System.out.println(data.getA8());
-
-
+        float f = 2147483647F;
+        System.out.println(f);
+        BigDecimal b;
     }
 
     public void checkNan(ExtraTenData2DB data){

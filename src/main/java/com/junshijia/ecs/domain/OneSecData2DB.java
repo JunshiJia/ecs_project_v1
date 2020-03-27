@@ -10,11 +10,11 @@ public class OneSecData2DB{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private int wtId;
+	private String Wtid;
 	private Date time;
-	@Column(name="`HMI_IReg[153]`")
+	@Column(name="`HMI_IReg[153]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg153;
-	@Column(name="`HMI_IReg[155]`")
+	@Column(name="`HMI_IReg[155]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg155;
 	@Column(name="`HMI_Disc[1001]`")
 	private boolean HMI_Disc1001;
@@ -38,51 +38,51 @@ public class OneSecData2DB{
 	private boolean HMI_Disc1012;
 	@Column(name="`HMI_Disc[1013]`")
 	private boolean HMI_Disc1013;
-	@Column(name="`HMI_IReg[237]`")
+	@Column(name="`HMI_IReg[237]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg237;
-	@Column(name="`HMI_IReg[238]`")
+	@Column(name="`HMI_IReg[238]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg238;
-	@Column(name="`HMI_IReg[239]`")
+	@Column(name="`HMI_IReg[239]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg239;
-	@Column(name="`HMI_IReg[240]`")
+	@Column(name="`HMI_IReg[240]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg240;
-	@Column(name="`HMI_IReg[241]`")
+	@Column(name="`HMI_IReg[241]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg241;
-	@Column(name="`HMI_IReg[242]`")
+	@Column(name="`HMI_IReg[242]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg242;
-	@Column(name="`HMI_IReg[243]`")
+	@Column(name="`HMI_IReg[243]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg243;
-	@Column(name="`HMI_IReg[244]`")
+	@Column(name="`HMI_IReg[244]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg244;
-	@Column(name="`HMI_IReg[253]`")
+	@Column(name="`HMI_IReg[253]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg253;
-	@Column(name="`HMI_IReg[1405]`")
+	@Column(name="`HMI_IReg[1405]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1405;
-	@Column(name="`HMI_IReg[1406]`")
+	@Column(name="`HMI_IReg[1406]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1406;
-	@Column(name="`HMI_IReg[1407]`")
+	@Column(name="`HMI_IReg[1407]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1407;
-	@Column(name="`HMI_IReg[1408]`")
+	@Column(name="`HMI_IReg[1408]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1408;
-	@Column(name="`HMI_IReg[1422]`")
+	@Column(name="`HMI_IReg[1422]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1422;
-	@Column(name="`HMI_IReg[1423]`")
+	@Column(name="`HMI_IReg[1423]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1423;
-	@Column(name="`HMI_IReg[1572]`")
+	@Column(name="`HMI_IReg[1572]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1572;
-	@Column(name="`HMI_IReg[1573]`")
+	@Column(name="`HMI_IReg[1573]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1573;
-	@Column(name="`HMI_IReg[1574]`")
+	@Column(name="`HMI_IReg[1574]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1574;
-	@Column(name="`HMI_IReg[1575]`")
+	@Column(name="`HMI_IReg[1575]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1575;
-	@Column(name="`HMI_IReg[1576]`")
+	@Column(name="`HMI_IReg[1576]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1576;
-	@Column(name="`HMI_IReg[1577]`")
+	@Column(name="`HMI_IReg[1577]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1577;
-	@Column(name="`HMI_IReg[1672]`")
+	@Column(name="`HMI_IReg[1672]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1672;
-	@Column(name="`HMI_IReg[1673]`")
+	@Column(name="`HMI_IReg[1673]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg1673;
 
 	@Override
@@ -129,15 +129,12 @@ public class OneSecData2DB{
 				'}';
 	}
 
-	public OneSecData2DB() {
+	public String getWtid() {
+		return Wtid;
 	}
 
-	public int getWtId() {
-		return wtId;
-	}
-
-	public void setWtId(int wtId) {
-		this.wtId = wtId;
+	public void setWtid(String wtid) {
+		Wtid = wtid;
 	}
 
 	public int getId() {

@@ -7,6 +7,7 @@
     <groupId>com.junshijia</groupId>
     <artifactId>ecs_project_v1</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
 
     <build>
         <plugins>
@@ -51,7 +52,6 @@
         </resources>
     </build>
 
-    <packaging>jar</packaging>
 
     <repositories>
         <repository>
@@ -76,30 +76,13 @@
             <name>Infinite Automation Release Repository</name>
             <url>https://maven.mangoautomation.net/repository/ias-release/</url>
         </repository>
-
-        <repository>
-            <id>central</id>
-            <url>http://host:port/content/groups/public</url>
-        </repository>
     </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>central</id>
-            <url>http://host:port/content/groups/public</url>
-        </pluginRepository>
-    </pluginRepositories>
 
     <dependencies>
         <dependency>
             <groupId>com.infiniteautomation</groupId>
             <artifactId>modbus4j</artifactId>
-            <version>3.0.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.5.2</version>
+            <version>3.0.5</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -122,6 +105,11 @@
             <artifactId>commons-io</artifactId>
             <version>2.6</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.5</version>
+        </dependency>
         <!-- 添加javassist -->
         <dependency>
             <groupId>javassist</groupId>
@@ -134,24 +122,17 @@
             <artifactId>hibernate-core</artifactId>
             <version>3.6.10.Final</version>
         </dependency>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
             <version>3.6.10.Final</version>
         </dependency>
-
         <dependency>
             <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
             <version>0.9.5.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-math3</artifactId>
-            <version>3.5</version>
-        </dependency>
     </dependencies>
 
 

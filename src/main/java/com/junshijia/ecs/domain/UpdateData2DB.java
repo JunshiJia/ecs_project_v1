@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="allTurbines_data")
+@Table(name="allturbines_data")
 public class UpdateData2DB{
 
 	@Id
@@ -16,91 +16,103 @@ public class UpdateData2DB{
 	private int id;
 	@Temporal(TemporalType.TIMESTAMP) // 是用来定义日期类型
 	private Date time;
-	private int wtId;
+	private String WtId;
 	@Column(name="`HMI_Disc[910]`")
 	private boolean HMI_Disc910;
 	@Column(name="`HMI_Disc[912]`")
 	private boolean HMI_Disc912;
-	@Column(name="`HMI_IReg[155]`")
-	private Float HMI_IReg155;
-	@Column(name="`HMI_IReg[199]`")
-	private Float HMI_IReg199;
-	@Column(name="`HMI_IReg[174]`")
-	private Float HMI_IReg174;
-	@Column(name="`HMI_IReg[101]`")
-	private Float HMI_IReg101;
-	@Column(name="`HMI_IReg[102]`")
-	private Float HMI_IReg102;
-	@Column(name="`HMI_IReg[103]`")
-	private Float HMI_IReg103;
-	@Column(name="`HMI_IReg[104]`")
-	private Float HMI_IReg104;
-	@Column(name="`HMI_IReg[105]`")
-	private Float HMI_IReg105;
-	@Column(name="`HMI_IReg[106]`")
-	private Float HMI_IReg106;
-	@Column(name="`HMI_IReg[107]`")
-	private Float HMI_IReg107;
-	@Column(name="`HMI_IReg[109]`")
-	private Float HMI_IReg109;
-	@Column(name="`HMI_IReg[110]`")
-	private Float HMI_IReg110;
+	@Column(name="`HMI_IReg[155]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg155;
+	@Column(name="`HMI_IReg[199]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg199;
+	@Column(name="`HMI_IReg[174]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg174;
+	@Column(name="`HMI_IReg[101]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg101;
+	@Column(name="`HMI_IReg[102]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg102;
+	@Column(name="`HMI_IReg[103]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg103;
+	@Column(name="`HMI_IReg[104]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg104;
+	@Column(name="`HMI_IReg[105]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg105;
+	@Column(name="`HMI_IReg[106]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg106;
+	@Column(name="`HMI_IReg[107]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg107;
+	@Column(name="`HMI_IReg[109]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg109;
+	@Column(name="`HMI_IReg[110]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg110;
 	@Column(name="`HMI_Disc[922]`")
 	private boolean HMI_Disc922;
 	@Column(name="`HMI_Disc[923]`")
 	private boolean HMI_Disc923;
-	@Column(name="`HMI_IReg[118]`")
-	private Float HMI_IReg118;
-	@Column(name="`HMI_IReg[119]`")
-	private Float HMI_IReg119;
-	@Column(name="`HMI_IReg[121]`")
-	private Float HMI_IReg121;
-	@Column(name="`HMI_IReg[122]`")
-	private Float HMI_IReg122;
+	@Column(name="`HMI_IReg[194]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg194;
+	@Column(name="`HMI_IReg[195]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg195;
+	@Column(name="`HMI_IReg[196]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg196;
+	@Column(name="`HMI_IReg[197]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg197;
+	@Column(name="`HMI_IReg[118]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg118;
+	@Column(name="`HMI_IReg[119]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg119;
+	@Column(name="`HMI_IReg[121]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg121;
+	@Column(name="`HMI_IReg[122]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg122;
 	@Column(name="`HMI_Disc[1021]`")
 	private boolean HMI_Disc1021;
 	@Column(name="`HMI_Disc[1022]`")
 	private boolean HMI_Disc1022;
-	@Column(name="`HMI_IReg[201]`")
-	private Float HMI_IReg201;
-	@Column(name="`HMI_IReg[210]`")
-	private Float HMI_IReg210;
-	@Column(name="`HMI_IReg[206]`")
-	private Float HMI_IReg206;
-	@Column(name="`HMI_IReg[214]`")
-	private Float HMI_IReg214;
-	@Column(name="`HMI_IReg[216]`")
-	private Float HMI_IReg216;
-	@Column(name="`HMI_IReg[224]`")
-	private Float HMI_IReg224;
-	@Column(name="`HMI_IReg[237]`")
-	private Float HMI_IReg237;
-	@Column(name="`HMI_IReg[238]`")
-	private Float HMI_IReg238;
-	@Column(name="`HMI_IReg[239]`")
-	private Float HMI_IReg239;
-	@Column(name="`HMI_IReg[240]`")
-	private Float HMI_IReg240;
-	@Column(name="`HMI_IReg[241]`")
-	private Float HMI_IReg241;
-	@Column(name="`HMI_IReg[242]`")
-	private Float HMI_IReg242;
-	@Column(name="`HMI_IReg[243]`")
-	private Float HMI_IReg243;
-	@Column(name="`HMI_IReg[244]`")
-	private Float HMI_IReg244;
-	@Column(name="`HMI_IReg[245]`")
-	private Float HMI_IReg245;
+	@Column(name="`HMI_IReg[201]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg201;
+	@Column(name="`HMI_IReg[203]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg203;
+	@Column(name="`HMI_IReg[210]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg210;
+	@Column(name="`HMI_IReg[208]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg208;
+	@Column(name="`HMI_IReg[206]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg206;
+	@Column(name="`HMI_IReg[214]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg214;
+	@Column(name="`HMI_IReg[216]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg216;
+	@Column(name="`HMI_IReg[224]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg224;
+	@Column(name="`HMI_IReg[237]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg237;
+	@Column(name="`HMI_IReg[238]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg238;
+	@Column(name="`HMI_IReg[239]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg239;
+	@Column(name="`HMI_IReg[240]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg240;
+	@Column(name="`HMI_IReg[241]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg241;
+	@Column(name="`HMI_IReg[242]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg242;
+	@Column(name="`HMI_IReg[243]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg243;
+	@Column(name="`HMI_IReg[244]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg244;
+	@Column(name="`HMI_IReg[245]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg245;
 	@Column(name="`HMI_Disc[1056]`")
 	private boolean HMI_Disc1056;
-	@Column(name="`HMI_IReg[253]`")
-	private Float HMI_IReg253;
-	@Column(name="`HMI_IReg[254]`")
-	private Float HMI_IReg254;
-	@Column(name="`HMI_IReg[261]`")
-	private Float HMI_IReg261;
-	@Column(name="`HMI_IReg[262]`")
-	private Float HMI_IReg262;
+	@Column(name="`HMI_IReg[253]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg253;
+	@Column(name="`HMI_IReg[254]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg254;
+	@Column(name="`HMI_IReg[261]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg261;
+	@Column(name="`HMI_IReg[262]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg262;
 	@Column(name="`HMI_Disc[1024]`")
 	private boolean HMI_Disc1024;
 	@Column(name="`HMI_Disc[1025]`")
@@ -113,76 +125,78 @@ public class UpdateData2DB{
 	private boolean HMI_Disc1031;
 	@Column(name="`HMI_Disc[1036]`")
 	private boolean HMI_Disc1036;
-	@Column(name="`HMI_IReg[352]`")
-	private Float HMI_IReg352;
-	@Column(name="`HMI_IReg[1405]`")
-	private Float HMI_IReg1405;
-	@Column(name="`HMI_IReg[1406]`")
-	private Float HMI_IReg1406;
-	@Column(name="`HMI_IReg[1407]`")
-	private Float HMI_IReg1407;
-	@Column(name="`HMI_IReg[1408]`")
-	private Float HMI_IReg1408;
-	@Column(name="`HMI_IReg[1412]`")
-	private Float HMI_IReg1412;
-	@Column(name="`HMI_IReg[1413]`")
-	private Float HMI_IReg1413;
-	@Column(name="`HMI_IReg[1414]`")
-	private Float HMI_IReg1414;
-	@Column(name="`HMI_IReg[1418]`")
-	private Float HMI_IReg1418;
-	@Column(name="`HMI_IReg[1419]`")
-	private Float HMI_IReg1419;
-	@Column(name="`HMI_IReg[1420]`")
-	private Float HMI_IReg1420;
-	@Column(name="`HMI_IReg[1422]`")
-	private Float HMI_IReg1422;
-	@Column(name="`HMI_IReg[1423]`")
-	private Float HMI_IReg1423;
-	@Column(name="`HMI_IReg[1426]`")
-	private Float HMI_IReg1426;
-	@Column(name="`HMI_IReg[1551]`")
-	private Float HMI_IReg1551;
-	@Column(name="`HMI_IReg[1552]`")
-	private Float HMI_IReg1552;
-	@Column(name="`HMI_IReg[1553]`")
-	private Float HMI_IReg1553;
-	@Column(name="`HMI_IReg[1560]`")
-	private Float HMI_IReg1560;
-	@Column(name="`HMI_IReg[1561]`")
-	private Float HMI_IReg1561;
-	@Column(name="`HMI_IReg[1562]`")
-	private Float HMI_IReg1562;
-	@Column(name="`HMI_IReg[1566]`")
-	private Float HMI_IReg1566;
-	@Column(name="`HMI_IReg[1567]`")
-	private Float HMI_IReg1567;
-	@Column(name="`HMI_IReg[1568]`")
-	private Float HMI_IReg1568;
-	@Column(name="`HMI_IReg[1569]`")
-	private Float HMI_IReg1569;
-	@Column(name="`HMI_IReg[1570]`")
-	private Float HMI_IReg1570;
-	@Column(name="`HMI_IReg[1571]`")
-	private Float HMI_IReg1571;
-	@Column(name="`HMI_IReg[1575]`")
-	private Float HMI_IReg1575;
-	@Column(name="`HMI_IReg[1576]`")
-	private Float HMI_IReg1576;
-	@Column(name="`HMI_IReg[1577]`")
-	private Float HMI_IReg1577;
-	@Column(name="`HMI_IReg[1578]`")
-	private Float HMI_IReg1578;
-	@Column(name="`HMI_IReg[1579]`")
-	private Float HMI_IReg1579;
-	@Column(name="`HMI_IReg[1580]`")
-	private Float HMI_IReg1580;
-	@Column(name="`HMI_IReg[1581]`")
-	private Float HMI_IReg1581;
-	@Column(name="`HMI_IReg[1582]`")
-	private Float HMI_IReg1582;
-	@Column(name="`HMI_IReg[1583]`")
-	private Float HMI_IReg1583;
+	@Column(name="`HMI_IReg[352]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg352;
+	@Column(name="`HMI_IReg[1405]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1405;
+	@Column(name="`HMI_IReg[1406]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1406;
+	@Column(name="`HMI_IReg[1407]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1407;
+	@Column(name="`HMI_IReg[1408]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1408;
+	@Column(name="`HMI_IReg[1412]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1412;
+	@Column(name="`HMI_IReg[1413]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1413;
+	@Column(name="`HMI_IReg[1414]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1414;
+	@Column(name="`HMI_IReg[1418]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1418;
+	@Column(name="`HMI_IReg[1419]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1419;
+	@Column(name="`HMI_IReg[1420]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1420;
+	@Column(name="`HMI_IReg[1422]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1422;
+	@Column(name="`HMI_IReg[1423]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1423;
+	@Column(name="`HMI_IReg[1426]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1426;
+	@Column(name="`HMI_IReg[1551]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1551;
+	@Column(name="`HMI_IReg[1552]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1552;
+	@Column(name="`HMI_IReg[1553]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1553;
+	@Column(name="`HMI_IReg[1560]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1560;
+	@Column(name="`HMI_IReg[1561]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1561;
+	@Column(name="`HMI_IReg[1562]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1562;
+	@Column(name="`HMI_IReg[1566]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1566;
+	@Column(name="`HMI_IReg[1567]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1567;
+	@Column(name="`HMI_IReg[1568]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1568;
+	@Column(name="`HMI_IReg[1569]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1569;
+	@Column(name="`HMI_IReg[1570]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1570;
+	@Column(name="`HMI_IReg[1571]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1571;
+	@Column(name="`HMI_IReg[1575]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1575;
+	@Column(name="`HMI_IReg[1576]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1576;
+	@Column(name="`HMI_IReg[1577]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1577;
+	@Column(name="`HMI_IReg[1578]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1578;
+	@Column(name="`HMI_IReg[1579]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1579;
+	@Column(name="`HMI_IReg[1580]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1580;
+	@Column(name="`HMI_IReg[1581]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1581;
+	@Column(name="`HMI_IReg[1582]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1582;
+	@Column(name="`HMI_IReg[1583]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1583;
+	@Column(name="`HMI_IReg[1584]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1584;
 	@Column(name="`HMI_Disc[1553]`")
 	private boolean HMI_Disc1553;
 	@Column(name="`HMI_Disc[1554]`")
@@ -191,38 +205,48 @@ public class UpdateData2DB{
 	private boolean HMI_Disc1555;
 	@Column(name="`HMI_Disc[1606]`")
 	private boolean HMI_Disc1606;
-	@Column(name="`HMI_IReg[1670]`")
-	private Float HMI_IReg1670;
-	@Column(name="`HMI_IReg[1672]`")
-	private Float HMI_IReg1672;
-	@Column(name="`HMI_IReg[1673]`")
-	private Float HMI_IReg1673;
-	@Column(name="`HMI_IReg[1683]`")
-	private Float HMI_IReg1683;
-	@Column(name="`HMI_IReg[1691]`")
-	private Float HMI_IReg1691;
-	@Column(name="`HMI_IReg[1692]`")
-	private Float HMI_IReg1692;
-	@Column(name="`HMI_IReg[1693]`")
-	private Float HMI_IReg1693;
-	@Column(name="`HMI_IReg[1694]`")
-	private Float HMI_IReg1694;
-	@Column(name="`HMI_IReg[796]`")
-	private Float HMI_IReg796;
-	@Column(name="`HMI_IReg[1508]`")
-	private Float HMI_IReg1508;
-	@Column(name="`HMI_IReg[1514]`")
-	private Float HMI_IReg1514;
-	@Column(name="`HMI_IReg[1515]`")
-	private Float HMI_IReg1515;
-	@Column(name="`HMI_IReg[1516]`")
-	private Float HMI_IReg1516;
-	@Column(name="`HMI_IReg[1517]`")
-	private Float HMI_IReg1517;
-	@Column(name="`HMI_IReg[1518]`")
-	private Float HMI_IReg1518;
-	@Column(name="`HMI_IReg[1519]`")
-	private Float HMI_IReg1519;
+	@Column(name="`HMI_IReg[1651]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1651;
+	@Column(name="`HMI_IReg[1652]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1652;
+	@Column(name="`HMI_IReg[1653]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1653;
+	@Column(name="`HMI_IReg[1661]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1661;
+	@Column(name="`HMI_IReg[1662]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1662;
+	@Column(name="`HMI_IReg[1670]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1670;
+	@Column(name="`HMI_IReg[1672]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1672;
+	@Column(name="`HMI_IReg[1673]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1673;
+	@Column(name="`HMI_IReg[1683]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1683;
+	@Column(name="`HMI_IReg[1691]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1691;
+	@Column(name="`HMI_IReg[1692]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1692;
+	@Column(name="`HMI_IReg[1693]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1693;
+	@Column(name="`HMI_IReg[1694]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1694;
+	@Column(name="`HMI_IReg[796]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg796;
+	@Column(name="`HMI_IReg[1508]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1508;
+	@Column(name="`HMI_IReg[1514]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1514;
+	@Column(name="`HMI_IReg[1515]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1515;
+	@Column(name="`HMI_IReg[1516]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1516;
+	@Column(name="`HMI_IReg[1517]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1517;
+	@Column(name="`HMI_IReg[1518]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1518;
+	@Column(name="`HMI_IReg[1519]`", columnDefinition ="double NOT NULL DEFAULT '0'")
+	private float HMI_IReg1519;
 	@Column(name="`HMI_Disc[301]`")
 	private boolean HMI_Disc301;
 	@Column(name="`HMI_Disc[302]`")
@@ -1116,12 +1140,15 @@ public class UpdateData2DB{
 	@Column(name="`HMI_Disc[882]`")
 	private boolean HMI_Disc882;
 
+	public UpdateData2DB() {
+	}
+
 	@Override
 	public String toString() {
 		return "UpdateData2DB{" +
 				"id=" + id +
 				", time=" + time +
-				", wtId=" + wtId +
+				", WtId='" + WtId + '\'' +
 				", HMI_Disc910=" + HMI_Disc910 +
 				", HMI_Disc912=" + HMI_Disc912 +
 				", HMI_IReg155=" + HMI_IReg155 +
@@ -1138,6 +1165,10 @@ public class UpdateData2DB{
 				", HMI_IReg110=" + HMI_IReg110 +
 				", HMI_Disc922=" + HMI_Disc922 +
 				", HMI_Disc923=" + HMI_Disc923 +
+				", HMI_IReg194=" + HMI_IReg194 +
+				", HMI_IReg195=" + HMI_IReg195 +
+				", HMI_IReg196=" + HMI_IReg196 +
+				", HMI_IReg197=" + HMI_IReg197 +
 				", HMI_IReg118=" + HMI_IReg118 +
 				", HMI_IReg119=" + HMI_IReg119 +
 				", HMI_IReg121=" + HMI_IReg121 +
@@ -1145,7 +1176,9 @@ public class UpdateData2DB{
 				", HMI_Disc1021=" + HMI_Disc1021 +
 				", HMI_Disc1022=" + HMI_Disc1022 +
 				", HMI_IReg201=" + HMI_IReg201 +
+				", HMI_IReg203=" + HMI_IReg203 +
 				", HMI_IReg210=" + HMI_IReg210 +
+				", HMI_IReg208=" + HMI_IReg208 +
 				", HMI_IReg206=" + HMI_IReg206 +
 				", HMI_IReg214=" + HMI_IReg214 +
 				", HMI_IReg216=" + HMI_IReg216 +
@@ -1205,10 +1238,16 @@ public class UpdateData2DB{
 				", HMI_IReg1581=" + HMI_IReg1581 +
 				", HMI_IReg1582=" + HMI_IReg1582 +
 				", HMI_IReg1583=" + HMI_IReg1583 +
+				", HMI_IReg1584=" + HMI_IReg1584 +
 				", HMI_Disc1553=" + HMI_Disc1553 +
 				", HMI_Disc1554=" + HMI_Disc1554 +
 				", HMI_Disc1555=" + HMI_Disc1555 +
 				", HMI_Disc1606=" + HMI_Disc1606 +
+				", HMI_IReg1651=" + HMI_IReg1651 +
+				", HMI_IReg1652=" + HMI_IReg1652 +
+				", HMI_IReg1653=" + HMI_IReg1653 +
+				", HMI_IReg1661=" + HMI_IReg1661 +
+				", HMI_IReg1662=" + HMI_IReg1662 +
 				", HMI_IReg1670=" + HMI_IReg1670 +
 				", HMI_IReg1672=" + HMI_IReg1672 +
 				", HMI_IReg1673=" + HMI_IReg1673 +
@@ -1674,9 +1713,6 @@ public class UpdateData2DB{
 				'}';
 	}
 
-	public UpdateData2DB() {
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -1693,12 +1729,12 @@ public class UpdateData2DB{
 		this.time = time;
 	}
 
-	public int getWtId() {
-		return wtId;
+	public String getWtId() {
+		return WtId;
 	}
 
-	public void setWtId(int wtId) {
-		this.wtId = wtId;
+	public void setWtId(String wtId) {
+		WtId = wtId;
 	}
 
 	public boolean isHMI_Disc910() {
@@ -1717,99 +1753,99 @@ public class UpdateData2DB{
 		this.HMI_Disc912 = HMI_Disc912;
 	}
 
-	public Float getHMI_IReg155() {
+	public float getHMI_IReg155() {
 		return HMI_IReg155;
 	}
 
-	public void setHMI_IReg155(Float HMI_IReg155) {
+	public void setHMI_IReg155(float HMI_IReg155) {
 		this.HMI_IReg155 = HMI_IReg155;
 	}
 
-	public Float getHMI_IReg199() {
+	public float getHMI_IReg199() {
 		return HMI_IReg199;
 	}
 
-	public void setHMI_IReg199(Float HMI_IReg199) {
+	public void setHMI_IReg199(float HMI_IReg199) {
 		this.HMI_IReg199 = HMI_IReg199;
 	}
 
-	public Float getHMI_IReg174() {
+	public float getHMI_IReg174() {
 		return HMI_IReg174;
 	}
 
-	public void setHMI_IReg174(Float HMI_IReg174) {
+	public void setHMI_IReg174(float HMI_IReg174) {
 		this.HMI_IReg174 = HMI_IReg174;
 	}
 
-	public Float getHMI_IReg101() {
+	public float getHMI_IReg101() {
 		return HMI_IReg101;
 	}
 
-	public void setHMI_IReg101(Float HMI_IReg101) {
+	public void setHMI_IReg101(float HMI_IReg101) {
 		this.HMI_IReg101 = HMI_IReg101;
 	}
 
-	public Float getHMI_IReg102() {
+	public float getHMI_IReg102() {
 		return HMI_IReg102;
 	}
 
-	public void setHMI_IReg102(Float HMI_IReg102) {
+	public void setHMI_IReg102(float HMI_IReg102) {
 		this.HMI_IReg102 = HMI_IReg102;
 	}
 
-	public Float getHMI_IReg103() {
+	public float getHMI_IReg103() {
 		return HMI_IReg103;
 	}
 
-	public void setHMI_IReg103(Float HMI_IReg103) {
+	public void setHMI_IReg103(float HMI_IReg103) {
 		this.HMI_IReg103 = HMI_IReg103;
 	}
 
-	public Float getHMI_IReg104() {
+	public float getHMI_IReg104() {
 		return HMI_IReg104;
 	}
 
-	public void setHMI_IReg104(Float HMI_IReg104) {
+	public void setHMI_IReg104(float HMI_IReg104) {
 		this.HMI_IReg104 = HMI_IReg104;
 	}
 
-	public Float getHMI_IReg105() {
+	public float getHMI_IReg105() {
 		return HMI_IReg105;
 	}
 
-	public void setHMI_IReg105(Float HMI_IReg105) {
+	public void setHMI_IReg105(float HMI_IReg105) {
 		this.HMI_IReg105 = HMI_IReg105;
 	}
 
-	public Float getHMI_IReg106() {
+	public float getHMI_IReg106() {
 		return HMI_IReg106;
 	}
 
-	public void setHMI_IReg106(Float HMI_IReg106) {
+	public void setHMI_IReg106(float HMI_IReg106) {
 		this.HMI_IReg106 = HMI_IReg106;
 	}
 
-	public Float getHMI_IReg107() {
+	public float getHMI_IReg107() {
 		return HMI_IReg107;
 	}
 
-	public void setHMI_IReg107(Float HMI_IReg107) {
+	public void setHMI_IReg107(float HMI_IReg107) {
 		this.HMI_IReg107 = HMI_IReg107;
 	}
 
-	public Float getHMI_IReg109() {
+	public float getHMI_IReg109() {
 		return HMI_IReg109;
 	}
 
-	public void setHMI_IReg109(Float HMI_IReg109) {
+	public void setHMI_IReg109(float HMI_IReg109) {
 		this.HMI_IReg109 = HMI_IReg109;
 	}
 
-	public Float getHMI_IReg110() {
+	public float getHMI_IReg110() {
 		return HMI_IReg110;
 	}
 
-	public void setHMI_IReg110(Float HMI_IReg110) {
+	public void setHMI_IReg110(float HMI_IReg110) {
 		this.HMI_IReg110 = HMI_IReg110;
 	}
 
@@ -1829,35 +1865,67 @@ public class UpdateData2DB{
 		this.HMI_Disc923 = HMI_Disc923;
 	}
 
-	public Float getHMI_IReg118() {
+	public float getHMI_IReg194() {
+		return HMI_IReg194;
+	}
+
+	public void setHMI_IReg194(float HMI_IReg194) {
+		this.HMI_IReg194 = HMI_IReg194;
+	}
+
+	public float getHMI_IReg195() {
+		return HMI_IReg195;
+	}
+
+	public void setHMI_IReg195(float HMI_IReg195) {
+		this.HMI_IReg195 = HMI_IReg195;
+	}
+
+	public float getHMI_IReg196() {
+		return HMI_IReg196;
+	}
+
+	public void setHMI_IReg196(float HMI_IReg196) {
+		this.HMI_IReg196 = HMI_IReg196;
+	}
+
+	public float getHMI_IReg197() {
+		return HMI_IReg197;
+	}
+
+	public void setHMI_IReg197(float HMI_IReg197) {
+		this.HMI_IReg197 = HMI_IReg197;
+	}
+
+	public float getHMI_IReg118() {
 		return HMI_IReg118;
 	}
 
-	public void setHMI_IReg118(Float HMI_IReg118) {
+	public void setHMI_IReg118(float HMI_IReg118) {
 		this.HMI_IReg118 = HMI_IReg118;
 	}
 
-	public Float getHMI_IReg119() {
+	public float getHMI_IReg119() {
 		return HMI_IReg119;
 	}
 
-	public void setHMI_IReg119(Float HMI_IReg119) {
+	public void setHMI_IReg119(float HMI_IReg119) {
 		this.HMI_IReg119 = HMI_IReg119;
 	}
 
-	public Float getHMI_IReg121() {
+	public float getHMI_IReg121() {
 		return HMI_IReg121;
 	}
 
-	public void setHMI_IReg121(Float HMI_IReg121) {
+	public void setHMI_IReg121(float HMI_IReg121) {
 		this.HMI_IReg121 = HMI_IReg121;
 	}
 
-	public Float getHMI_IReg122() {
+	public float getHMI_IReg122() {
 		return HMI_IReg122;
 	}
 
-	public void setHMI_IReg122(Float HMI_IReg122) {
+	public void setHMI_IReg122(float HMI_IReg122) {
 		this.HMI_IReg122 = HMI_IReg122;
 	}
 
@@ -1877,123 +1945,139 @@ public class UpdateData2DB{
 		this.HMI_Disc1022 = HMI_Disc1022;
 	}
 
-	public Float getHMI_IReg201() {
+	public float getHMI_IReg201() {
 		return HMI_IReg201;
 	}
 
-	public void setHMI_IReg201(Float HMI_IReg201) {
+	public void setHMI_IReg201(float HMI_IReg201) {
 		this.HMI_IReg201 = HMI_IReg201;
 	}
 
-	public Float getHMI_IReg210() {
+	public float getHMI_IReg203() {
+		return HMI_IReg203;
+	}
+
+	public void setHMI_IReg203(float HMI_IReg203) {
+		this.HMI_IReg203 = HMI_IReg203;
+	}
+
+	public float getHMI_IReg210() {
 		return HMI_IReg210;
 	}
 
-	public void setHMI_IReg210(Float HMI_IReg210) {
+	public void setHMI_IReg210(float HMI_IReg210) {
 		this.HMI_IReg210 = HMI_IReg210;
 	}
 
-	public Float getHMI_IReg206() {
+	public float getHMI_IReg208() {
+		return HMI_IReg208;
+	}
+
+	public void setHMI_IReg208(float HMI_IReg208) {
+		this.HMI_IReg208 = HMI_IReg208;
+	}
+
+	public float getHMI_IReg206() {
 		return HMI_IReg206;
 	}
 
-	public void setHMI_IReg206(Float HMI_IReg206) {
+	public void setHMI_IReg206(float HMI_IReg206) {
 		this.HMI_IReg206 = HMI_IReg206;
 	}
 
-	public Float getHMI_IReg214() {
+	public float getHMI_IReg214() {
 		return HMI_IReg214;
 	}
 
-	public void setHMI_IReg214(Float HMI_IReg214) {
+	public void setHMI_IReg214(float HMI_IReg214) {
 		this.HMI_IReg214 = HMI_IReg214;
 	}
 
-	public Float getHMI_IReg216() {
+	public float getHMI_IReg216() {
 		return HMI_IReg216;
 	}
 
-	public void setHMI_IReg216(Float HMI_IReg216) {
+	public void setHMI_IReg216(float HMI_IReg216) {
 		this.HMI_IReg216 = HMI_IReg216;
 	}
 
-	public Float getHMI_IReg224() {
+	public float getHMI_IReg224() {
 		return HMI_IReg224;
 	}
 
-	public void setHMI_IReg224(Float HMI_IReg224) {
+	public void setHMI_IReg224(float HMI_IReg224) {
 		this.HMI_IReg224 = HMI_IReg224;
 	}
 
-	public Float getHMI_IReg237() {
+	public float getHMI_IReg237() {
 		return HMI_IReg237;
 	}
 
-	public void setHMI_IReg237(Float HMI_IReg237) {
+	public void setHMI_IReg237(float HMI_IReg237) {
 		this.HMI_IReg237 = HMI_IReg237;
 	}
 
-	public Float getHMI_IReg238() {
+	public float getHMI_IReg238() {
 		return HMI_IReg238;
 	}
 
-	public void setHMI_IReg238(Float HMI_IReg238) {
+	public void setHMI_IReg238(float HMI_IReg238) {
 		this.HMI_IReg238 = HMI_IReg238;
 	}
 
-	public Float getHMI_IReg239() {
+	public float getHMI_IReg239() {
 		return HMI_IReg239;
 	}
 
-	public void setHMI_IReg239(Float HMI_IReg239) {
+	public void setHMI_IReg239(float HMI_IReg239) {
 		this.HMI_IReg239 = HMI_IReg239;
 	}
 
-	public Float getHMI_IReg240() {
+	public float getHMI_IReg240() {
 		return HMI_IReg240;
 	}
 
-	public void setHMI_IReg240(Float HMI_IReg240) {
+	public void setHMI_IReg240(float HMI_IReg240) {
 		this.HMI_IReg240 = HMI_IReg240;
 	}
 
-	public Float getHMI_IReg241() {
+	public float getHMI_IReg241() {
 		return HMI_IReg241;
 	}
 
-	public void setHMI_IReg241(Float HMI_IReg241) {
+	public void setHMI_IReg241(float HMI_IReg241) {
 		this.HMI_IReg241 = HMI_IReg241;
 	}
 
-	public Float getHMI_IReg242() {
+	public float getHMI_IReg242() {
 		return HMI_IReg242;
 	}
 
-	public void setHMI_IReg242(Float HMI_IReg242) {
+	public void setHMI_IReg242(float HMI_IReg242) {
 		this.HMI_IReg242 = HMI_IReg242;
 	}
 
-	public Float getHMI_IReg243() {
+	public float getHMI_IReg243() {
 		return HMI_IReg243;
 	}
 
-	public void setHMI_IReg243(Float HMI_IReg243) {
+	public void setHMI_IReg243(float HMI_IReg243) {
 		this.HMI_IReg243 = HMI_IReg243;
 	}
 
-	public Float getHMI_IReg244() {
+	public float getHMI_IReg244() {
 		return HMI_IReg244;
 	}
 
-	public void setHMI_IReg244(Float HMI_IReg244) {
+	public void setHMI_IReg244(float HMI_IReg244) {
 		this.HMI_IReg244 = HMI_IReg244;
 	}
 
-	public Float getHMI_IReg245() {
+	public float getHMI_IReg245() {
 		return HMI_IReg245;
 	}
 
-	public void setHMI_IReg245(Float HMI_IReg245) {
+	public void setHMI_IReg245(float HMI_IReg245) {
 		this.HMI_IReg245 = HMI_IReg245;
 	}
 
@@ -2005,35 +2089,35 @@ public class UpdateData2DB{
 		this.HMI_Disc1056 = HMI_Disc1056;
 	}
 
-	public Float getHMI_IReg253() {
+	public float getHMI_IReg253() {
 		return HMI_IReg253;
 	}
 
-	public void setHMI_IReg253(Float HMI_IReg253) {
+	public void setHMI_IReg253(float HMI_IReg253) {
 		this.HMI_IReg253 = HMI_IReg253;
 	}
 
-	public Float getHMI_IReg254() {
+	public float getHMI_IReg254() {
 		return HMI_IReg254;
 	}
 
-	public void setHMI_IReg254(Float HMI_IReg254) {
+	public void setHMI_IReg254(float HMI_IReg254) {
 		this.HMI_IReg254 = HMI_IReg254;
 	}
 
-	public Float getHMI_IReg261() {
+	public float getHMI_IReg261() {
 		return HMI_IReg261;
 	}
 
-	public void setHMI_IReg261(Float HMI_IReg261) {
+	public void setHMI_IReg261(float HMI_IReg261) {
 		this.HMI_IReg261 = HMI_IReg261;
 	}
 
-	public Float getHMI_IReg262() {
+	public float getHMI_IReg262() {
 		return HMI_IReg262;
 	}
 
-	public void setHMI_IReg262(Float HMI_IReg262) {
+	public void setHMI_IReg262(float HMI_IReg262) {
 		this.HMI_IReg262 = HMI_IReg262;
 	}
 
@@ -2085,284 +2169,292 @@ public class UpdateData2DB{
 		this.HMI_Disc1036 = HMI_Disc1036;
 	}
 
-	public Float getHMI_IReg352() {
+	public float getHMI_IReg352() {
 		return HMI_IReg352;
 	}
 
-	public void setHMI_IReg352(Float HMI_IReg352) {
+	public void setHMI_IReg352(float HMI_IReg352) {
 		this.HMI_IReg352 = HMI_IReg352;
 	}
 
-	public Float getHMI_IReg1405() {
+	public float getHMI_IReg1405() {
 		return HMI_IReg1405;
 	}
 
-	public void setHMI_IReg1405(Float HMI_IReg1405) {
+	public void setHMI_IReg1405(float HMI_IReg1405) {
 		this.HMI_IReg1405 = HMI_IReg1405;
 	}
 
-	public Float getHMI_IReg1406() {
+	public float getHMI_IReg1406() {
 		return HMI_IReg1406;
 	}
 
-	public void setHMI_IReg1406(Float HMI_IReg1406) {
+	public void setHMI_IReg1406(float HMI_IReg1406) {
 		this.HMI_IReg1406 = HMI_IReg1406;
 	}
 
-	public Float getHMI_IReg1407() {
+	public float getHMI_IReg1407() {
 		return HMI_IReg1407;
 	}
 
-	public void setHMI_IReg1407(Float HMI_IReg1407) {
+	public void setHMI_IReg1407(float HMI_IReg1407) {
 		this.HMI_IReg1407 = HMI_IReg1407;
 	}
 
-	public Float getHMI_IReg1408() {
+	public float getHMI_IReg1408() {
 		return HMI_IReg1408;
 	}
 
-	public void setHMI_IReg1408(Float HMI_IReg1408) {
+	public void setHMI_IReg1408(float HMI_IReg1408) {
 		this.HMI_IReg1408 = HMI_IReg1408;
 	}
 
-	public Float getHMI_IReg1412() {
+	public float getHMI_IReg1412() {
 		return HMI_IReg1412;
 	}
 
-	public void setHMI_IReg1412(Float HMI_IReg1412) {
+	public void setHMI_IReg1412(float HMI_IReg1412) {
 		this.HMI_IReg1412 = HMI_IReg1412;
 	}
 
-	public Float getHMI_IReg1413() {
+	public float getHMI_IReg1413() {
 		return HMI_IReg1413;
 	}
 
-	public void setHMI_IReg1413(Float HMI_IReg1413) {
+	public void setHMI_IReg1413(float HMI_IReg1413) {
 		this.HMI_IReg1413 = HMI_IReg1413;
 	}
 
-	public Float getHMI_IReg1414() {
+	public float getHMI_IReg1414() {
 		return HMI_IReg1414;
 	}
 
-	public void setHMI_IReg1414(Float HMI_IReg1414) {
+	public void setHMI_IReg1414(float HMI_IReg1414) {
 		this.HMI_IReg1414 = HMI_IReg1414;
 	}
 
-	public Float getHMI_IReg1418() {
+	public float getHMI_IReg1418() {
 		return HMI_IReg1418;
 	}
 
-	public void setHMI_IReg1418(Float HMI_IReg1418) {
+	public void setHMI_IReg1418(float HMI_IReg1418) {
 		this.HMI_IReg1418 = HMI_IReg1418;
 	}
 
-	public Float getHMI_IReg1419() {
+	public float getHMI_IReg1419() {
 		return HMI_IReg1419;
 	}
 
-	public void setHMI_IReg1419(Float HMI_IReg1419) {
+	public void setHMI_IReg1419(float HMI_IReg1419) {
 		this.HMI_IReg1419 = HMI_IReg1419;
 	}
 
-	public Float getHMI_IReg1420() {
+	public float getHMI_IReg1420() {
 		return HMI_IReg1420;
 	}
 
-	public void setHMI_IReg1420(Float HMI_IReg1420) {
+	public void setHMI_IReg1420(float HMI_IReg1420) {
 		this.HMI_IReg1420 = HMI_IReg1420;
 	}
 
-	public Float getHMI_IReg1422() {
+	public float getHMI_IReg1422() {
 		return HMI_IReg1422;
 	}
 
-	public void setHMI_IReg1422(Float HMI_IReg1422) {
+	public void setHMI_IReg1422(float HMI_IReg1422) {
 		this.HMI_IReg1422 = HMI_IReg1422;
 	}
 
-	public Float getHMI_IReg1423() {
+	public float getHMI_IReg1423() {
 		return HMI_IReg1423;
 	}
 
-	public void setHMI_IReg1423(Float HMI_IReg1423) {
+	public void setHMI_IReg1423(float HMI_IReg1423) {
 		this.HMI_IReg1423 = HMI_IReg1423;
 	}
 
-	public Float getHMI_IReg1426() {
+	public float getHMI_IReg1426() {
 		return HMI_IReg1426;
 	}
 
-	public void setHMI_IReg1426(Float HMI_IReg1426) {
+	public void setHMI_IReg1426(float HMI_IReg1426) {
 		this.HMI_IReg1426 = HMI_IReg1426;
 	}
 
-	public Float getHMI_IReg1551() {
+	public float getHMI_IReg1551() {
 		return HMI_IReg1551;
 	}
 
-	public void setHMI_IReg1551(Float HMI_IReg1551) {
+	public void setHMI_IReg1551(float HMI_IReg1551) {
 		this.HMI_IReg1551 = HMI_IReg1551;
 	}
 
-	public Float getHMI_IReg1552() {
+	public float getHMI_IReg1552() {
 		return HMI_IReg1552;
 	}
 
-	public void setHMI_IReg1552(Float HMI_IReg1552) {
+	public void setHMI_IReg1552(float HMI_IReg1552) {
 		this.HMI_IReg1552 = HMI_IReg1552;
 	}
 
-	public Float getHMI_IReg1553() {
+	public float getHMI_IReg1553() {
 		return HMI_IReg1553;
 	}
 
-	public void setHMI_IReg1553(Float HMI_IReg1553) {
+	public void setHMI_IReg1553(float HMI_IReg1553) {
 		this.HMI_IReg1553 = HMI_IReg1553;
 	}
 
-	public Float getHMI_IReg1560() {
+	public float getHMI_IReg1560() {
 		return HMI_IReg1560;
 	}
 
-	public void setHMI_IReg1560(Float HMI_IReg1560) {
+	public void setHMI_IReg1560(float HMI_IReg1560) {
 		this.HMI_IReg1560 = HMI_IReg1560;
 	}
 
-	public Float getHMI_IReg1561() {
+	public float getHMI_IReg1561() {
 		return HMI_IReg1561;
 	}
 
-	public void setHMI_IReg1561(Float HMI_IReg1561) {
+	public void setHMI_IReg1561(float HMI_IReg1561) {
 		this.HMI_IReg1561 = HMI_IReg1561;
 	}
 
-	public Float getHMI_IReg1562() {
+	public float getHMI_IReg1562() {
 		return HMI_IReg1562;
 	}
 
-	public void setHMI_IReg1562(Float HMI_IReg1562) {
+	public void setHMI_IReg1562(float HMI_IReg1562) {
 		this.HMI_IReg1562 = HMI_IReg1562;
 	}
 
-	public Float getHMI_IReg1566() {
+	public float getHMI_IReg1566() {
 		return HMI_IReg1566;
 	}
 
-	public void setHMI_IReg1566(Float HMI_IReg1566) {
+	public void setHMI_IReg1566(float HMI_IReg1566) {
 		this.HMI_IReg1566 = HMI_IReg1566;
 	}
 
-	public Float getHMI_IReg1567() {
+	public float getHMI_IReg1567() {
 		return HMI_IReg1567;
 	}
 
-	public void setHMI_IReg1567(Float HMI_IReg1567) {
+	public void setHMI_IReg1567(float HMI_IReg1567) {
 		this.HMI_IReg1567 = HMI_IReg1567;
 	}
 
-	public Float getHMI_IReg1568() {
+	public float getHMI_IReg1568() {
 		return HMI_IReg1568;
 	}
 
-	public void setHMI_IReg1568(Float HMI_IReg1568) {
+	public void setHMI_IReg1568(float HMI_IReg1568) {
 		this.HMI_IReg1568 = HMI_IReg1568;
 	}
 
-	public Float getHMI_IReg1569() {
+	public float getHMI_IReg1569() {
 		return HMI_IReg1569;
 	}
 
-	public void setHMI_IReg1569(Float HMI_IReg1569) {
+	public void setHMI_IReg1569(float HMI_IReg1569) {
 		this.HMI_IReg1569 = HMI_IReg1569;
 	}
 
-	public Float getHMI_IReg1570() {
+	public float getHMI_IReg1570() {
 		return HMI_IReg1570;
 	}
 
-	public void setHMI_IReg1570(Float HMI_IReg1570) {
+	public void setHMI_IReg1570(float HMI_IReg1570) {
 		this.HMI_IReg1570 = HMI_IReg1570;
 	}
 
-	public Float getHMI_IReg1571() {
+	public float getHMI_IReg1571() {
 		return HMI_IReg1571;
 	}
 
-	public void setHMI_IReg1571(Float HMI_IReg1571) {
+	public void setHMI_IReg1571(float HMI_IReg1571) {
 		this.HMI_IReg1571 = HMI_IReg1571;
 	}
 
-	public Float getHMI_IReg1575() {
+	public float getHMI_IReg1575() {
 		return HMI_IReg1575;
 	}
 
-	public void setHMI_IReg1575(Float HMI_IReg1575) {
+	public void setHMI_IReg1575(float HMI_IReg1575) {
 		this.HMI_IReg1575 = HMI_IReg1575;
 	}
 
-	public Float getHMI_IReg1576() {
+	public float getHMI_IReg1576() {
 		return HMI_IReg1576;
 	}
 
-	public void setHMI_IReg1576(Float HMI_IReg1576) {
+	public void setHMI_IReg1576(float HMI_IReg1576) {
 		this.HMI_IReg1576 = HMI_IReg1576;
 	}
 
-	public Float getHMI_IReg1577() {
+	public float getHMI_IReg1577() {
 		return HMI_IReg1577;
 	}
 
-	public void setHMI_IReg1577(Float HMI_IReg1577) {
+	public void setHMI_IReg1577(float HMI_IReg1577) {
 		this.HMI_IReg1577 = HMI_IReg1577;
 	}
 
-	public Float getHMI_IReg1578() {
+	public float getHMI_IReg1578() {
 		return HMI_IReg1578;
 	}
 
-	public void setHMI_IReg1578(Float HMI_IReg1578) {
+	public void setHMI_IReg1578(float HMI_IReg1578) {
 		this.HMI_IReg1578 = HMI_IReg1578;
 	}
 
-	public Float getHMI_IReg1579() {
+	public float getHMI_IReg1579() {
 		return HMI_IReg1579;
 	}
 
-	public void setHMI_IReg1579(Float HMI_IReg1579) {
+	public void setHMI_IReg1579(float HMI_IReg1579) {
 		this.HMI_IReg1579 = HMI_IReg1579;
 	}
 
-	public Float getHMI_IReg1580() {
+	public float getHMI_IReg1580() {
 		return HMI_IReg1580;
 	}
 
-	public void setHMI_IReg1580(Float HMI_IReg1580) {
+	public void setHMI_IReg1580(float HMI_IReg1580) {
 		this.HMI_IReg1580 = HMI_IReg1580;
 	}
 
-	public Float getHMI_IReg1581() {
+	public float getHMI_IReg1581() {
 		return HMI_IReg1581;
 	}
 
-	public void setHMI_IReg1581(Float HMI_IReg1581) {
+	public void setHMI_IReg1581(float HMI_IReg1581) {
 		this.HMI_IReg1581 = HMI_IReg1581;
 	}
 
-	public Float getHMI_IReg1582() {
+	public float getHMI_IReg1582() {
 		return HMI_IReg1582;
 	}
 
-	public void setHMI_IReg1582(Float HMI_IReg1582) {
+	public void setHMI_IReg1582(float HMI_IReg1582) {
 		this.HMI_IReg1582 = HMI_IReg1582;
 	}
 
-	public Float getHMI_IReg1583() {
+	public float getHMI_IReg1583() {
 		return HMI_IReg1583;
 	}
 
-	public void setHMI_IReg1583(Float HMI_IReg1583) {
+	public void setHMI_IReg1583(float HMI_IReg1583) {
 		this.HMI_IReg1583 = HMI_IReg1583;
+	}
+
+	public float getHMI_IReg1584() {
+		return HMI_IReg1584;
+	}
+
+	public void setHMI_IReg1584(float HMI_IReg1584) {
+		this.HMI_IReg1584 = HMI_IReg1584;
 	}
 
 	public boolean isHMI_Disc1553() {
@@ -2397,131 +2489,171 @@ public class UpdateData2DB{
 		this.HMI_Disc1606 = HMI_Disc1606;
 	}
 
-	public Float getHMI_IReg1670() {
+	public float getHMI_IReg1651() {
+		return HMI_IReg1651;
+	}
+
+	public void setHMI_IReg1651(float HMI_IReg1651) {
+		this.HMI_IReg1651 = HMI_IReg1651;
+	}
+
+	public float getHMI_IReg1652() {
+		return HMI_IReg1652;
+	}
+
+	public void setHMI_IReg1652(float HMI_IReg1652) {
+		this.HMI_IReg1652 = HMI_IReg1652;
+	}
+
+	public float getHMI_IReg1653() {
+		return HMI_IReg1653;
+	}
+
+	public void setHMI_IReg1653(float HMI_IReg1653) {
+		this.HMI_IReg1653 = HMI_IReg1653;
+	}
+
+	public float getHMI_IReg1661() {
+		return HMI_IReg1661;
+	}
+
+	public void setHMI_IReg1661(float HMI_IReg1661) {
+		this.HMI_IReg1661 = HMI_IReg1661;
+	}
+
+	public float getHMI_IReg1662() {
+		return HMI_IReg1662;
+	}
+
+	public void setHMI_IReg1662(float HMI_IReg1662) {
+		this.HMI_IReg1662 = HMI_IReg1662;
+	}
+
+	public float getHMI_IReg1670() {
 		return HMI_IReg1670;
 	}
 
-	public void setHMI_IReg1670(Float HMI_IReg1670) {
+	public void setHMI_IReg1670(float HMI_IReg1670) {
 		this.HMI_IReg1670 = HMI_IReg1670;
 	}
 
-	public Float getHMI_IReg1672() {
+	public float getHMI_IReg1672() {
 		return HMI_IReg1672;
 	}
 
-	public void setHMI_IReg1672(Float HMI_IReg1672) {
+	public void setHMI_IReg1672(float HMI_IReg1672) {
 		this.HMI_IReg1672 = HMI_IReg1672;
 	}
 
-	public Float getHMI_IReg1673() {
+	public float getHMI_IReg1673() {
 		return HMI_IReg1673;
 	}
 
-	public void setHMI_IReg1673(Float HMI_IReg1673) {
+	public void setHMI_IReg1673(float HMI_IReg1673) {
 		this.HMI_IReg1673 = HMI_IReg1673;
 	}
 
-	public Float getHMI_IReg1683() {
+	public float getHMI_IReg1683() {
 		return HMI_IReg1683;
 	}
 
-	public void setHMI_IReg1683(Float HMI_IReg1683) {
+	public void setHMI_IReg1683(float HMI_IReg1683) {
 		this.HMI_IReg1683 = HMI_IReg1683;
 	}
 
-	public Float getHMI_IReg1691() {
+	public float getHMI_IReg1691() {
 		return HMI_IReg1691;
 	}
 
-	public void setHMI_IReg1691(Float HMI_IReg1691) {
+	public void setHMI_IReg1691(float HMI_IReg1691) {
 		this.HMI_IReg1691 = HMI_IReg1691;
 	}
 
-	public Float getHMI_IReg1692() {
+	public float getHMI_IReg1692() {
 		return HMI_IReg1692;
 	}
 
-	public void setHMI_IReg1692(Float HMI_IReg1692) {
+	public void setHMI_IReg1692(float HMI_IReg1692) {
 		this.HMI_IReg1692 = HMI_IReg1692;
 	}
 
-	public Float getHMI_IReg1693() {
+	public float getHMI_IReg1693() {
 		return HMI_IReg1693;
 	}
 
-	public void setHMI_IReg1693(Float HMI_IReg1693) {
+	public void setHMI_IReg1693(float HMI_IReg1693) {
 		this.HMI_IReg1693 = HMI_IReg1693;
 	}
 
-	public Float getHMI_IReg1694() {
+	public float getHMI_IReg1694() {
 		return HMI_IReg1694;
 	}
 
-	public void setHMI_IReg1694(Float HMI_IReg1694) {
+	public void setHMI_IReg1694(float HMI_IReg1694) {
 		this.HMI_IReg1694 = HMI_IReg1694;
 	}
 
-	public Float getHMI_IReg796() {
+	public float getHMI_IReg796() {
 		return HMI_IReg796;
 	}
 
-	public void setHMI_IReg796(Float HMI_IReg796) {
+	public void setHMI_IReg796(float HMI_IReg796) {
 		this.HMI_IReg796 = HMI_IReg796;
 	}
 
-	public Float getHMI_IReg1508() {
+	public float getHMI_IReg1508() {
 		return HMI_IReg1508;
 	}
 
-	public void setHMI_IReg1508(Float HMI_IReg1508) {
+	public void setHMI_IReg1508(float HMI_IReg1508) {
 		this.HMI_IReg1508 = HMI_IReg1508;
 	}
 
-	public Float getHMI_IReg1514() {
+	public float getHMI_IReg1514() {
 		return HMI_IReg1514;
 	}
 
-	public void setHMI_IReg1514(Float HMI_IReg1514) {
+	public void setHMI_IReg1514(float HMI_IReg1514) {
 		this.HMI_IReg1514 = HMI_IReg1514;
 	}
 
-	public Float getHMI_IReg1515() {
+	public float getHMI_IReg1515() {
 		return HMI_IReg1515;
 	}
 
-	public void setHMI_IReg1515(Float HMI_IReg1515) {
+	public void setHMI_IReg1515(float HMI_IReg1515) {
 		this.HMI_IReg1515 = HMI_IReg1515;
 	}
 
-	public Float getHMI_IReg1516() {
+	public float getHMI_IReg1516() {
 		return HMI_IReg1516;
 	}
 
-	public void setHMI_IReg1516(Float HMI_IReg1516) {
+	public void setHMI_IReg1516(float HMI_IReg1516) {
 		this.HMI_IReg1516 = HMI_IReg1516;
 	}
 
-	public Float getHMI_IReg1517() {
+	public float getHMI_IReg1517() {
 		return HMI_IReg1517;
 	}
 
-	public void setHMI_IReg1517(Float HMI_IReg1517) {
+	public void setHMI_IReg1517(float HMI_IReg1517) {
 		this.HMI_IReg1517 = HMI_IReg1517;
 	}
 
-	public Float getHMI_IReg1518() {
+	public float getHMI_IReg1518() {
 		return HMI_IReg1518;
 	}
 
-	public void setHMI_IReg1518(Float HMI_IReg1518) {
+	public void setHMI_IReg1518(float HMI_IReg1518) {
 		this.HMI_IReg1518 = HMI_IReg1518;
 	}
 
-	public Float getHMI_IReg1519() {
+	public float getHMI_IReg1519() {
 		return HMI_IReg1519;
 	}
 
-	public void setHMI_IReg1519(Float HMI_IReg1519) {
+	public void setHMI_IReg1519(float HMI_IReg1519) {
 		this.HMI_IReg1519 = HMI_IReg1519;
 	}
 

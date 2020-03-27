@@ -45,7 +45,7 @@ public class OneSecPojoGen {
                 FileUtils.write(pojoFile,"\tprivate boolean " + EcsUtils.deleteChar(enCoding) + ";\n","UTF-8",true);
             }
             else if(enCoding.charAt(4)=='H' || enCoding.charAt(4)=='I'){
-                FileUtils.write(pojoFile,"\t@Column(name=\"`"+enCoding+"`\")\n","UTF-8",true);
+                FileUtils.write(pojoFile,"\t@Column(name=\"`"+enCoding+"`\", columnDefinition =\"float NOT NULL DEFAULT '0'\")\n","UTF-8",true);
                 FileUtils.write(pojoFile,"\tprivate Float " + EcsUtils.deleteChar(enCoding) + ";\n","UTF-8",true);
             }
         }

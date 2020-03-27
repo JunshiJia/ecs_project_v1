@@ -64,33 +64,33 @@ public class BuildSqlString {
                     "  `HMI_Disc[1011]` bit(1) DEFAULT NULL,\n" +
                     "  `HMI_Disc[1012]` bit(1) DEFAULT NULL,\n" +
                     "  `HMI_Disc[1013]` bit(1) DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1405]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1406]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1407]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1408]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1422]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1423]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[153]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[155]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1572]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1573]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1574]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1575]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1576]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1577]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1672]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1673]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[237]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[238]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[239]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[240]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[241]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[242]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[243]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[244]` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[253]` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[1405]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1406]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1407]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1408]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1422]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1423]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[153]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[155]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1572]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1573]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1574]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1575]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1576]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1577]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1672]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1673]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[237]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[238]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[239]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[240]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[241]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[242]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[243]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[244]` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[253]` float NOT NULL DEFAULT '0',\n" +
+                    "  `Wtid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n" +
                     "  `time` datetime DEFAULT NULL,\n" +
-                    "  `wtId` int(11) NOT NULL,\n" +
                     "  PRIMARY KEY (`id`)\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
             this.sqlList.add(oneSecSql);
@@ -139,8 +139,8 @@ public class BuildSqlString {
                     "  `HMI_IReg[243]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[244]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[245]` float DEFAULT NULL,\n" +
+                    "  `WtId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n" +
                     "  `time` datetime DEFAULT NULL,\n" +
-                    "  `wtId` int(11) NOT NULL,\n" +
                     "  PRIMARY KEY (`id`)\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
             this.sqlList.add(anyOneSecSql);
@@ -151,108 +151,108 @@ public class BuildSqlString {
             sb.append("wt").append(i).append("_v").append(version).append("_10mincalc");
             String tenMinSql = "CREATE TABLE `" + sb.toString() + "` (\n" +
                     "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
-                    "  `HMI_Disc[332]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[341]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[341]_StdDiv` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[383]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[409]_Onflow` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[409]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[409]_StdDiv` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[413]_Onflow` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[413]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[413]_StdDiv` float DEFAULT NULL,\n" +
+                    "  `HMI_Disc[332]_Min` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[341]_Min` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[341]_StdDiv` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[383]_Min` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[409]_Onflow` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[409]_Min` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[409]_StdDiv` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[413]_Onflow` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[413]_Min` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[413]_StdDiv` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_Disc[910]_And` bit(1) DEFAULT NULL,\n" +
-                    "  `HMI_Disc[910]_Max` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[910]_MaxNum` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[910]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_Disc[912]_MaxNum` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[101]_Max` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[101]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[101]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[102]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[103]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[104]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[105]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[106]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[107]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[108]_Max` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[110]_Max` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[110]_MaxNum` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[110]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[110]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[110]_StdDiv` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[118]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[119]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[121]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[122]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1405]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1406]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1407]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1408]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1418]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1419]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1420]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1422]_Max` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1422]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1422]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1422]_StdDiv` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1423]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1426]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1508]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1514]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1515]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1516]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1517]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1518]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1519]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[155]_Max` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[155]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[155]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1563]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1564]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1565]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1575]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1576]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1577]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1578]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1579]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1580]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1581]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1582]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1583]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1584]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1672]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1673]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_Disc[910]_Max` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[910]_MaxNum` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[910]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[912]_MaxNum` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[101]_Max` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[101]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[101]_Min` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[102]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[103]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[104]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[105]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[106]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[107]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[108]_Max` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[110]_Max` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[110]_MaxNum` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[110]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[110]_Min` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[110]_StdDiv` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[118]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[119]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[121]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[122]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1405]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1406]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1407]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1408]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1418]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1419]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1420]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1422]_Max` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1422]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1422]_Min` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1422]_StdDiv` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1423]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1426]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1508]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1514]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1515]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1516]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1517]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1518]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1519]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[155]_Max` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[155]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[155]_Min` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1563]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1564]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1565]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1575]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1576]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1577]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1578]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1579]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1580]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1581]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1582]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1583]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1584]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1672]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1673]_Mean` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[167]_And` bit(1) DEFAULT NULL,\n" +
-                    "  `HMI_IReg[167]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1683]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1691]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1692]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1693]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[1694]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[199]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[201]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[203]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[167]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1683]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1691]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1692]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1693]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[1694]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[199]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[201]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[203]_Mean` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[206]_And` bit(1) DEFAULT NULL,\n" +
-                    "  `HMI_IReg[206]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[206]_StdDiv` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[210]_Onflow` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[210]_Max` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[210]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[210]_Min` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[210]_StdDiv` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[214]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[216]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[224]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[237]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[238]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[239]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[240]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[241]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[242]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[243]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[244]_Mean` float DEFAULT NULL,\n" +
-                    "  `HMI_IReg[245]_Mean` float DEFAULT NULL,\n" +
+                    "  `HMI_IReg[206]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[206]_StdDiv` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[210]_Onflow` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[210]_Max` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[210]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[210]_Min` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[210]_StdDiv` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[214]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[216]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[224]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[237]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[238]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[239]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[240]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[241]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[242]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[243]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[244]_Mean` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[245]_Mean` float NOT NULL DEFAULT '0',\n" +
                     "  `time` datetime DEFAULT NULL,\n" +
                     "  `wtId` int(11) NOT NULL,\n" +
                     "  PRIMARY KEY (`id`)\n" +
@@ -347,10 +347,13 @@ public class BuildSqlString {
                     "  `A81` float DEFAULT NULL,\n" +
                     "  `A82` bit(1) DEFAULT NULL,\n" +
                     "  `A9` float DEFAULT NULL,\n" +
+                    "  `A83` bit(1) DEFAULT NULL,\n" +
                     "  PRIMARY KEY (`id`)\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
             this.sqlList.add(extraTenSql);
         }
+        //update表
+
     }
 
     @Override

@@ -10,7 +10,7 @@
         <!--2驱动路径注意数据库类型  -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <!--3数据库路径  -->
-        <property name="connection.url">jdbc:mysql://192.168.101.242:3306/new_ecs?useSSL=false</property>
+        <property name="connection.url">jdbc:mysql://192.168.101.242:3306/megaspace?useSSL=false</property>
         <!--4数据库用户名  -->
         <property name="connection.username">root</property>
         <!--5数据库密码  -->

@@ -16,7 +16,7 @@ public class Main {
         CreateTableRoutine create = new CreateTableRoutine();
 
 
-        int turbineNum = 10;
+        int turbineNum = 1;
         String ip = "192.168.10.30";
         InitUpdateTable initTables = new InitUpdateTable(turbineNum);
         SingleTurbineDataProcess process1 = new SingleTurbineDataProcess(1,ip);
@@ -35,7 +35,7 @@ public class Main {
 //            process1.tenMinRoutine();
 //        });
         new Thread(process1::tenMinRoutine).start();
-        new Thread(process2::tenMinRoutine).start();
+//        new Thread(process2::tenMinRoutine).start();
 //        new Thread(process3::tenMinRoutine).start();
 //        new Thread(process4::tenMinRoutine).start();
 //        new Thread(process5::tenMinRoutine).start();

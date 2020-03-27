@@ -156,9 +156,22 @@ public class EcsUtils {
         return value;
     }
 
-    //通过属性名设置属性值
+    //通过属性名设置属性值，float和bool
     //注意：传入的value一定要对应属性类型否则报错
     public static void setFieldValue(String fieldName, Object value, Object obj){
+        try{
+            String name = deleteChar(fieldName);
+            Field field = obj.getClass().getDeclaredField(name);
+            field.setAccessible(true);
+            field.set(obj,value);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+    //整型版本
+    public static void setFieldValueForUpdate(String fieldName, Integer value, Object obj){
         try{
             String name = deleteChar(fieldName);
             Field field = obj.getClass().getDeclaredField(name);

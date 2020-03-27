@@ -28,6 +28,7 @@ public class InitUpdateTable {
                 System.out.println("table init succeed...");
             } catch (HibernateException e) {
                 start++;
+                e.printStackTrace();
                 if (session!=null) {
                     //tx.commit();
                     session.close();

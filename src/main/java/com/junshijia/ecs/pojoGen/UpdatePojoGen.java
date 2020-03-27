@@ -52,8 +52,8 @@ public class UpdatePojoGen {
                 FileUtils.write(pojoFile,"\tprivate boolean " + EcsUtils.deleteChar(enCoding) + ";\n","UTF-8",true);
             }
             else if(enCoding.charAt(4)=='H' || enCoding.charAt(4)=='I'){
-                FileUtils.write(pojoFile,"\t@Column(name=\"`"+enCoding+"`\")\n","UTF-8",true);
-                FileUtils.write(pojoFile,"\tprivate Float " + EcsUtils.deleteChar(enCoding) + ";\n","UTF-8",true);
+                FileUtils.write(pojoFile,"\t@Column(name=\"`"+enCoding+"`\", columnDefinition =\"double NOT NULL DEFAULT '0'\")\n","UTF-8",true);
+                FileUtils.write(pojoFile,"\tprivate float " + EcsUtils.deleteChar(enCoding) + ";\n","UTF-8",true);
             }
         }
         //结尾

@@ -61,19 +61,19 @@ public class TenMinPojoGen {
         //写其他属性
         for (String enCoding : this.tenMinSet) {
             if (this.maxSet.contains(enCoding)) {
-                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_Max`\")\n", "UTF-8", true);
+                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_Max`\", columnDefinition =\"float NOT NULL DEFAULT '0'\")\n", "UTF-8", true);
                 FileUtils.write(pojoFile, "\tprivate Float " + EcsUtils.deleteChar(enCoding) + "Max;\n", "UTF-8", true);
             }
             if (this.meanSet.contains(enCoding)) {
-                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_Mean`\")\n", "UTF-8", true);
+                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_Mean`\", columnDefinition =\"float NOT NULL DEFAULT '0'\")\n", "UTF-8", true);
                 FileUtils.write(pojoFile, "\tprivate Float " + EcsUtils.deleteChar(enCoding) + "Mean;\n", "UTF-8", true);
             }
             if (this.minSet.contains(enCoding)) {
-                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_Min`\")\n", "UTF-8", true);
+                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_Min`\", columnDefinition =\"float NOT NULL DEFAULT '0'\")\n", "UTF-8", true);
                 FileUtils.write(pojoFile, "\tprivate Float " + EcsUtils.deleteChar(enCoding) + "Min;\n", "UTF-8", true);
             }
             if (this.stdDivSet.contains(enCoding)) {
-                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_StdDiv`\")\n", "UTF-8", true);
+                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_StdDiv`\", columnDefinition =\"float NOT NULL DEFAULT '0'\")\n", "UTF-8", true);
                 FileUtils.write(pojoFile, "\tprivate Float " + EcsUtils.deleteChar(enCoding) + "StdDiv;\n", "UTF-8", true);
             }
             if (this.andSet.contains(enCoding)) {
@@ -81,11 +81,11 @@ public class TenMinPojoGen {
                 FileUtils.write(pojoFile, "\tprivate Boolean " + EcsUtils.deleteChar(enCoding) + "And;\n", "UTF-8", true);
             }
             if (this.maxNumSet.contains(enCoding)) {
-                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_MaxNum`\")\n", "UTF-8", true);
+                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_MaxNum`\", columnDefinition =\"float NOT NULL DEFAULT '0'\")\n", "UTF-8", true);
                 FileUtils.write(pojoFile, "\tprivate Float " + EcsUtils.deleteChar(enCoding) + "MaxNum;\n", "UTF-8", true);
             }
             if (this.flowSet.contains(enCoding)) {
-                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_Onflow`\")\n", "UTF-8", true);
+                FileUtils.write(pojoFile, "\t@Column(name=\"`" + enCoding + "_Onflow`\", columnDefinition =\"float NOT NULL DEFAULT '0'\")\n", "UTF-8", true);
                 FileUtils.write(pojoFile, "\tprivate Float " + EcsUtils.deleteChar(enCoding) + "Flow;\n", "UTF-8", true);
             }
         }

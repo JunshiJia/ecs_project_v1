@@ -124,9 +124,9 @@ public class SingleTurbineDataProcess {
                 this.tx = session.beginTransaction();
                 //set time and id
                 this.fetch.getUpdateData().setId(this.turbineId);
-                this.fetch.getUpdateData().setWtId(this.turbineId);
+                this.fetch.getUpdateData().setWtId(this.turbineId+"");
                 this.fetch.getUpdateData().setTime(new Date());
-                this.fetch.getAnyOneSecData().setWtId(this.turbineId);
+                this.fetch.getAnyOneSecData().setWtId(this.turbineId+"");
                 this.fetch.getAnyOneSecData().setTime(new Date());
                 //save any1sec and update
                 this.session.update(this.fetch.getUpdateData());
@@ -140,7 +140,7 @@ public class SingleTurbineDataProcess {
                     this.session = EcsUtils.getFactory().openSession(this.tableName);
                     session.clear();
                     this.tx = session.beginTransaction();
-                    this.fetch.getOneSecData().setWtId(this.turbineId);
+                    this.fetch.getOneSecData().setWtid(this.turbineId+"");
                     this.fetch.getOneSecData().setTime(new Date());
                     this.session.save(this.fetch.getOneSecData());
                     this.tx.commit();

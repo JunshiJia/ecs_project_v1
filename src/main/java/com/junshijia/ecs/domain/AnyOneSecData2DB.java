@@ -10,7 +10,7 @@ public class AnyOneSecData2DB{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private int wtId;
+	private String WtId;
 	private Date time;
 	@Column(name="`HMI_IReg[155]`")
 	private Float HMI_IReg155;
@@ -135,12 +135,12 @@ public class AnyOneSecData2DB{
 	public AnyOneSecData2DB() {
 	}
 
-	public int getWtId() {
-		return wtId;
+	public String getWtId() {
+		return WtId;
 	}
 
-	public void setWtId(int wtId) {
-		this.wtId = wtId;
+	public void setWtId(String wtId) {
+		WtId = wtId;
 	}
 
 	public int getId() {
