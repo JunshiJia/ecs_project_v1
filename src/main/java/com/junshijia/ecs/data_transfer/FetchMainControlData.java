@@ -161,9 +161,9 @@ public class FetchMainControlData {
         EcsUtils.writeData2List(this.fieldNames, results, this.tenMinMemory, tenMinCount);
         //应该判断主状态,是否需要存1s
         this.status.setStatusCode((int)this.updateData.getHMI_IReg110());
-        //if (!this.status.isRunning()) {
+        if (!this.status.isRunning()) {
             EcsUtils.writeData2Domain(this.oneSecMap, results, this.oneSecData, oneSecCount);
-        //}
+        }
     }
 
     public void renewMemory(){

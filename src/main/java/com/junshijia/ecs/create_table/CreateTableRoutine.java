@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
 import java.util.List;
 
 public class CreateTableRoutine {
@@ -19,39 +20,73 @@ public class CreateTableRoutine {
 
     public CreateTableRoutine() {
         this.buildSqlString = new BuildSqlString();
-        this.buildSqlString.buildStringList();
+        this.buildSqlString.setMode(3);
         this.sqlList = this.buildSqlString.getSqlList();
-        this.createTable();
+    }
+
+    public void loopCreateTable(){
+        Calendar cal = Calendar.getInstance();
+        int day = 0;
+        int hour = 0;
+        while(true){
+            day = cal.get(Calendar.DAY_OF_MONTH);
+            hour = cal.get(Calendar.HOUR_OF_DAY);
+            if(day == 28 && hour == 1){
+                this.buildSqlString.setMode(1);
+                this.sqlList = this.buildSqlString.getSqlList();
+                this.createTable();
+            }
+            try {
+                Thread.sleep(3540000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public void createTable(){
         Connection conn = null;
         Statement stmt = null;
-        try{
-            //STEP 2: Register JDBC driver
-            Class.forName("com.mysql.jdbc.Driver");
-            //STEP 3: Open a connection
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            //STEP 4: Execute a query
-            stmt = conn.createStatement();
-            for(String sql : sqlList) {
-                stmt.executeUpdate(sql);
-            }
-        }catch(SQLException | ClassNotFoundException se){
-            se.printStackTrace();
-        }finally{
-            //finally block used to close resources
-            try{
-                if(stmt!=null)
-                    conn.close();
-            }catch(SQLException se){
-            }// do nothing
-            try{
-                if(conn!=null)
-                    conn.close();
-            }catch(SQLException se){
+        boolean flag = true;
+        while(flag) {
+            try {
+                //STEP 2: Register JDBC driver
+                Class.forName("com.mysql.jdbc.Driver");
+                //STEP 3: Open a connection
+                conn = DriverManager.getConnection(DB_URL, USER, PASS);
+                //STEP 4: Execute a query
+                stmt = conn.createStatement();
+                for (String sql : sqlList) {
+                    stmt.executeUpdate(sql);
+                }
+                flag = false;
+            } catch (SQLException | ClassNotFoundException se) {
                 se.printStackTrace();
-            }//end finally try
-        }//end try
+                System.out.println("can not create Table, w8 500s...");
+                try {
+                    Thread.sleep(500000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } finally {
+                //finally block used to close resources
+                try {
+                    if (stmt != null)
+                        conn.close();
+                } catch (SQLException se) {
+                }// do nothing
+                try {
+                    if (conn != null)
+                        conn.close();
+                } catch (SQLException se) {
+                    se.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public BuildSqlString getBuildSqlString() {
+        return buildSqlString;
     }
 }

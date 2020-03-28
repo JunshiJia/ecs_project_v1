@@ -58,8 +58,7 @@ public class SingleTurbineDataProcess {
                 while(modbusFlag) {
                     try {
                         this.fetch.readFromSlave2DomainThrow();
-                        System.out.println(this.fetch.getUpdateData().getHMI_IReg210()+"--------------------");
-
+                        //System.out.println(this.fetch.getUpdateData().getHMI_IReg210()+"--------------------");
                         try {
                             Thread.sleep(100);
                         } catch (InterruptedException e) {
@@ -102,10 +101,7 @@ public class SingleTurbineDataProcess {
                     System.out.println("10 min calculate time = "+during+"ms");
                     System.out.println("total time = "+total+"ms");
                 }
-
                 modbusFlag = true;
-
-
                 this.waitRoutine(during);
                 endTime = System.currentTimeMillis();
                 System.out.println("after sleep use time: "+(endTime-startTime));
@@ -131,16 +127,13 @@ public class SingleTurbineDataProcess {
                 this.fetch.getAnyOneSecData().setTimeStamp(new Date());
                 //save any1sec and update
                 this.session.update(this.fetch.getUpdateData());
-                System.out.println(this.fetch.getUpdateData().getHMI_IReg210());
                 this.session.save(this.fetch.getAnyOneSecData());
                 this.tx.commit();
                 this.session.close();
                 //判断是否存one Sec
-                //if(this.fetch.isStatusBool()) {
-                if(true) {//test
+                if(this.fetch.isStatusBool()) {
                     this.tableName.setTableNames(0);
                     this.session = EcsUtils.getFactory().openSession(this.tableName);
-                    session.clear();
                     this.tx = session.beginTransaction();
                     this.fetch.getOneSecData().setWtid("WT"+this.turbineId);
                     this.fetch.getOneSecData().setTimeStamp(new Date());
@@ -202,10 +195,10 @@ public class SingleTurbineDataProcess {
     }
 
     private void waitRoutine(long time){
-        if(time > 980){
+        if(time > 990){
             System.out.println("too slow");
         }else {
-            time = 980 - time;
+            time = 990 - time;
             System.out.println("sleep: "+time);
             try {
                 Thread.sleep(time);
