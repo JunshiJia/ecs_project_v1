@@ -6,6 +6,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.Date;
+
 public class InitUpdateTable {
     public InitUpdateTable(int num){
         int start = 1;
@@ -20,6 +22,7 @@ public class InitUpdateTable {
                     session = EcsUtils.getSession();
                     tx = session.beginTransaction();
                     initData.setId(i);
+                    initData.setTime(new Date());
                     session.save(initData);
                     tx.commit();
                     session.close();

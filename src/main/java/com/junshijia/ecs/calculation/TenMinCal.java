@@ -34,13 +34,13 @@ public class TenMinCal {
     public void setDataAndCalculate(TenMinMemory memoryData, TenMinData2DB data2DB){
         this.memoryData = memoryData;
         this.data2DB = data2DB;
-        this.data2DB.setTime(new Date());
+        this.data2DB.setTimeStamp(new Date());
         this.calculate();
     }
     //前3个属性名不用
     private void setFieldNames(){
         Field[] fields =  this.tenMinDataClass.getDeclaredFields();
-        this.fieldNames=new String[fields.length-3];
+        this.fieldNames=new String[fields.length-4];
         for(int i=0,j=0;i<fields.length;i++){
             if(fields[i].getName().charAt(0)=='H') {
                 fieldNames[j++] = fields[i].getName();
@@ -148,6 +148,7 @@ public class TenMinCal {
                 }else{
                     System.out.println("error...");
                 }
+                this.data2DB.setTime_S();
             }
         } catch (NoSuchMethodException e) {
             e.printStackTrace();

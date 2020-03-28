@@ -229,7 +229,11 @@ public class EcsUtils {
         while (entries.hasNext()) {
             Map.Entry<String, Integer> entry = entries.next();
             //System.out.println("Key: "+ entry.getKey()+ " Value: "+entry.getValue());
-            setFieldValue(entry.getKey(),results.getValue(i),data);
+            if(entry.getValue()<30394 && entry.getValue()>30386){
+                System.out.println(1);
+            }else{
+                setFieldValue(entry.getKey(),results.getValue(i),data);
+            }
             i++;
         }
     }

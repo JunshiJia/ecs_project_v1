@@ -1,6 +1,9 @@
 package com.junshijia.ecs.domain;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Entity
@@ -11,7 +14,10 @@ public class OneSecData2DB{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String Wtid;
-	private Date time;
+	@Column(columnDefinition ="double NOT NULL DEFAULT '0'")
+	private Long Time_S;
+	@Column(columnDefinition ="varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0'")
+	private Date TimeStamp;
 	@Column(name="`HMI_IReg[153]`", columnDefinition ="float NOT NULL DEFAULT '0'")
 	private Float HMI_IReg153;
 	@Column(name="`HMI_IReg[155]`", columnDefinition ="float NOT NULL DEFAULT '0'")
@@ -89,7 +95,6 @@ public class OneSecData2DB{
 	public String toString() {
 		return "OneSecData2DB{" +
 				"id=" + id +
-				", time=" + time +
 				", HMI_IReg153=" + HMI_IReg153 +
 				", HMI_IReg155=" + HMI_IReg155 +
 				", HMI_Disc1001=" + HMI_Disc1001 +
@@ -133,6 +138,11 @@ public class OneSecData2DB{
 		return Wtid;
 	}
 
+	public void setTime_S() {
+		ZonedDateTime zdt = LocalDateTime.of(1904, 1, 1, 0, 0, 0).atZone(ZoneId.of("UTC"));
+		Time_S = System.currentTimeMillis()/1000 + Math.abs(zdt.toEpochSecond());
+	}
+
 	public void setWtid(String wtid) {
 		Wtid = wtid;
 	}
@@ -145,12 +155,13 @@ public class OneSecData2DB{
 		this.id = id;
 	}
 
-	public Date getTime() {
-		return time;
+	public Date getTimeStamp() {
+		return TimeStamp;
 	}
 
-	public void setTime(Date time) {
-		this.time = time;
+	public void setTimeStamp(Date TimeStamp) {
+		this.TimeStamp = TimeStamp;
+		this.setTime_S();
 	}
 
 	public Float getHMI_IReg153() {

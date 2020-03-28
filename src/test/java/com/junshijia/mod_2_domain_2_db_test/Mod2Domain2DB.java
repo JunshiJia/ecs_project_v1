@@ -63,15 +63,15 @@ public class Mod2Domain2DB {
                 fetch.readFromSlave2Domain();
                 //set update data time
                 fetch.getUpdateData().setId(1);
-                fetch.getUpdateData().setWtId(i*2+"");
+                fetch.getUpdateData().setWtid(i*2+"");
                 fetch.getUpdateData().setTime(new Date());
                 //save one sec data and update data
                 session = EcsUtils.getSession();
                 tx = session.beginTransaction();
                 session.update(fetch.getUpdateData());
 
-                fetch.getOneSecData().setTime(new Date());
-                fetch.getAnyOneSecData().setTime(new Date());
+                fetch.getOneSecData().setTimeStamp(new Date());
+                fetch.getAnyOneSecData().setTimeStamp(new Date());
                 session.save(fetch.getOneSecData());
                 session.save(fetch.getAnyOneSecData());
 

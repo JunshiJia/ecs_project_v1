@@ -14,9 +14,9 @@ public class UpdateData2DB{
 	@GeneratedValue(generator = "id")
 	@Column(name = "id", nullable = false)
 	private int id;
-	@Temporal(TemporalType.TIMESTAMP) // 是用来定义日期类型
-	private Date time;
-	private String WtId;
+	@Column(columnDefinition ="varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0'")
+	private Date Time;
+	private String Wtid;
 	@Column(name="`HMI_Disc[910]`")
 	private boolean HMI_Disc910;
 	@Column(name="`HMI_Disc[912]`")
@@ -1140,6 +1140,25 @@ public class UpdateData2DB{
 	@Column(name="`HMI_Disc[882]`")
 	private boolean HMI_Disc882;
 
+	@Column(columnDefinition ="float NOT NULL DEFAULT '0'")
+	private float CPU;
+	@Column(columnDefinition ="float NOT NULL DEFAULT '0'")
+	private float Memory;
+	@Column(columnDefinition ="Double NOT NULL DEFAULT '0'")
+	private float SoundLevel;
+	@Column(columnDefinition ="float NOT NULL DEFAULT '0'")
+	private float DipX_T;
+	@Column(columnDefinition ="float NOT NULL DEFAULT '0'")
+	private float DipY_T;
+	@Column(columnDefinition ="float NOT NULL DEFAULT '0'")
+	private float DipX_B;
+	@Column(columnDefinition ="float NOT NULL DEFAULT '0'")
+	private float DipY_B;
+
+
+
+
+
 	public UpdateData2DB() {
 	}
 
@@ -1147,8 +1166,6 @@ public class UpdateData2DB{
 	public String toString() {
 		return "UpdateData2DB{" +
 				"id=" + id +
-				", time=" + time +
-				", WtId='" + WtId + '\'' +
 				", HMI_Disc910=" + HMI_Disc910 +
 				", HMI_Disc912=" + HMI_Disc912 +
 				", HMI_IReg155=" + HMI_IReg155 +
@@ -1722,19 +1739,20 @@ public class UpdateData2DB{
 	}
 
 	public Date getTime() {
-		return time;
+		return Time;
 	}
 
 	public void setTime(Date time) {
-		this.time = time;
+		this.Time = time;
 	}
 
-	public String getWtId() {
-		return WtId;
+
+	public String getWtid() {
+		return Wtid;
 	}
 
-	public void setWtId(String wtId) {
-		WtId = wtId;
+	public void setWtid(String wtid) {
+		Wtid = wtid;
 	}
 
 	public boolean isHMI_Disc910() {

@@ -41,10 +41,10 @@ public class UpdatePojoGen {
                 "\t@Column(name = \"id\", nullable = false)\n","UTF-8",true);
         FileUtils.write(pojoFile,"\tprivate int id;\n","UTF-8",true);
         //写时间
-        FileUtils.write(pojoFile,"\t@Temporal(TemporalType.TIMESTAMP) // 是用来定义日期类型\n" +
-                "\tprivate Date time;\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\t@Column(columnDefinition =\"varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0'\")\n" +
+                "\tprivate Date Time;\n","UTF-8",true);
         //写wtid
-        FileUtils.write(pojoFile,"\tprivate int wtId;\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\tprivate String Wtid;\n","UTF-8",true);
         //写其他属性
         for(String enCoding : this.updateSet){
             if(enCoding.charAt(4)=='C' || enCoding.charAt(4)=='D'){

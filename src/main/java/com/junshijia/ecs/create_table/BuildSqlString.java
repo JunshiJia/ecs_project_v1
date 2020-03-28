@@ -43,9 +43,11 @@ public class BuildSqlString {
 
     public void buildStringList(){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMM");
+        SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy");
         Calendar cal = Calendar.getInstance();
         Date date = cal.getTime();
         String time = formatter.format(date);
+        String year = formatter2.format(date);
         //1秒数据
         for(int i = 1; i <= this.turbineNum; i++) {
             StringBuilder sb = new StringBuilder();
@@ -90,7 +92,8 @@ public class BuildSqlString {
                     "  `HMI_IReg[244]` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[253]` float NOT NULL DEFAULT '0',\n" +
                     "  `Wtid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n" +
-                    "  `time` datetime DEFAULT NULL,\n" +
+                    "  `TimeStamp` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',\n" +
+                    "  `Time_S` double NOT NULL DEFAULT '0',"+
                     "  PRIMARY KEY (`id`)\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
             this.sqlList.add(oneSecSql);
@@ -139,8 +142,9 @@ public class BuildSqlString {
                     "  `HMI_IReg[243]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[244]` float DEFAULT NULL,\n" +
                     "  `HMI_IReg[245]` float DEFAULT NULL,\n" +
-                    "  `WtId` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n" +
-                    "  `time` datetime DEFAULT NULL,\n" +
+                    "  `Wtid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n" +
+                    "  `TimeStamp` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',\n" +
+                    "  `Time_S` double NOT NULL DEFAULT '0',"+
                     "  PRIMARY KEY (`id`)\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
             this.sqlList.add(anyOneSecSql);
@@ -163,9 +167,9 @@ public class BuildSqlString {
                     "  `HMI_Disc[413]_StdDiv` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_Disc[910]_And` bit(1) DEFAULT NULL,\n" +
                     "  `HMI_Disc[910]_Max` float NOT NULL DEFAULT '0',\n" +
-                    "  `HMI_Disc[910]_MaxNum` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[910]_NumberMax` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_Disc[910]_Mean` float NOT NULL DEFAULT '0',\n" +
-                    "  `HMI_Disc[912]_MaxNum` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_Disc[912]_NumberMax` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[101]_Max` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[101]_Mean` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[101]_Min` float NOT NULL DEFAULT '0',\n" +
@@ -177,7 +181,7 @@ public class BuildSqlString {
                     "  `HMI_IReg[107]_Mean` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[108]_Max` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[110]_Max` float NOT NULL DEFAULT '0',\n" +
-                    "  `HMI_IReg[110]_MaxNum` float NOT NULL DEFAULT '0',\n" +
+                    "  `HMI_IReg[110]_NumberMax` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[110]_Mean` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[110]_Min` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[110]_StdDiv` float NOT NULL DEFAULT '0',\n" +
@@ -253,8 +257,9 @@ public class BuildSqlString {
                     "  `HMI_IReg[243]_Mean` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[244]_Mean` float NOT NULL DEFAULT '0',\n" +
                     "  `HMI_IReg[245]_Mean` float NOT NULL DEFAULT '0',\n" +
-                    "  `time` datetime DEFAULT NULL,\n" +
-                    "  `wtId` int(11) NOT NULL,\n" +
+                    "  `TimeStamp` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',\n" +
+                    "  `Time_S` double NOT NULL DEFAULT '0',\n" +
+                    "  `Wtid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n" +
                     "  PRIMARY KEY (`id`)\n" +
                     ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
             this.sqlList.add(tenMinSql);
@@ -262,7 +267,7 @@ public class BuildSqlString {
         //10分钟额外计算
         for(int i = 1; i <= this.turbineNum; i++) {
             StringBuilder sb = new StringBuilder();
-            sb.append("wt").append(i).append("_v").append(version).append("_10mincalextra");
+            sb.append("wt").append(i).append("_v").append("_MutiFansIndex_10min_").append(year);
             String extraTenSql = "CREATE TABLE `" + sb.toString() + "` (\n" +
                     "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                     "  `A1` datetime DEFAULT NULL,\n" +

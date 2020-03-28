@@ -37,7 +37,11 @@ public class OneSecPojoGen {
         //写id
         FileUtils.write(pojoFile,"\t@Id\n" + "\t@GeneratedValue(strategy = GenerationType.AUTO)\n","UTF-8",true);
         FileUtils.write(pojoFile,"\tprivate int id;\n","UTF-8",true);
-        FileUtils.write(pojoFile,"\tprivate Date time;\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\tprivate String Wtid;\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\t@Column(columnDefinition =\"double NOT NULL DEFAULT '0'\")\n" +
+                "\tprivate Long Time_S;\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\t@Column(columnDefinition =\"varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0'\")\n" +
+                "\tprivate Date TimeStamp;\n","UTF-8",true);
         //写其他属性
         for(String enCoding : this.oneSecSet){
             if(enCoding.charAt(4)=='C' || enCoding.charAt(4)=='D'){
@@ -46,9 +50,18 @@ public class OneSecPojoGen {
             }
             else if(enCoding.charAt(4)=='H' || enCoding.charAt(4)=='I'){
                 FileUtils.write(pojoFile,"\t@Column(name=\"`"+enCoding+"`\", columnDefinition =\"float NOT NULL DEFAULT '0'\")\n","UTF-8",true);
-                FileUtils.write(pojoFile,"\tprivate Float " + EcsUtils.deleteChar(enCoding) + ";\n","UTF-8",true);
+                FileUtils.write(pojoFile,"\tprivate float " + EcsUtils.deleteChar(enCoding) + ";\n","UTF-8",true);
             }
         }
+        //时间setter
+        FileUtils.write(pojoFile,"\tpublic void setTimeStamp(Date TimeStamp) {\n" +
+                "\t\tthis.TimeStamp = TimeStamp;\n" +
+                "\t\tthis.setTime_S();\n" +
+                "\t}\n","UTF-8",true);
+        FileUtils.write(pojoFile,"\tpublic void setTime_S() {\n" +
+                "\t\tZonedDateTime zdt = LocalDateTime.of(1904, 1, 1, 0, 0, 0).atZone(ZoneId.of(\"UTC\"));\n" +
+                "\t\tTime_S = System.currentTimeMillis()/1000 + Math.abs(zdt.toEpochSecond());\n" +
+                "\t}\n","UTF-8",true);
         //结尾
         FileUtils.write(pojoFile,"}\n","UTF-8",true);
     }

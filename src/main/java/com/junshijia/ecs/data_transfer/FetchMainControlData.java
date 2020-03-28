@@ -153,7 +153,6 @@ public class FetchMainControlData {
     }
 
     public void readFromSlave2DomainThrow() throws ErrorResponseException, ModbusTransportException {
-        boolean flag;
         //2.read modbus data 2 map/list
         this.results = this.master.send(this.batch);
         //any1s + update + memoryData

@@ -20,9 +20,11 @@ public class AutoTableName extends EmptyInterceptor {
 
     public void setTableNames(int caseNum){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMM");
+        SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy");
         Calendar cal = Calendar.getInstance();
         Date date = cal.getTime();
         String time = formatter.format(date);
+        String year = formatter2.format(date);
         StringBuilder sb = new StringBuilder();
         if(caseNum == 0){
             sb.append("`").append("wt").append(id).append("_v").append(this.buildSqlString.getVersion())
@@ -41,8 +43,8 @@ public class AutoTableName extends EmptyInterceptor {
             this.tableName = sb.toString();
         }
         else if(caseNum == 3) {
-            sb.append("`").append("wt").append(id).append("_v").append(this.buildSqlString.getVersion())
-                    .append("_10mincalextra").append("`");
+            sb.append("`").append("wt").append(id).append("_MutiFansIndex_10min_").append(year)
+                    .append("`");
             this.targetName = "ten_min_extra";
             this.tableName = sb.toString();
         }

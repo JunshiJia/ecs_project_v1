@@ -1,6 +1,9 @@
 package com.junshijia.ecs.domain;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Entity
@@ -10,8 +13,11 @@ public class AnyOneSecData2DB{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String WtId;
-	private Date time;
+	@Column(columnDefinition ="double NOT NULL DEFAULT '0'")
+	private Long Time_S;
+	private String Wtid;
+	@Column(columnDefinition ="varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0'")
+	private Date TimeStamp;
 	@Column(name="`HMI_IReg[155]`")
 	private Float HMI_IReg155;
 	@Column(name="`HMI_IReg[107]`")
@@ -91,7 +97,6 @@ public class AnyOneSecData2DB{
 	public String toString() {
 		return "AnyOneSecData2DB{" +
 				"id=" + id +
-				", time=" + time +
 				", HMI_IReg155=" + HMI_IReg155 +
 				", HMI_IReg107=" + HMI_IReg107 +
 				", HMI_IReg108=" + HMI_IReg108 +
@@ -135,12 +140,25 @@ public class AnyOneSecData2DB{
 	public AnyOneSecData2DB() {
 	}
 
-	public String getWtId() {
-		return WtId;
+	public void setTime_S() {
+		ZonedDateTime zdt = LocalDateTime.of(1904, 1, 1, 0, 0, 0).atZone(ZoneId.of("UTC"));
+		Time_S = System.currentTimeMillis()/1000 + Math.abs(zdt.toEpochSecond());
 	}
 
-	public void setWtId(String wtId) {
-		WtId = wtId;
+	public String getWtid() {
+		return Wtid;
+	}
+
+	public void setWtid(String wtid) {
+		Wtid = wtid;
+	}
+
+	public Long getTime_S() {
+		return Time_S;
+	}
+
+	public void setTime_S(Long time_S) {
+		Time_S = time_S;
 	}
 
 	public int getId() {
@@ -151,12 +169,13 @@ public class AnyOneSecData2DB{
 		this.id = id;
 	}
 
-	public Date getTime() {
-		return time;
+	public Date getTimeStamp() {
+		return TimeStamp;
 	}
 
-	public void setTime(Date time) {
-		this.time = time;
+	public void setTimeStamp(Date TimeStamp) {
+		this.TimeStamp = TimeStamp;
+		this.setTime_S();
 	}
 
 	public Float getHMI_IReg155() {

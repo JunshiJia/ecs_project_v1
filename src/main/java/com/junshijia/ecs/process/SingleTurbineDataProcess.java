@@ -20,7 +20,7 @@ import java.util.Date;
 public class SingleTurbineDataProcess {
     //field from user input
     private int turbineId;
-    //private String wtId;
+    private String ip;
     private ReadCSV read;
     private FetchMainControlData fetch;
     private TenMinCal tenMinCal;
@@ -34,9 +34,9 @@ public class SingleTurbineDataProcess {
 
     public SingleTurbineDataProcess(int turbineId, String ip){
         this.turbineId = turbineId;
-        //this.wtId = wtId;
+        this.ip = ip;
         this.read = new ReadCSV();
-        this.fetch = new FetchMainControlData(ip,
+        this.fetch = new FetchMainControlData(this.ip,
                 read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap(), read.getTenMinMap());
         this.session = null;
         this.tenMinCal = new TenMinCal();
@@ -49,16 +49,17 @@ public class SingleTurbineDataProcess {
         long endTime = 0;
         long during = 0;
         long total = 0;
-        boolean modbusFlag;
+        boolean modbusFlag = true;
         //starts loop
         while(true) {
-            modbusFlag = true;
             for(counter = 0; counter < 599; counter++) {
                 startTime = System.currentTimeMillis();
                 //1.get modbus data
                 while(modbusFlag) {
                     try {
                         this.fetch.readFromSlave2DomainThrow();
+                        System.out.println(this.fetch.getUpdateData().getHMI_IReg210()+"--------------------");
+
                         try {
                             Thread.sleep(100);
                         } catch (InterruptedException e) {
@@ -76,7 +77,6 @@ public class SingleTurbineDataProcess {
                 endTime = System.currentTimeMillis();
                 during = endTime - startTime;
                 System.out.println("each cycle using time: "+during);
-                System.out.println(fetch.getOneSecData());
                 if(counter == 2){
                     //init extra ten min calculation data
                     this.extraTenMinCal.InitData(
@@ -103,8 +103,9 @@ public class SingleTurbineDataProcess {
                     System.out.println("total time = "+total+"ms");
                 }
 
-                //this.session.close();
-                //w8 until 1 second
+                modbusFlag = true;
+
+
                 this.waitRoutine(during);
                 endTime = System.currentTimeMillis();
                 System.out.println("after sleep use time: "+(endTime-startTime));
@@ -124,12 +125,13 @@ public class SingleTurbineDataProcess {
                 this.tx = session.beginTransaction();
                 //set time and id
                 this.fetch.getUpdateData().setId(this.turbineId);
-                this.fetch.getUpdateData().setWtId(this.turbineId+"");
+                this.fetch.getUpdateData().setWtid("WT"+this.turbineId);
                 this.fetch.getUpdateData().setTime(new Date());
-                this.fetch.getAnyOneSecData().setWtId(this.turbineId+"");
-                this.fetch.getAnyOneSecData().setTime(new Date());
+                this.fetch.getAnyOneSecData().setWtid("WT"+this.turbineId);
+                this.fetch.getAnyOneSecData().setTimeStamp(new Date());
                 //save any1sec and update
                 this.session.update(this.fetch.getUpdateData());
+                System.out.println(this.fetch.getUpdateData().getHMI_IReg210());
                 this.session.save(this.fetch.getAnyOneSecData());
                 this.tx.commit();
                 this.session.close();
@@ -140,8 +142,8 @@ public class SingleTurbineDataProcess {
                     this.session = EcsUtils.getFactory().openSession(this.tableName);
                     session.clear();
                     this.tx = session.beginTransaction();
-                    this.fetch.getOneSecData().setWtid(this.turbineId+"");
-                    this.fetch.getOneSecData().setTime(new Date());
+                    this.fetch.getOneSecData().setWtid("WT"+this.turbineId);
+                    this.fetch.getOneSecData().setTimeStamp(new Date());
                     this.session.save(this.fetch.getOneSecData());
                     this.tx.commit();
                     session.close();
