@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bb0a3cc-4193-46b9-a73b-cfbdd5c296aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/create_table/StaticStrings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/Fault2DB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/create_table/BuildSqlString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/create_table/BuildSqlString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/create_table/CreateTableRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/create_table/CreateTableRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/data_transfer/FetchMainControlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/data_transfer/FetchMainControlData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/process/Config.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/process/SingleTurbineDataProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/process/SingleTurbineDataProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/version.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/create_table/BuildSqlString.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/create_table/BuildSqlString.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/data_transfer/FetchMainControlData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/data_transfer/FetchMainControlData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/process/SingleTurbineDataProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/junshijia/ecs/process/SingleTurbineDataProcess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/version.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/version.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/db_name/AutoTableName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/db_name/AutoTableName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/AnyOneSecData2DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/junshijia/ecs/domain/AnyOneSecData2DB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +291,7 @@
       <workItem from="1585182577760" duration="653000" />
       <workItem from="1585285514093" duration="7113000" />
       <workItem from="1585293754880" duration="7666000" />
-      <workItem from="1585355238801" duration="21404000" />
+      <workItem from="1585355238801" duration="21817000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1577167766825</created>
@@ -408,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585365185523</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add create table routine each month">
+      <created>1585387304096</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1585387304096</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +426,8 @@
     <MESSAGE value="test1" />
     <MESSAGE value="test2" />
     <MESSAGE value="test3" />
-    <option name="LAST_COMMIT_MESSAGE" value="test3" />
+    <MESSAGE value="add create table routine each month" />
+    <option name="LAST_COMMIT_MESSAGE" value="add create table routine each month" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Assign_Data_Sources" timestamp="1577419066032">
@@ -444,10 +442,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Plugins/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1585034757809" />
-    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1585385371240">
+    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1585387546560">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1585385371240" />
+    <state x="690" y="275" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1585387546560" />
     <state x="2411" y="193" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040/1920.0.1366.728@1920.0.1366.728" timestamp="1583986921037" />
     <state x="203" y="220" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584607828209">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -465,10 +463,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1581495491728" />
-    <state x="871" y="107" width="800" height="808" key="CommitChangelistDialog2" timestamp="1585365183586">
+    <state x="871" y="107" width="800" height="808" key="CommitChangelistDialog2" timestamp="1585387302612">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="871" y="107" width="800" height="808" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1585365183586" />
+    <state x="871" y="107" width="800" height="808" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1585387302612" />
     <state x="836" y="313" key="FileChooserDialogImpl" timestamp="1585356515436">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -514,10 +512,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1585034849906" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585365194432">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585387312691">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1585365194432" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1366.728@0.0.1920.1040" timestamp="1585387312691" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1583223319532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

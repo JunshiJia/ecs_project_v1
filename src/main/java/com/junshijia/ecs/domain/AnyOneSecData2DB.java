@@ -9,7 +9,6 @@ import java.util.Date;
 @Entity
 @Table(name="one_sec_any")
 public class AnyOneSecData2DB{
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;

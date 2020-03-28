@@ -41,11 +41,15 @@ public class AutoTableName extends EmptyInterceptor {
                     .append("_10mincalc").append("`");
             this.targetName = "ten_min";
             this.tableName = sb.toString();
-        }
-        else if(caseNum == 3) {
+        }else if(caseNum == 3) {
             sb.append("`").append("wt").append(id).append("_MutiFansIndex_10min_").append(year)
                     .append("`");
             this.targetName = "ten_min_extra";
+            this.tableName = sb.toString();
+        }else if(caseNum == 4){
+            sb.append("`").append("wt").append(id).append("_v").append(this.buildSqlString.getVersion())
+                    .append("_faults").append("`");
+            this.targetName = "fault";
             this.tableName = sb.toString();
         }
     }
