@@ -110,7 +110,7 @@ public class BuildSqlString {
                 sb.append("wt").append(i).append("_v").append(version).append("_1s_")
                         .append(yearString).append(monthString);
                 String oneSecSql = "CREATE TABLE `" + sb.toString() + "` (\n" +
-                       StaticStrings.oneSecString;
+                        StaticStrings.oneSecString;
                 this.sqlList.add(oneSecSql);
             }
             //any1秒数据
@@ -119,19 +119,27 @@ public class BuildSqlString {
                 sb.append("wt").append(i).append("_v").append(version).append("_any1s_")
                         .append(yearString).append(monthString);
                 String anyOneSecSql = "CREATE TABLE `" + sb.toString() + "` (\n" +
-                       StaticStrings.anyOneSecString;
+                        StaticStrings.anyOneSecString;
                 this.sqlList.add(anyOneSecSql);
             }
         }
-        //条件：换月份
+        //条件：换版本
         if (this.versionSwitch) {
             //10分钟计算
             for (int i = 1; i <= this.turbineNum; i++) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("wt").append(i).append("_v").append(version).append("_10mincalc");
                 String tenMinSql = "CREATE TABLE `" + sb.toString() + "` (\n" +
-                      StaticStrings.tenMinCalString;
+                        StaticStrings.tenMinCalString;
                 this.sqlList.add(tenMinSql);
+            }
+            //fault
+            for (int i = 1; i <= this.turbineNum; i++) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("wt").append(i).append("_v").append(version).append("_faults");
+                String faultSql = "CREATE TABLE `" + sb.toString() + "` (\n" +
+                        StaticStrings.faultString;
+                this.sqlList.add(faultSql);
             }
         }
         //条件：换年份

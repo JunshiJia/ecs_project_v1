@@ -200,6 +200,15 @@ public class StaticStrings {
             "  `Wtid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n" +
             "  PRIMARY KEY (`id`)\n" +
             ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
+    //fault表
+    public static String faultString =
+            "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
+            "  `clearTime` datetime DEFAULT NULL,\n" +
+            "  `name` int(11) NOT NULL,\n" +
+            "  `startTime` datetime DEFAULT NULL,\n" +
+            "  PRIMARY KEY (`id`)\n" +
+            ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
+
     //extra 10min
     public static String extraTenMinCalString =
             "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +

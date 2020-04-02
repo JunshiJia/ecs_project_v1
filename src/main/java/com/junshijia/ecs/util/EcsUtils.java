@@ -265,4 +265,10 @@ public class EcsUtils {
             e.printStackTrace();
         }
     }
+
+    public static String getCurrentStringTime(){
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date d = new Date();
+        return sf.format(d);
+    }
 }

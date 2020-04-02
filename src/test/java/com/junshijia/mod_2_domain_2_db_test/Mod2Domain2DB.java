@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Mod2Domain2DB {
     /**
@@ -79,7 +80,7 @@ public class Mod2Domain2DB {
                 //long end = System.currentTimeMillis();
                 //System.out.println(end-start);
                 try {
-                    Thread.sleep(100);
+                    TimeUnit.MILLISECONDS.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

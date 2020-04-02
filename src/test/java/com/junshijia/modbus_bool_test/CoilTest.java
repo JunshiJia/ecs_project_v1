@@ -4,11 +4,12 @@ import com.serotonin.modbus4j.BatchRead;
 import com.serotonin.modbus4j.BatchResults;
 import com.serotonin.modbus4j.ModbusFactory;
 import com.serotonin.modbus4j.ModbusMaster;
-import com.serotonin.modbus4j.code.DataType;
 import com.serotonin.modbus4j.exception.ErrorResponseException;
 import com.serotonin.modbus4j.ip.IpParameters;
 import com.serotonin.modbus4j.locator.BaseLocator;
 import org.junit.Test;
+
+import java.util.concurrent.TimeUnit;
 
 public class CoilTest {
 
@@ -56,7 +57,7 @@ public class CoilTest {
                 BatchResults<Integer> results = master.send(batch);
                 System.out.println(results.getValue(0));
 
-                Thread.sleep(2000);
+                TimeUnit.SECONDS.sleep(2);
             }
         }
         catch (ErrorResponseException e) {

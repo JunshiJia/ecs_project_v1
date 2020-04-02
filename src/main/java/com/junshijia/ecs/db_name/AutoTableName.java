@@ -49,7 +49,7 @@ public class AutoTableName extends EmptyInterceptor {
         }else if(caseNum == 4){
             sb.append("`").append("wt").append(id).append("_v").append(this.buildSqlString.getVersion())
                     .append("_faults").append("`");
-            this.targetName = "fault";
+            this.targetName = "faults";
             this.tableName = sb.toString();
         }
     }

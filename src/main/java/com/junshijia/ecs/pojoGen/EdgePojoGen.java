@@ -13,7 +13,7 @@ public class EdgePojoGen {
     public EdgePojoGen() {
         //读取配置获得列表
         ReadCSV read = new ReadCSV();
-        this.edgeSet = read.getEdgeSet();
+        //this.edgeSet = read.getEdgeSet();
         //写出到文件
         try {
             this.writeFile();

@@ -6,6 +6,7 @@ import com.junshijia.ecs.data_transfer.FetchMainControlData;
 import com.junshijia.ecs.data_transfer.ReadCSV;
 import com.junshijia.ecs.db_name.AutoTableName;
 import com.junshijia.ecs.domain.ExtraTenData2DB;
+import com.junshijia.ecs.domain.Fault2DB;
 import com.junshijia.ecs.domain.TenMinData2DB;
 import com.junshijia.ecs.util.EcsUtils;
 import com.serotonin.modbus4j.exception.ErrorResponseException;
@@ -16,6 +17,9 @@ import org.hibernate.Transaction;
 import org.hibernate.exception.SQLGrammarException;
 
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class SingleTurbineDataProcess {
     //field from user input
@@ -31,17 +35,20 @@ public class SingleTurbineDataProcess {
     private int counter;
     //table name
     private AutoTableName tableName;
+    //fault table process
+    private FaultInsert fault;
 
-    public SingleTurbineDataProcess(int turbineId, String ip){
+    public SingleTurbineDataProcess(int turbineId, String ip, ReadCSV read){
         this.turbineId = turbineId;
         this.ip = ip;
-        this.read = new ReadCSV();
+        this.read = read;
         this.fetch = new FetchMainControlData(this.ip,
                 read.getUpdateMap(),read.getOneSecMap(),read.getAnyOneSecMap(), read.getTenMinMap());
         this.session = null;
         this.tenMinCal = new TenMinCal();
         this.extraTenMinCal = new ExtraTenMinCal();
         this.tableName = new AutoTableName(turbineId);
+        this.fault = new FaultInsert(read.getFaultSet(),read.getFaultMap(),read.getFaultMapInverse());
     }
 
     public void tenMinRoutine(){
@@ -58,12 +65,6 @@ public class SingleTurbineDataProcess {
                 while(modbusFlag) {
                     try {
                         this.fetch.readFromSlave2DomainThrow();
-                        //System.out.println(this.fetch.getUpdateData().getHMI_IReg210()+"--------------------");
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
                         modbusFlag = false;
                     } catch (ErrorResponseException | ModbusTransportException e) {
                         this.modbusErrorHandle();
@@ -72,6 +73,9 @@ public class SingleTurbineDataProcess {
                 }
                 //2.modbus data 2 db every second
                 this.realTimeData2db();
+                //2.1fault table
+                this.fault.setUpdateData(this.fetch.getUpdateData());
+                this.updateFault2DB();
                 //3.deal with time
                 endTime = System.currentTimeMillis();
                 during = endTime - startTime;
@@ -117,7 +121,6 @@ public class SingleTurbineDataProcess {
                 //any one sec and update first
                 this.tableName.setTableNames(1);
                 this.session = EcsUtils.getFactory().openSession(this.tableName);
-                session.clear();
                 this.tx = session.beginTransaction();
                 //set time and id
                 this.fetch.getUpdateData().setId(this.turbineId);
@@ -139,7 +142,7 @@ public class SingleTurbineDataProcess {
                     this.fetch.getOneSecData().setTimeStamp(new Date());
                     this.session.save(this.fetch.getOneSecData());
                     this.tx.commit();
-                    session.close();
+                    this.session.close();
                 }
                 flag = false;
             } catch (HibernateException e) {
@@ -160,7 +163,6 @@ public class SingleTurbineDataProcess {
                 this.tx = this.session.beginTransaction();
                 this.session.save(this.tenMinCal.getData2DB());
                 this.tx.commit();
-                session.clear();
                 this.session.close();
 
                 //save extra 10min
@@ -169,16 +171,55 @@ public class SingleTurbineDataProcess {
                 this.tx = this.session.beginTransaction();
                 this.session.save(this.extraTenMinCal.getData2DB());
                 this.tx.commit();
-                session.clear();
                 this.session.close();
 
                 flag = false;
             } catch (SQLGrammarException e2){
-                System.out.println("e2........");
+                System.out.println("nan problem");
                 e2.printStackTrace();
                 this.nanHandle();
             } catch (HibernateException e) {
-                System.out.println("e1........");
+                System.out.println("db error");
+                e.printStackTrace();
+                this.dbExceptionHandle();
+            }
+        }
+    }
+
+    private void updateFault2DB(){
+        boolean flag = true;
+        while(flag) {
+            try {
+                if(this.fault.getFault2DBMap().size() > 0 || this.fault.getFault2DBList().size() > 0) {
+                    this.tableName.setTableNames(4);
+                    this.session = EcsUtils.getFactory().openSession(this.tableName);
+                    this.tx = this.session.beginTransaction();
+                    //遍历map
+                    if (this.fault.getFault2DBMap().size() > 0) {
+                        Iterator<Map.Entry<String, Fault2DB>> entries =
+                                this.fault.getFault2DBMap().entrySet().iterator();
+                        Map.Entry<String, Fault2DB> entry;
+                        while (entries.hasNext()) {
+                            entry = entries.next();
+                            System.out.println("id is:" + entry.getValue().getId());
+                            this.session.saveOrUpdate(entry.getValue());
+                            this.session.evict(entry.getValue());
+                        }
+                    }
+                    //遍历list
+                    if (this.fault.getFault2DBList().size() > 0) {
+                        //update所有的已完成错误（库里面应该已经有了次故障的id）
+                        for (Fault2DB faultData : this.fault.getFault2DBList()) {
+                            this.session.update(faultData);
+                        }
+                        //清空已完成错误的list
+                        this.fault.getFault2DBList().clear();
+                    }
+                    this.tx.commit();
+                    this.session.close();
+                }
+                flag = false;
+            } catch (HibernateException e) {
                 e.printStackTrace();
                 this.dbExceptionHandle();
             }
@@ -195,13 +236,13 @@ public class SingleTurbineDataProcess {
     }
 
     private void waitRoutine(long time){
-        if(time > 990){
+        if(time > 1000){
             System.out.println("too slow");
         }else {
-            time = 990 - time;
+            time = 999 - time;
             System.out.println("sleep: "+time);
             try {
-                Thread.sleep(time);
+                TimeUnit.MILLISECONDS.sleep(time);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -210,12 +251,12 @@ public class SingleTurbineDataProcess {
 
     private void dbExceptionHandle(){
         this.counter = 0;
-        System.out.println("db error,w8 500s...");
+        System.out.println("db error,w8 5min...");
         if(session!=null) {
             this.session.close();
         }
         try {
-            Thread.sleep(500000);
+            TimeUnit.MINUTES.sleep(5);
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
@@ -224,12 +265,12 @@ public class SingleTurbineDataProcess {
 
     private void modbusErrorHandle(){
         this.counter = 0;
-        System.out.println("modbus error, w8 500s...");
+        System.out.println("modbus error, w8 5min...");
         if(session!=null) {
             this.session.close();
         }
         try {
-            Thread.sleep(500000);
+            TimeUnit.MINUTES.sleep(5);
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }

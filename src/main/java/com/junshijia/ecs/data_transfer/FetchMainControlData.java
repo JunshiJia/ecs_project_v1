@@ -17,6 +17,7 @@ import com.serotonin.modbus4j.ip.IpParameters;
 import org.apache.log4j.Logger;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class FetchMainControlData {
     //log
@@ -80,7 +81,7 @@ public class FetchMainControlData {
     private void setIpPortAdd(String ip){
         this.ip = ip;
         //this.ip = "127.0.0.1";
-        this.port = 715;
+        this.port = 9876;
         this.id = 1;
     }
 
@@ -115,7 +116,7 @@ public class FetchMainControlData {
             } catch (ModbusInitException e) {
                 log.error("main control connection init error, wait 5min and re-init...");
                 try {
-                    Thread.sleep(300000);
+                    TimeUnit.MINUTES.sleep(5);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
@@ -143,7 +144,7 @@ public class FetchMainControlData {
             } catch (ModbusTransportException | ErrorResponseException e) {
                 log.error("Main control connection error, wait 5min and re-connect...");
                 try {
-                    Thread.sleep(300000);
+                    TimeUnit.MINUTES.sleep(5);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }

@@ -15,9 +15,9 @@ public class ReadCSV {
     private Set<String> updateSet;
     private Set<String> oneSecSet;
     private Set<String> anyOneSecSet;
-    private Set<String> edgeSet;
+    //private Set<String> edgeSet;
     private Set<String> tenMinSet;
-    private Set<String> tenSecSet;
+    //private Set<String> tenSecSet;
     private Set<String> maxSet;
     private Set<String> meanSet;
     private Set<String> minSet;
@@ -25,12 +25,14 @@ public class ReadCSV {
     private Set<String> andSet;
     private Set<String> maxNumSet;
     private Set<String> flowSet;
-    private Map<String,Integer>updateMap;
-    private Map<String,Integer>oneSecMap;
-    private Map<String,Integer>anyOneSecMap;
-    private Map<String,Integer>tenMinMap;
-    //合并10分钟的set到另一个set
-    private Set<Set<String>> tenMinSets;
+    private Map<String, Integer> updateMap;
+    private Map<String, Integer> oneSecMap;
+    private Map<String, Integer> anyOneSecMap;
+    private Map<String, Integer> tenMinMap;
+    private Map<Integer, String> faultMap;
+    private Map<String, Integer> faultMapInverse;
+    //fault set
+    private Set<String> faultSet;
 
     public ReadCSV() {
         //整个大表的list
@@ -42,12 +44,14 @@ public class ReadCSV {
         this.oneSecMap = new LinkedHashMap<>();
         this.anyOneSecSet = new LinkedHashSet<>();
         this.anyOneSecMap = new LinkedHashMap<>();
-        this.edgeSet = new LinkedHashSet<>();
+        //this.edgeSet = new LinkedHashSet<>();
         this.tenMinSet = new LinkedHashSet<>();
         this.tenMinMap = new LinkedHashMap<>();
-        this.tenSecSet = new LinkedHashSet<>();
+        //this.tenSecSet = new LinkedHashSet<>();
+        this.faultSet = new LinkedHashSet<>();
+        this.faultMap = new HashMap<>();
+        this.faultMapInverse = new HashMap<>();
         //10分钟单独的
-        this.tenMinSets = new LinkedHashSet<>();
         this.maxSet = new LinkedHashSet<>();
         this.meanSet = new LinkedHashSet<>();
         this.minSet = new LinkedHashSet<>();
@@ -106,8 +110,17 @@ public class ReadCSV {
                     if(values[15].equals("1")){data.setOnFlowTenMin(true);}
                     if(values[16].equals("1")){data.setMeanTenSec(true);}
                     if(values[17].equals("1")){data.setMaxTenSec(true);}
-                    if(values[18].equals("1")){data.setMinTenSec(true);}
-                    if(values[19].equals("1")){data.setEdgeDetect(true);}
+                    //if(values[18].equals("1")){data.setMinTenSec(true);}
+                    //if(values[19].equals("1")){data.setEdgeDetect(true);}
+                    if(values[0].charAt(0)=='F' && values[5].equals("1")){
+                        data.setFaultCode(true);
+                    }
+                    //add to fault set
+                    if(data.isFaultCode()){
+                        this.faultSet.add(EcsUtils.deleteChar(data.getEnCoding()));
+                        this.faultMap.put(data.getMainControlAddress(), EcsUtils.deleteChar(data.getEnCoding()));
+                        this.faultMapInverse.put(EcsUtils.deleteChar(data.getEnCoding()), data.getMainControlAddress());
+                    }
                     //add to update set and map
                     if(data.isUpdate()){
                         this.updateSet.add(data.getEnCoding());
@@ -124,15 +137,15 @@ public class ReadCSV {
                         this.anyOneSecMap.put(data.getEnCoding(),data.getMainControlAddress());
                     }
                     //add to edge set
-                    if(data.isEdgeDetect()){
-                        this.edgeSet.add(data.getEnCoding());
-                    }
+//                    if(data.isEdgeDetect()){
+//                        this.edgeSet.add(data.getEnCoding());
+//                    }
                     //add to ten sec set
-                    if(data.isMaxTenSec() || data.isMeanTenSec()){
-                        if(data.getEnCoding().charAt(0)!='a' && data.getEnCoding().charAt(0)!='b') {
-                            this.tenSecSet.add(data.getEnCoding());
-                        }
-                    }
+//                    if(data.isMaxTenSec() || data.isMeanTenSec()){
+//                        if(data.getEnCoding().charAt(0)!='a' && data.getEnCoding().charAt(0)!='b') {
+//                            this.tenSecSet.add(data.getEnCoding());
+//                        }
+//                    }
                     //add to ten min set
                     if(data.isAndTenMin() || data.isMaxTenMin() || data.isMeanTenMin() || data.isMinTenMin()
                             || data.isNumberMaxTenMin() || data.isOnFlowTenMin() || data.isStdDevTenMin()){
@@ -160,15 +173,6 @@ public class ReadCSV {
                     if(data.isOnFlowTenMin()){
                         this.flowSet.add(data.getEnCoding());
                     }
-                    this.tenMinSets.add(this.andSet);
-                    this.tenMinSets.add(this.maxSet);
-                    this.tenMinSets.add(this.meanSet);
-                    this.tenMinSets.add(this.minSet);
-                    this.tenMinSets.add(this.stdDivSet);
-                    this.tenMinSets.add(this.maxNumSet);
-                    this.tenMinSets.add(this.flowSet);
-                    //add to big list
-                    this.dataList.add(data);
                 }
             }
         } catch (IOException e) {
@@ -192,16 +196,8 @@ public class ReadCSV {
         return anyOneSecSet;
     }
 
-    public Set<String> getEdgeSet() {
-        return edgeSet;
-    }
-
     public Set<String> getTenMinSet() {
         return tenMinSet;
-    }
-
-    public Set<String> getTenSecSet() {
-        return tenSecSet;
     }
 
     public Set<String> getMaxSet() {
@@ -248,7 +244,15 @@ public class ReadCSV {
         return tenMinMap;
     }
 
-    public Set<Set<String>> getTenMinSets() {
-        return tenMinSets;
+    public Set<String> getFaultSet() {
+        return faultSet;
+    }
+
+    public Map<Integer, String> getFaultMap() {
+        return faultMap;
+    }
+
+    public Map<String, Integer> getFaultMapInverse() {
+        return faultMapInverse;
     }
 }

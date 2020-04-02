@@ -22,8 +22,32 @@ public class DataFromCSVShort {
     private boolean minTenSec;
     private boolean meanTenSec;
     private boolean edgeDetect;
+    private boolean faultCode;
 
     public DataFromCSVShort() {
+    }
+
+    @Override
+    public String toString() {
+        return "DataFromCSVShort{" +
+                "mainControlAddress=" + mainControlAddress +
+                ", enCoding='" + enCoding + '\'' +
+                ", update=" + update +
+                ", storageOneSec=" + storageOneSec +
+                ", anyOneSec=" + anyOneSec +
+                ", andTenMin=" + andTenMin +
+                ", maxTenMin=" + maxTenMin +
+                ", numberMaxTenMin=" + numberMaxTenMin +
+                ", meanTenMin=" + meanTenMin +
+                ", minTenMin=" + minTenMin +
+                ", stdDevTenMin=" + stdDevTenMin +
+                ", onFlowTenMin=" + onFlowTenMin +
+                ", maxTenSec=" + maxTenSec +
+                ", minTenSec=" + minTenSec +
+                ", meanTenSec=" + meanTenSec +
+                ", edgeDetect=" + edgeDetect +
+                ", faultCode=" + faultCode +
+                '}';
     }
 
     public boolean isEdgeDetect() {
@@ -154,25 +178,11 @@ public class DataFromCSVShort {
         this.meanTenSec = meanTenSec;
     }
 
-    @Override
-    public String toString() {
-        return "DataFromCSVShort{" +
-                "mainControlAddress=" + mainControlAddress +
-                ", enCoding='" + enCoding + '\'' +
-                ", update=" + update +
-                ", storageOneSec=" + storageOneSec +
-                ", anyOneSec=" + anyOneSec +
-                ", andTenMin=" + andTenMin +
-                ", maxTenMin=" + maxTenMin +
-                ", numberMaxTenMin=" + numberMaxTenMin +
-                ", meanTenMin=" + meanTenMin +
-                ", minTenMin=" + minTenMin +
-                ", stdDevTenMin=" + stdDevTenMin +
-                ", onFlowTenMin=" + onFlowTenMin +
-                ", maxTenSec=" + maxTenSec +
-                ", minTenSec=" + minTenSec +
-                ", meanTenSec=" + meanTenSec +
-                ", edgeDetect=" + edgeDetect +
-                '}';
+    public boolean isFaultCode() {
+        return faultCode;
+    }
+
+    public void setFaultCode(boolean faultCode) {
+        this.faultCode = faultCode;
     }
 }

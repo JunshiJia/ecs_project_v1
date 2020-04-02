@@ -45,4 +45,12 @@ public class ReadCsv {
             System.out.println("Key: "+ entry.getKey()+ " Value: "+entry.getValue());
         }
     }
+
+    @Test
+    public void ReadCsvTest4(){
+        ReadCSV read = new ReadCSV();
+        Map<Integer,String> map = read.getFaultMap();
+
+        System.out.println(map.get(100871));
+    }
 }

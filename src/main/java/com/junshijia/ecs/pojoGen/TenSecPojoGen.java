@@ -13,7 +13,7 @@ public class TenSecPojoGen {
     public TenSecPojoGen() {
         //读取配置获得列表
         ReadCSV read = new ReadCSV();
-        this.TenSecSet = read.getTenSecSet();
+        //this.TenSecSet = read.getTenSecSet();
         //写出到文件
         try {
             this.writeFile();
