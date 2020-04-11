@@ -81,7 +81,8 @@ public class FetchMainControlData {
     private void setIpPortAdd(String ip){
         this.ip = ip;
         //this.ip = "127.0.0.1";
-        this.port = 9876;
+        //this.port = 9876;
+        this.port = 715;
         this.id = 1;
     }
 

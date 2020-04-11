@@ -64,7 +64,7 @@ public class FaultInsert {
             if(this.fault2DBMap.get(firstFaultTag) == null){
                 //建立首发故障的node
                 tmp = new Fault2DB();
-                tmp.setName(firstTrigger<<2);
+                tmp.setName(firstTrigger<<1);
                 tmp.setStartTime(new Date());
                 //添加首发故障到故障map
                 this.fault2DBMap.put(firstFaultTag, tmp);
@@ -79,6 +79,7 @@ public class FaultInsert {
                         tmp = new Fault2DB();
                         tmp.setName(this.faultMaoInverse.get(tag));
                         tmp.setStartTime(new Date());
+                        this.fault2DBMap.put(tag,tmp);
                     }//如果已经有，证明故障没有清除，什么都不做
                 }else{//如果故障位 = 0
                     tmp = this.fault2DBMap.get(tag);

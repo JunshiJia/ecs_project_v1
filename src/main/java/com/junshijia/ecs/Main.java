@@ -17,7 +17,7 @@ public class Main {
         CreateTableRoutine create = new CreateTableRoutine();
         create.createTable();
 
-        String ip = "127.0.0.1";
+        String ip = "192.168.10.30";
         int turbineNum = 1;
         InitUpdateTable initTables = new InitUpdateTable(turbineNum);
         SingleTurbineDataProcess process1 = new SingleTurbineDataProcess(1,ip,read);

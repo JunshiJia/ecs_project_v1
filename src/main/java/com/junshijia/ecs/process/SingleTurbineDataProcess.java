@@ -211,6 +211,7 @@ public class SingleTurbineDataProcess {
                         //update所有的已完成错误（库里面应该已经有了次故障的id）
                         for (Fault2DB faultData : this.fault.getFault2DBList()) {
                             this.session.update(faultData);
+                            this.session.evict(faultData);
                         }
                         //清空已完成错误的list
                         this.fault.getFault2DBList().clear();
